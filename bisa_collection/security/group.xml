@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">    
+        <record id="group_warehouse" model="res.groups">
+            <field name="name">Group Warehouse</field>
+            <field name="comment">User hanya akan melihat warehouse nya saja.</field>
+        </record>
+        <record id = "rule_group_warehouse" model = "ir.rule"> 
+            <field name = "name"> User hanya akan melihat area nya saja </field> 
+            <field name = "model_id" ref = "model_stock_warehouse" /> 
+            <field name = "groups" eval = "[(4, ref ('group_warehouse'))]" /> 
+            <field name = "perm_read" eval = "True" /> 
+            <field name = "perm_write" eval = "True" /> 
+            <field name = "perm_create" eval = "True" /> 
+            <field name = "perm_unlink" eval = "True" /> 
+            <field name = "domain_force"> [('area.id', '=', user.area.id)] </field> 
+        </record>
+
+        <record id = "rule_group_stock_picking_type" model = "ir.rule"> 
+            <field name = "name"> User hanya akan melihat area nya saja </field> 
+            <field name = "model_id" ref = "model_stock_picking_type" /> 
+            <field name = "groups" eval = "[(4, ref ('group_warehouse'))]" /> 
+            <field name = "perm_read" eval = "True" /> 
+            <field name = "perm_write" eval = "True" /> 
+            <field name = "perm_create" eval = "True" /> 
+            <field name = "perm_unlink" eval = "True" /> 
+            <field name = "domain_force"> [('area.id', '=', user.area.id)] </field> 
+        </record>
+
+    </data>
+</odoo>

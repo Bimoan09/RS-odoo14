@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+
+        <!-- Sequences for project.task -->
+        <record id="seq_type_rawat_inap_new" model="ir.sequence.type">
+            <field name="name">rawat_inap_new</field>
+            <field name="code">rawat_inap_new</field>
+        </record>
+
+        <record id="seq_rawat_inap_new" model="ir.sequence">
+            <field name="name">rawat_inap_new</field>
+            <field name="code">rawat_inap_new</field>
+            <field name="prefix">RANAP</field>
+            <field name="padding">8</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <!-- Sequences for project.task -->
+        <record id="seq_type_rawat_inap_permintaan" model="ir.sequence.type">
+            <field name="name">rawat_inap_permintaan</field>
+            <field name="code">rawat_inap_permintaan</field>
+        </record>
+
+        <record id="seq_rawat_inap_permintaan" model="ir.sequence">
+            <field name="name">rawat_inap_permintaan</field>
+            <field name="code">rawat_inap_permintaan</field>
+            <field name="prefix">RANAP-REQ-</field>
+            <field name="padding">8</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+
+
+    </data>
+</openerp>

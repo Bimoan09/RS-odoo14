@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<openerp>
+    <data noupdate="0">
+
+
+
+        <record id="rawat_inap_role" model="ir.module.category">
+            <field name="name">Rawat Inap Role</field>
+            <field name="description">Customer support platform</field>
+        </record>
+
+        <record id="msi_rs_rawat_inap.grup_rawat_inap" model="res.groups">
+            <field name="name">View Rawat Inap</field>
+            <field name="category_id" ref="rawat_inap_role" />
+        </record>
+
+        <record id="msi_rs_rawat_inap.grup_rawat_inap_cek" model="res.groups">
+            <field name="name">Cek Rawat Inap</field>
+            <field name="category_id" ref="rawat_inap_role" />
+        </record>
+
+        <record id="msi_rs_rawat_inap.grup_rawat_inap_billing" model="res.groups">
+            <field name="name">Billing Rawat Inap</field>
+            <field name="category_id" ref="rawat_inap_role" />
+        </record>
+
+    </data>
+</openerp>

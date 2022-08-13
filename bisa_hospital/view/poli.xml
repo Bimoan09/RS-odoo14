@@ -1,0 +1,606 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<odoo>
+         <record id="tbl_poli_form" model="ir.ui.view">
+            <field name="name">form.tbl_poli</field>
+            <field name="model">tbl_poli</field>
+            <field name="arch" type="xml">
+                <form string="Registrasi">
+                <header>
+
+                    <button name="action_cekin" type="object" string="Terima Pasien"  attrs="{'invisible':['|',('new_flow_poli','=',True), ('state','!=','draft')]}" class="oe_highlight" />
+                    <button name="action_cekin_pulowatu" type="object" string="Terima Pasien" class="oe_highlight" attrs="{'invisible':['|',('new_flow_poli','=',False), ('state','!=','draft')]}"/>
+                    <button name="action_batal" type="object" string="Batal Datang" states="draft"  class="oe_highlight"/>
+                     <!-- <button name="printKeteranganSakit" type="object" string="Print Surat Keterangan Sakit" states="selesai"  class="oe_highlight"/>
+                     <button name="printSuratRujukan" type="object" string="Print Surat Rujukan" states="selesai"  class="oe_highlight"/> -->
+                    <field name="new_flow_poli" invisible="1"/>
+                    <field name="step1" invisible="1"/>
+                    <button name="action_pulang" type="object" string="Layanan Selesai" attrs="{'invisible':['|',('new_flow_poli','=',True), ('state','not in',['pelayanan', 'lanjutan'])]}" />
+                     <button name="action_pulang_pulowatu" type="object" string="Layanan Selesai" attrs="{'invisible':['|',('new_flow_poli','=',False), ('state','not in',['pelayanan', 'lanjutan'])]}"/>
+                    <button name="action_lanjutan" type="object" string="Tindak Lanjut ke Sarana Penunjang" states="pelayanan"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,pelayanan,lanjutan,selesai"/>
+                </header>
+                    <sheet>
+                        <group>
+                            <group>
+                               <field name="waktu" />
+                               <field name="tanggal_janji" />
+                               <field name="no_reg" />
+                               <field name="penjamin" />
+                               <field name="sudah_bayar" />
+                               <field name="benefit" readonly="1"/>
+                            </group>
+                
+                            <group>
+                               <field name="nama_pasien" />
+                               <field name="no_rm" />
+                               <field name="no_telp" />
+                               <field name="jenis_kelamin" />
+                               <field name="umur" />
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="jenis_layanan" invisible="1"/>
+                                <field name="nama_layanan" />
+                                <field name="layanan" />
+                                <field name="nama_dokter" />
+                                <field name="is_observasi"/>
+                                <!-- <field name="nama_bidan" /> -->
+                            </group>
+                            <group>
+                                <field name="user_id" invisible="1"/>
+                                <field name="user_pemeriksa" />
+                                <field name="status_pulang" />
+                                <field name="status_resep" />
+                                <field name="operating_unit_ids" widget='many2many_tags' readonly="1" />
+                                <!-- <field name="keterangan_tindakan" invisible="1"/> -->
+                                <!-- <field name="keterangan_tindakan" /> -->
+                                <!-- <field name="keterangan_konsul" invisible="1" /> -->
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <!-- <field name="is_rujukan" /> -->
+                                <field name="surat_sakit" />
+                                <field name="tgl_mulai" attrs="{'invisible': [('surat_sakit','=', False)]}" />
+                                <!-- <field name="jumlah_hari" attrs="{'invisible': [('surat_sakit','=', False)]}" /> -->
+                                <field name="tgl_selesai" attrs="{'invisible': [('surat_sakit','=', False)]}" />
+                                <field name="jumlah_hari" attrs="{'invisible': [('surat_sakit','=', False)]}" />
+                                <field name="saran" attrs="{'invisible': [('surat_sakit','=', False)]}" placeholder="Wajib diisi"/>
+                                <field name="tipe_rujukan" attrs="{'invisible': [('status_pulang','!=', 'rujuk')]}" />
+                                <field name="dokter" attrs="{'invisible': [('status_pulang','!=', 'rujuk')]}" />
+                                <field name="nama_rs" attrs="{'invisible': [('status_pulang','!=', 'rujuk')]}" />
+                                <field name="poli_tujuan" attrs="{'invisible': [('status_pulang','!=', 'rujuk')]}" />
+                                <field name="periode" attrs="{'invisible': [('status_pulang','!=', 'rujuk')]}" />
+                            </group>
+                            <group>
+                            </group>
+                        </group>
+                        <group>
+                            <notebook>
+                                <page string="Kondisi Klinis dan Medis">
+                                <!-- <S> -->
+                                    <group string="Subjective   (S) " style="font-weight: bold">
+                                        <group>
+                                            <field name="keluhan" />
+                                            <field name="kondisi" />
+                                        </group>
+                                        <group>
+                                        </group>
+                                    </group>
+                                <!-- </S> -->
+                                <!-- <O> -->
+                                    <group string="Objective    (O)" style="font-weight: bold">
+                                        <group>
+                                            <tabel>
+                                                <tr>
+                                                    <td>Tekanan Darah</td>
+                                                    <td><field name="tekanan_darah" />
+                                                    </td><td>mmHG</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Pernapasan</td>
+                                                    <td><field name="pernapasan" />
+                                                    </td><td>/Menit</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Nadi</td>
+                                                    <td><field name="nadi" />
+                                                    </td><td>/Menit</td>
+                                                </tr>
+                                            </tabel>
+                                        </group>
+                                        <group>
+                                            <tabel>
+                                                <tr>
+                                                    <td>Suhu</td>
+                                                    <td><field name="suhu" />
+                                                    </td><td>Celcius</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Tinggi/Berat Badan</td>
+                                                    <td><field name="tinggi_badan" />
+                                                    </td><td>Cm</td>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td><field name="berat_badan" />
+                                                    </td><td>Kg</td>
+                                                </tr>
+                                            </tabel>
+                                        </group>
+                                    </group>
+                                    <group>
+                                        <group>
+                                            <field name="alergi" />
+                                            <field name="fisik_" />
+                                            <field name="gigi_" />
+                                        </group>
+                                    </group>
+                                    <group string="Pemeriksaan Fisik" style="font-weight: bold" attrs="{'invisible': [('fisik_','!=', True)]}" >
+                                        <group>
+                                            <field name="fisik_kondisi_umum"/>
+                                            <field name="fisik_kesadaran"  />
+                                            <!-- <tabel>
+                                                <tr>
+                                                    <td  style="font-weight: bold">GCS</td>
+                                                    <td style="font-weight: bold">E</td>
+                                                    <td style="font-weight: bold">M</td>
+                                                    <td style="font-weight: bold">V</td>
+                                                    <td style="font-weight: bold">Total</td>
+                                                </tr>
+                                                <tr>
+                                                    <td> </td>
+                                                    <td><field name="nilai_e" nolabel="1"/></td>
+                                                    <td><field name="nilai_m" nolabel="1"/></td>
+                                                    <td><field name="nilai_v" nolabel="1"/></td>
+                                                    <td><field name="total_emv" nolabel="1"/></td>
+                                                </tr>
+                                            </tabel> -->
+                                        </group>
+                                        <group string="Genitalia" style="font-weight: bold">
+                                            <field name="fisik_genitalia"/>
+                                            <field name="fisik_ekstemitas"  />
+                                            <field name="fisik_primary_survey"/>
+                                            <field name="fisik_ps_a"/>
+                                            <field name="fisik_ps_b"/>
+                                            <field name="fisik_ps_c"/>
+                                            <field name="fisik_ps_d"/>
+                                        </group>
+                                    </group>
+                                    <group string="Pemeriksaan Gigi" style="font-weight: bold" attrs="{'invisible': [('gigi_','!=', True)]}" >
+                                        <group string="Ekstra Oral" style="font-weight: bold">
+                                            <field name="bentuk_kepala"/>
+                                            <field name="bentuk_muka"/>
+                                            <field name="profil"/>
+                                            <field name="simetris_muka"  />
+                                            <field name="mata"/>
+                                            <field name="hidung"/>
+                                        </group>
+                                        <group style="font-weight: bold">
+                                            <field name="pernapasan"/>
+                                            <field name="telinga"/>
+                                            <field name="sendi_rahang"/>
+                                            <field name="kelenjar"/>
+                                            <field name="lain"/>
+                                        </group>
+                                    </group>
+                                    <group style="font-weight: bold" attrs="{'invisible': [('gigi_','!=', True)]}" >
+                                        <group string="Intra Oral" style="font-weight: bold">
+                                            <field name="kebersihan_mulut"/>
+                                            <field name="selaput_lendir"/>
+                                            <field name="caries_fregwensi"/>
+                                            <field name="gigi_goyang"  />
+                                            <field name="penyakit_periodonta"/>
+                                            <field name="lidah"/>
+                                        </group>
+                                        <group style="font-weight: bold">
+                                            <field name="recessi_ginggiva"/>
+                                            <field name="ginggivitis"/>
+                                            <field name="stomatitis"/>
+                                            <field name="oklosi"/>
+                                            <field name="artikulasi"/>
+                                            <field name="eugnathi"/>
+                                            <field name="status_x_foto"/>
+                                        </group>
+                                    </group>
+                                    <group attrs="{'invisible': [('fisik_','!=', True)]}" >
+                                        <group string="Kepala" style="font-weight: bold">
+                                            <field name="fisik_kepala"/>
+                                            <field name="fisik_rambut"/>
+                                            <field name="fisik_mata"/>
+                                            <field name="fisik_hidung"/>
+                                            <field name="fisik_telinga"/>
+                                            <field name="fisik_mulut"/>
+                                            <field name="fisik_leher"/>
+                                        </group>
+                                        <group>
+                                        </group>
+                                    </group>
+                                    <group attrs="{'invisible': [('fisik_','!=', True)]}" >
+                                        <group string="Dada" style="font-weight: bold">
+                                            <field name="inspeksi_dada"/>
+                                            <field name="palpasi_dada"/>
+                                            <field name="perkusi_dada"/>
+                                            <field name="auskultasi_dada"/>
+                                        </group>
+                                        <group>
+                                        </group>
+                                    </group>
+                                    <group attrs="{'invisible': [('fisik_','!=', True)]}" >
+                                        <group string="Perut" style="font-weight: bold">
+                                            <field name="inspeksi_perut"/>
+                                            <field name="palpasi_perut"/>
+                                            <field name="perkusi_perut"/>
+                                            <field name="auskultasi_perut"/>
+                                        </group>
+                                        <group>
+                                        </group>
+                                    </group>
+                                <!-- </O> -->
+                                <!-- <A> -->
+                                <group string="Assesment    (A)" style="font-weight: bold">
+                                    <group>
+                                        <field name="is_diagnosa_primer" />
+                                        <field name="diagnosa_primer" />
+                                        <field name="kode_diagnosa_primer" />
+                                        <field name="keterangan_diagnosa_primer" />
+                                    </group>
+                                    <group>
+                                        <field name="is_diagnosa_sekunder" />
+                                        <field name="diagnosa_sekunder" attrs="{'invisible': [('is_diagnosa_sekunder','!=', True)]}" />
+                                        <field name="kode_diagnosa_sekunder" attrs="{'invisible': [('is_diagnosa_sekunder','!=', True)]}"  />
+                                        <field name="keterangan_diagnosa_sekunder" attrs="{'invisible': [('is_diagnosa_sekunder','!=', True)]}"  />
+                                    </group>
+                                        
+                                </group>
+                                <group>
+                                    <group>
+                                        <field name="pembayaran" options="{'no_create': True, 'no_create_edit':True}" string="Pembayaran untuk Sarana Penunjang" />
+                                    </group>
+                                </group>
+                                    <!-- <group>
+                                        <group>
+                                            <field name="is_laboratorium" />
+                                            <field name="is_radiologi" />
+                                        </group>
+                                        <group>
+                                            <field name="is_poliklinik" />
+                                        </group>
+                                    </group> -->
+                                        <button name='act_lab_billing' type="object" string="Kirim Ke billing" class="oe_highlight" />
+                                    <group>
+                                        <!-- <label for="ke_laboratorium" string="Laboratorium"/> -->
+                                        <!-- <field name="kode_labo"/> -->
+                                        <field name="ke_laboratorium">
+                                            <tree editable="bottom" string="Laboratorium"  create="true">
+                                                <field name="tujuan" readonly="1" invisible="1"/>
+                                                <field name="name"  domain="[('layanan', '=', tujuan)]" />
+                                                 <field name="sudah_invoice" />
+                                                <field name="harga" />
+                                                <field name="kode_sarana" readonly="1"/>
+                                                <field name="state"  readonly="1" />
+                                                <field name="aktual" />
+                                                <field name="nama_user" />
+                                               <!-- <button name='act_submit_layanan_lab' type="object" string="Submit" class="oe_highlight" attrs="{'invisible': [('state','in',('pendaftaran','pelayanan','selesai'))]}"/> -->
+                                            </tree>
+                                        </field>
+                                        <field name="kode_sarana_penunjang"/>
+                                    </group>
+                                        <button name='act_radiologi_billing' type="object" string="Kirim ke billing" class="oe_highlight"/>
+                                    <group>
+                                        <field name="ke_radiologi">
+                                            <tree editable="bottom" string="Radiologi"  create="true">
+                                                <field name="tujuan" readonly="1" invisible="1"/>
+                                                <field name="name"  domain="[('layanan', '=', tujuan)]" />
+                                                <field name="harga" />
+                                                <field name="kode_sarana" readonly="1"/>
+                                                <field name="state"  readonly="1" />
+                                                <field name="aktual" />
+                                                <field name="nama_user" />
+                                               <!-- <button name='act_submit_layanan_radio' type="object" string="Submit" class="oe_highlight" attrs="{'invisible': [('state','in',('pendaftaran','pelayanan','selesai'))]}"/> -->
+                                            </tree>
+                                        </field>
+                                    </group>
+                                    <group>
+                                         <button name='act_poli_lain' type="object" string="Kirim ke billing" class="oe_highlight"/>
+                                        <field name="ke_poliklinik" string="Poli Lain">
+                                            <tree editable="bottom">
+                                                <field name="tujuan" />
+                                                <field name="name" domain="[('layanan', '=', tujuan)]" />
+                                                <field name="harga" />
+                                                <field name="state" />
+                                                <field name="aktual" />
+                                                <field name="nama_user" />
+                                            </tree>
+                                        </field>
+                                    </group>
+                                <!-- </A> -->
+                                <!-- <P> -->
+                                    <group string="Plan(P)" style="font-weight: bold">
+                                        <group>
+                                            <field name="tindakan_primer" />
+                                            <field name="keterangan_tindakan_primer" />
+                                        </group>
+
+                                        <group>
+                                            <field name="tindakan_sekunder" attrs="{'invisible': [('is_diagnosa_sekunder','!=', True)]}" />
+                                            <field name="keterangan_tindakan_sekunder" attrs="{'invisible': [('is_diagnosa_sekunder','!=', True)]}" />
+                                        </group>
+
+                                        <group>
+                                            <field name="laporan_tindakan" />
+                                        </group>
+                                    </group>
+                                        <group>
+                                            <group string = "Resep Jadi">
+                                                
+                                                <field name="id_resep"  nolabel="1">
+                                                    <tree string="Resep" editable="bottom">
+                                                        <field name="name" />
+                                                        <field name="jumlah" />
+                                                        <field name="satuan" />
+                                                        <field name="aturan_pakai_" />
+                                                        <field name="is_racikan" invisible="1"/>
+                                                    <!-- <button name='act_tambah_racikan' type="object" string="Tambah RC" class="oe_highlight"  attrs="{'invisible': [('is_racikan','=',False)]}"/> -->
+                                                    </tree>
+                                                </field>
+                                            </group>
+                                            <group string = "Resep Racikan">
+                                                <field name="resep_racikan"/>
+                                                <!-- <field name="id_resep_racikan" nolabel="1"> -->
+                                                    <!-- <tree string="Resep" editable="bottom" > -->
+                                                        <!-- <field name="details" /> -->
+                                                        <!-- <field name="name" /> -->
+                                                        <!-- <field name="jumlah" /> -->
+                                                        <!-- <field name="satuan" /> -->
+                                                        <!-- <field name="aturan_pakai_" /> -->
+                                                    <!-- </tree> -->
+                                                <!-- </field> -->
+                                            </group>
+                                        </group>
+                                        <group>
+                                            <button name = "print_resep" type = "object" string = "Cetak Resep" class = "oe_highlight"/>
+                                        </group>
+                                        <!-- <group>
+                                            <button name = "print_resep_racikan" type = "object" string = "Cetak Resep Racikan" class = "oe_highlight"/>
+                                        </group> -->
+                                        <group>
+                                            <group>
+                                                <!-- <field name="tanda_tangan" widget='signature' /> -->
+                                                <field name="tanda_tangan_" widget='signature' />
+                                            </group>
+                                        </group>
+                                        <group>
+                                        </group>
+
+                                
+                                        <!-- <group string="Resep"> -->
+                                    <!-- <button name='create_resep' type="object" string="Add to Farmasi" class="oe_highlight" /> -->
+                                <!-- </P> --> 
+                                </page>
+                                
+                                <!-- <page string="Healthcare Record" name = "record">
+                                    <group string = "Healthcare Record">
+                                        <field name= "hc_record">
+                                            <tree create="false" delete="false" editable="false">
+                                                <field name="tanggal"/>
+                                                <field name="no_registrasi"/>
+                                                <field name="jenis_layanan"/>
+                                                <field name="nama_dokter"/>
+                                            </tree>
+                                        </field>
+                                    </group>
+                                </page> -->
+                                
+                                <page string="Biaya Tindakan dan Alkes" name="alkes">
+                                    <button name='kirim_billing' type="object" string="Kirim ke billing" class="oe_highlight" />
+                                    <group string="Biaya Tindakan dan Alkes">
+                                        <field name="ke_tindakan" nolabel="1">
+                                            <tree editable="bottom">
+                                                <!-- <field name="is_racikan"/> -->
+                                                <!-- <field name="racikan" /> -->
+                                                <field name="name" />
+                                                <field name="jumlah" />
+                                                <field name="satuan_" />
+                                                <field name="harga" />
+                                                <field name="is_include" />
+                                                <field name="lot" />
+                                                <field name="pelaksana_" />
+                                                <field name="person_" />
+                                                <field name="keterangan" />
+                                            </tree>
+                                        </field>
+                                    </group>
+
+                                    <group string="BHP">
+                                        <field name="ke_bhp" nolabel="1">
+                                            <tree editable="bottom">
+                                                <field name="name" />
+                                                <field name="stok" />
+                                                <field name="jumlah" />
+                                                <field name="satuan_" />
+                                                <field name="lot_" />
+                                            </tree>
+                                        </field>
+                                    </group>
+                                    <!-- <button name="to_invoice" type="object" string="Ke Kasir" class="oe_highlight" /> -->
+                                </page>
+
+                                <page string="Observasi" attrs="{'invisible': [('is_observasi','!=', True)]}" >
+                                    <group>
+                                        <field name="ke_observasi">
+                                            <tree string="Observasi" editable="bottom">
+                                                <field name="name" />
+                                                <field name="jumlah" />
+                                            </tree>
+                                        </field>
+                                    </group>
+                                </page>
+                                
+                                <page string="Jadwal Kontrol">
+                                    <group>
+                                        <field name="kunjungan_berikutnya">
+                                            <tree string="Kunjungan Berikutnya" editable="bottom">
+                                                <field name="tanggal" />
+                                                <field name="keterangan" />
+                                            </tree>
+                                        </field>
+                                    </group>
+                                    <group>
+                                        <!-- <button name='create_jadwal' type="object" string="Add Jadwal" class="oe_highlight" /> -->
+                                    </group>
+                                </page>
+                            
+                                <page string="Inventory dan Lainnya">
+                                    <group>
+                                        <group>
+                                            <field name="warehouse_id" />
+                                            <field name="warehouse_loc" />
+                                        </group>
+                                        <group>
+                                            <field name="picking_id" />
+                                        </group>
+                                    </group>
+                                    <group>
+                                        <group>
+                                            <field name="date_start" />
+                                            <field name="date_end" />
+                                        </group>
+                                        <group>
+                                            <field name="durasi" />
+                                        </group>
+                                    </group>
+                                </page>
+
+                            </notebook>
+                        </group>
+                        <group>
+                            <!-- <button name='create_rekam_medis' type="object" string="Add to Rekam Medis" class="oe_highlight" /> -->
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="tbl_poli_tree" model="ir.ui.view">
+            <field name="name">tree.poli</field>
+            <field name="model">tbl_poli</field>
+            <field name="arch" type="xml">
+                <tree string="Daftar">
+                    <field name="waktu" />
+                    <field name="no_reg" />
+                    <!-- <field name="layanan" /> -->
+                    <field name="nama_pasien" />
+                    <field name="no_rm" />
+                    <field name="nama_dokter" />
+                    <field name="state" widget="badge" 
+                                        decoration-muted="state=='draft'"
+                                        decoration-info="state=='cancel'"
+                                        decoration-danger="state=='pelayanan'"
+                                        decoration-success="state=='selesai'" />
+
+                </tree>
+            </field>
+        </record>
+
+        <!-- <record id="action_poli" model="ir.actions.act_window">
+            <field name="name">Poli Anak</field>
+            <field name="res_model">tbl_poli</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('layanan', '=', 'PA')]</field>
+        </record> -->
+
+        <!-- <menuitem name="Poli Anak" id="menu_poli_anak" action="action_poli" parent="menu_hospital_atas_poli"/> -->
+
+        <record id="action_gigi" model="ir.actions.act_window">
+            <field name="name">Poli Gigi</field>
+            <field name="res_model">tbl_poli</field>
+            <field name="view_mode">tree,form</field>
+<!--            <field name="domain">[('layanan', '=', 'PG')]</field>-->
+        </record>
+
+        <menuitem name="Poli Gigi" id="menu_poli_gigi" action="action_gigi" parent="menu_hospital_atas_poli"/>
+
+        <record id="action_umum" model="ir.actions.act_window">
+            <field name="name">Poli Umum</field>
+            <field name="res_model">tbl_poli</field>
+            <field name="view_mode">tree,form</field>
+<!--            <field name="domain">[('layanan', '=', 'PU')]</field>-->
+        </record>
+
+        <menuitem name="Poli Umum" id="menu_poli_umum" action="action_umum" parent="menu_hospital_atas_poli"/>
+
+        <record id="action_kandungan" model="ir.actions.act_window">
+            <field name="name">Poli KIA</field>
+            <field name="res_model">tbl_poli</field>
+            <field name="view_mode">tree,form</field>
+<!--            <field name="domain">[('layanan', '=', 'PK')]</field>-->
+        </record>
+
+        <menuitem name="Poli KIA" id="menu_poli_kandungan" action="action_kandungan" parent="menu_hospital_atas_poli"/>
+
+        <!-- <record id="action_penyakit_dalam" model="ir.actions.act_window">
+            <field name="name">Poli Penyakit Dalam</field>
+            <field name="res_model">tbl_poli</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('layanan', '=', 'penyakit_dalam')]</field>
+        </record>
+
+        <menuitem name="Poli Penyakit Dalam" id="menu_poli_penyakit_dalam" action="action_penyakit_dalam" parent="menu_hospital_atas_poli"/> -->
+        
+        <record id="tbl_rujukan_form" model="ir.ui.view">
+            <field name="name">form.tbl_rujukan</field>
+            <field name="model">tbl_rujukan</field>
+            <field name="arch" type="xml">
+                <form>
+                    <!-- <header>
+                        <button name="printSuratRujukan1" string="Print Surat Rujukan" type="object" class="oe_highlight"/>
+                    </header> -->
+                    <sheet>
+                    <group>
+                        <group>
+                            <field name="operating_unit_ids" widget='many2many_tags' readonly="1" />
+                            <field name="tipe_rujukan"/>
+                            <field name="name"/>
+                            <field name="asal_poli"/>
+                            <field name="umur"/>
+                            <field name="dokter_tujuan"/>
+                            <field name="nama_rs"/>
+                            <field name="unit_rujukan"/>
+                            <field name="periode"/>
+                        </group>
+                        <group>
+                        </group>
+                    </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="tbl_rujukan_tree" model="ir.ui.view">
+            <field name="name">tree.tbl_rujukan</field>
+            <field name="model">tbl_rujukan</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="tipe_rujukan"/>
+                    <field name="name"/>
+                    <field name="umur"/>
+                    <field name="nama_rs"/>
+                    <field name="dokter_tujuan"/>
+                    <!-- <field name="unit_rujukan"/>
+                    <field name="periode"/> -->
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_rujukan_rs" model="ir.actions.act_window">
+            <field name="name">Rujukan</field>
+            <field name="res_model">tbl_rujukan</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Rujukan RS" id="menu_rujukan_rs" action="action_rujukan_rs" parent="menu_hospital_atas_rujukan"/>
+
+
+</odoo>

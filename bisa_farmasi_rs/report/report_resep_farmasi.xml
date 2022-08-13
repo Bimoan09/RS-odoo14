@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_resep_farmasi">
+            <t t-call="web.html_container">
+                 <t t-call="web.external_layout">
+                    <tr t-foreach="docs" t-as="det">
+                        <!-- <center><h2>ATURAN PAKAI</h2></center> -->
+                        <!-- <br></br> -->
+                            <div>
+                                <div>
+                                    <div>
+                                        <tr t-foreach="det.id_resep" t-as="res">
+                                            <left><th><span t-esc="det.tanggal"  t-options='{"widget": "date"}'/></th></left>
+                                            <left><th><span t-esc="det.tanggal"  t-options='{"widget": "datetime", "format":"HH:MM"}'/></th></left>
+                                            <br></br>
+
+                                            <th><span t-esc="det.no_rm"/></th>
+                                            -
+                                            <th><span t-esc="det.nama_pasien.name"/></th>
+                                            <th><span t-esc="det.nama_konsumen"/></th>
+                                            <br></br>
+                                            <div>
+                                                OBAT RESEP
+                                            </div>
+                                            <left><th><span t-esc="res.nama.name"/></th></left>
+                                            -
+                                            <left><th><span t-esc="res.satuan.name"/></th></left>
+                                            -
+                                            <left><th><span t-esc="res.aturan_pakai_obat.name"/></th></left>
+                                            <br></br>
+                                            <br></br>
+                                            <!-- <br></br> -->
+                                            <!-- <br></br> -->
+                                            <br></br>
+                                        </tr>
+                                        <tr t-foreach="det.id_resep_racikan" t-as="rc">
+                                            <div>
+                                                OBAT RACIKAN
+                                            </div>
+                                            
+                                            <left><th><span t-esc="rc.nama_obat_racikan.name"/></th></left>
+                                            -
+                                            <left><th><span t-esc="rc.satuan.name"/></th></left>
+                                            -
+                                            <left><th><span t-esc="rc.aturan_pakai_obat_.name"/></th></left>
+                                            <br></br>
+                                            <br></br>
+                                            <!-- <br></br> -->
+                                            <!-- <br></br> -->
+                                            <br></br>
+                                        </tr>
+                                        
+                                    </div>
+                                    
+                                </div>
+                            
+                            </div>
+                        </tr>
+                 </t>
+            </t>
+        </template>
+    </data>
+
+    <data>
+        <template id="report_resep_racikan_farmasi">
+            <t t-call="web.html_container">
+                 <t t-call="web.external_layout">
+                    <tr t-foreach="docs" t-as="det">
+                        <!-- <center><h2>ATURAN PAKAI</h2></center>
+                        <br></br> -->
+                        <div>
+                            <div>
+                                <div>
+                                    <tr t-foreach="det.id_resep_racikan" t-as="res">
+                                        <left><th><span t-esc="det.tanggal"  t-options='{"widget": "date"}'/></th></left>
+                                        <left><th><span t-esc="det.tanggal"  t-options='{"widget": "datetime", "format":"HH:MM"}'/></th></left>
+                                        <br></br>
+
+                                        <th><span t-esc="det.no_rm"/></th>
+                                        -
+                                        <th><span t-esc="det.nama_pasien.name"/></th>
+                                        <th><span t-esc="det.nama_konsumen"/></th>
+                                        <br></br>
+                                        <left><th><span t-esc="res.nama_obat_racikan.name"/></th></left>
+                                        -
+                                        <left><th><span t-esc="res.satuan.name"/></th></left>
+                                        -
+                                        <left><th><span t-esc="res.aturan_pakai_obat_.name"/></th></left>
+                                        <br></br>
+                                        <br></br>
+                                        <!-- <br></br> -->
+                                        <!-- <br></br> -->
+                                        <div>
+                                            OBAT RESEP
+                                        </div>
+                                        <br></br>
+                                    </tr>
+                                    
+                                </div>
+                                
+                            </div>
+                        
+                        </div>
+                        
+                    </tr>
+                 </t>
+            </t>
+        </template>
+    </data>
+
+    <data>
+        <template id="report_resep_farmasi_mix">
+            <t t-call="web.html_container">
+                 <t t-call="web.external_layout">
+                    <tr t-foreach="docs" t-as="det">
+                        <!-- <center><h2>ATURAN PAKAI</h2></center>
+                        <br></br> -->
+                        <div>
+                            <div>
+                                <div>
+                                    <tr t-foreach="det.id_resep" t-as="res">
+                                        <left><th><span t-esc="det.tanggal"  t-options='{"widget": "date"}'/></th></left>
+                                        <left><th><span t-esc="det.tanggal"  t-options='{"widget": "datetime", "format":"HH:MM"}'/></th></left>
+                                        <br></br>
+
+                                        <th><span t-esc="det.no_rm"/></th>
+                                        -
+                                        <th><span t-esc="det.nama_pasien.name"/></th>
+                                        <th><span t-esc="det.nama_konsumen"/></th>
+                                        <br></br>
+                                        <div>
+                                            OBAT RESEP
+                                        </div>
+                                        <left><th><span t-esc="res.nama.name"/></th></left>
+                                        -
+                                        <left><th><span t-esc="res.satuan.name"/></th></left>
+                                        -
+                                        <left><th><span t-esc="res.aturan_pakai_obat.name"/></th></left>
+                                        <br></br>
+                                        <br></br>
+                                        <!-- <br></br> -->
+                                        <!-- <br></br> -->
+                                        <br></br>
+                                    </tr>
+                                </div>
+                                <div>
+
+                                    <tr t-foreach="det.id_resep_racikan" t-as="res">
+                                        <left><th><span t-esc="det.tanggal"  t-options='{"widget": "date"}'/></th></left>
+                                        <left><th><span t-esc="det.tanggal"  t-options='{"widget": "datetime", "format":"HH:MM"}'/></th></left>
+                                        <br></br>
+                                        
+                                        <th><span t-esc="det.no_rm"/></th>
+                                        -
+                                        <th><span t-esc="det.nama_pasien.name"/></th>
+                                        <th><span t-esc="det.nama_konsumen"/></th>
+                                        <br></br>
+                                        <div>
+                                            OBAT RACIKAN
+                                        </div>
+                                        <left><th><span t-esc="res.nama_obat_racikan.name"/></th></left>
+                                        -
+                                        <left><th><span t-esc="res.satuan.name"/></th></left>
+                                        -
+                                        <left><th><span t-esc="res.aturan_pakai_obat_.name"/></th></left>
+                                        <br></br>
+                                        <br></br>
+                                        <!-- <br></br> -->
+                                        <!-- <br></br> -->
+                                        <br></br>
+                                    </tr>
+                                </div>
+                                    
+                                    
+                            </div>
+                            
+                        </div>
+                        
+                        
+                    </tr>
+
+                </t>
+              </t>
+            </template>
+    </data>
+
+     <data>
+        <template id="report_resep">
+            <t t-call="web.html_container">
+                 <t t-call="web.external_layout">
+                    <tr t-foreach="docs" t-as="det">
+                        <center><h2>RESEP DOKTER</h2></center>
+                        <br></br>
+                        <div>
+                            <div>
+                               Nama Apotek : <th><span t-esc="det.nama_apotek"/></th>
+                            </div>
+                            <div>
+                               Pasien : <th><span t-esc="det.nama_pasien.name"/></th>
+                            </div>
+                            <div>
+                                No RM : <th><span t-esc="det.no_rm"/></th>
+                             </div>
+                             <div>
+                                No Transaksi Farmasi : <th><span t-esc="det.nomor_transaksi_farmasi"/></th>
+                             </div>
+                            <div>
+                               Tanggal : <th><span t-esc="det.tanggal"  t-options='{"widget": "date"}'/></th>
+                            </div>
+
+                            <div>
+                               Nama Dokter : <th><span t-esc="det.nama_dokter.name"/></th>
+                            </div>
+                        </div>
+                        <br></br>
+                        <div>
+                                <br></br>
+                                <br></br>
+                                 <table border="1" style="width:100%;">
+                                    <tr style="font-weight:bold;">
+                                         <td>Nama Obat</td>
+                                         <td>Jumlah</td>
+                                         <td>Aturan pakai</td>
+                                    </tr>
+                                    <tr t-foreach="det.id_resep" t-as="res">
+                                        <th><span t-esc="res.nama.name"/></th>
+
+                                        <th><span t-esc="res.jumlah"/></th>
+
+                                        <th><span t-esc="res.aturan_pakai_obat.name"/></th>
+                                    </tr>
+                                    <tr t-foreach="det.id_resep_racikan" t-as="res">
+                                        <th><span t-esc="res.nama_obat_racikan.name"/></th>
+
+                                        <th><span t-esc="res.jumlah"/></th>
+
+                                        <th><span t-esc="res.aturan_pakai_obat_.name"/></th>
+                                    </tr>
+                                 </table>
+                        </div>
+<!--                        <div class="tandatangan" style="margin-left:20px;">-->
+<!--                           Tanda Tangan : <th><img t-att-src="'data:image/png;base64,%s' % to_text(det.tanda_tangan_)"/></th>-->
+<!--                        </div>-->
+                    </tr>
+                </t>
+            </t>
+        </template>
+    </data>
+    <!-- <data>
+        <template id="action_report_receipt_farmasi">
+            <t t-call="web.html_container">
+                 <t t-call="web.external_layout">
+                    <tr t-foreach="docs" t-as="det">
+                        
+                        
+                    </tr>
+                 </t>
+            </t>
+        </template>
+    </data> -->
+</odoo>

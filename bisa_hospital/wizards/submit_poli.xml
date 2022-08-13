@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<odoo>
+        <record id="submit_poli_form" model="ir.ui.view">
+            <field name="name">submit_poli.form</field>
+            <field name="model">tbl_submit_kasir</field>
+            <field name="arch" type="xml">
+                <form string="Submit">
+                    <group col='2'>
+                        <group>
+                            <div class="o_row">
+                                <label for="penjamin"/>
+                                <field name="penjamin" options="{'no_create': True, 'no_create_edit':True}"/>
+                                <button name="check_polis" type="object" class="oe_highlight" string="Check Polis"  attrs="{'invisible': [('penjamin_name','=','PRIBADI')]}"/>
+                            </div>
+                        </group>
+                        <group>
+                            <field name="penjamin_name" invisible="1"/>
+                            <!-- <field name="nominal" widget="monetary" attrs="{'invisible': [('penjamin_name','=','PRIBADI')]}"/> -->
+                        </group>
+                    </group>
+                    <group col='2'>
+                        <group>
+                            <field name="benefit" attrs="{'invisible': [('penjamin_name','in',('PRIBADI','BPJS'))]}"  />
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="submit_poli" string="Submit ke POLI" type="object" class="oe_highlight"/>
+                        <button special="cancel" string="Cancel" type="object"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="submit_poli" model="ir.actions.act_window">
+            <field name="name">Submit</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">tbl_submit_kasir</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="submit_poli_form"/>
+            <field name="target">new</field>
+        </record>
+</odoo>

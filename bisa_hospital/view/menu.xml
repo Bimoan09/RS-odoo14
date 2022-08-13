@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem name="L.Clinic" id="menu_hospital"  web_icon="bisa_hospital,static/description/icon.png"  sequence="46"/>
+
+    <menuitem name="Pendaftaran" id="menu_hospital_atas_pendaftaran"   sequence="10" parent="menu_hospital"/>
+    <menuitem name="Kasir" id="menu_hospital_atas_kasir"  sequence="20" parent="menu_hospital"/>
+    <menuitem name="Unit Layanan" id="menu_hospital_atas_poli"  sequence="30" parent="menu_hospital"/>
+    <menuitem name="Rujukan" id="menu_hospital_atas_rujukan"  sequence="35" parent="menu_hospital"/>
+    <menuitem name="Sarana Penunjang" id="menu_hospital_atas_sarana"  sequence="40" parent="menu_hospital"/>
+    <menuitem name="Insentif" id="menu_hospital_atas_insentif"  sequence="45" parent="menu_hospital"/>
+    <menuitem name="Laporan" id="menu_hospital_atas_laporan"  sequence="50" parent="menu_hospital"/>
+    <menuitem name="Setting" id="menu_hospital_atas_seting"  sequence="60" parent="menu_hospital"/>
+
+    <template id="login_page" name="Logo Login Page" inherit_id="web.login_layout">
+        <xpath expr="//div[@class='container py-5']" position="replace">
+                  <div class="container py-5">
+                <div t-attf-class="card border-0 mx-auto bg-100 {{login_card_classes}} o_database_list" style="max-width: 300px;">
+                    <div class="card-body">
+                        <div t-attf-class="text-center pb-3 border-bottom {{'mb-3' if form_small else 'mb-4'}}">
+                            <img t-attf-src="/bisa_hospital/static/description/limasan.jpg" alt="Logo" style="max-height:120px; max-width: 100%; width:auto"/>
+                        </div>
+                        <t t-raw="0"/>
+                        <div class="text-center small mt-4 pt-3 border-top" t-if="not disable_footer">
+                            <t t-if="not disable_database_manager">
+                                <a class="border-right pr-2 mr-1" href="/web/database/manager">Manage Databases</a>
+                            </t>
+                            <a href="https://www.odoo.com?utm_source=db&amp;utm_medium=auth" target="_blank">Powered by <span>Odoo</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+    <!-- model.name form view -->
+  <!-- model.name form view -->
+<!-- model.name form view -->
+
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="nama_model_form">
+            <field name="name">nama.model.form</field>
+            <field name="model">nama.model</field>
+            <field name="inherit_id" ref="nama_modul.nama_model_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='date_order']" position="before">
+                    <field name="note"/>
+                </xpath>
+            </field>
+        </record>
+
+
+    <?xml version="1.0" encoding="utf-8"?>
+    <odoo>
+        <data>
+            <record model="ir.ui.view" id="nama_model_form">
+                <field name="name">nama.model.form</field>
+                <field name="model">nama.model</field>
+                <field name="inherit_id" ref="nama_modul.nama_model_form"/>
+                <field name="arch" type="xml">
+                    <xpath expr="//field[@name='date_order']" position="before">
+                        <field name="note"/>
+                    </xpath>
+                </field>
+            </record>
+
+
+
+            <?xml version="1.0" encoding="utf-8"?>
+            <odoo>
+                <data>
+                    <record model="ir.ui.view" id="nama_model_tree">
+                        <field name="name">nama.model.tree</field>
+                        <field name="model">nama.model</field>
+                        <field name="inherit_id" ref="nama_modul.nama_model_tree"/>
+                        <field name="arch" type="xml">
+                            <xpath expr="//field[@name='date_order']" position="before">
+                                <field name="note"/>
+                            </xpath>
+                        </field>
+                    </record>
+                </data>
+            </odoo>
+
+            
+        </data>
+    </odoo>
+
+    </data>
+</odoo>
+
+</odoo>

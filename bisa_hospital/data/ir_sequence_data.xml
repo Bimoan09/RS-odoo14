@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Sequences for sale.order -->
+        <record id="seq_registrasi" model="ir.sequence">
+            <field name="name">registrasi</field>
+            <field name="code">registrasi</field>
+            <field name="prefix">REG</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_rekam_medis" model="ir.sequence">
+            <field name="name">rekam_medis</field>
+            <field name="code">rekam_medis</field>
+            <field name="prefix">RM</field>
+            <field name="padding">8</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_sarana_lab" model="ir.sequence">
+            <field name="name">sarana_lab</field>
+            <field name="code">sarana_lab</field>
+            <field name="prefix">LAB</field>
+            <field name="padding">8</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_sarana_labo" model="ir.sequence">
+            <field name="name">sarana_labo</field>
+            <field name="code">sarana_labo</field>
+            <field name="prefix">LAB</field>
+            <field name="padding">8</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+
+        <record id="seq_sarana_rad" model="ir.sequence">
+            <field name="name">sarana_rad</field>
+            <field name="code">sarana_rad</field>
+            <field name="prefix">RAD</field>
+            <field name="padding">8</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_aps" model="ir.sequence">
+            <field name="name">kode_aps</field>
+            <field name="code">kode_aps</field>
+            <field name="prefix">APS</field>
+            <field name="padding">8</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_honor" model="ir.sequence">
+            <field name="name">kode_honor</field>
+            <field name="code">kode_honor</field>
+            <field name="prefix">HDR-</field>
+            <field name="padding">6</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+
+        <record id="seq_rpb" model="ir.sequence">
+            <field name="name">kode_rpb</field>
+            <field name="code">kode_rpb</field>
+            <field name="prefix">RPB-</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+    </data>
+</odoo>

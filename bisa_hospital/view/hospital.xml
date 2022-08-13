@@ -1,0 +1,1723 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<odoo>
+        <record id="tbl_pendaftaran_form" model="ir.ui.view">
+            <field name="name">form.tbl_pendaftaran</field>
+            <field name="model">tbl_pendaftaran</field>
+            <field name="arch" type="xml">
+                <form string="Registrasi">
+                <header>
+                   <button name='%(bisa_hospital.submit_kasir_wizard_action)d' type="action" class="oe_highlight" string="Submit" attrs="{'invisible':['|',('new_flow','!=',False), ('state','!=', 'draft')]}"/>
+                    <button name='%(bisa_hospital.submit_poli)d' type="action" class="oe_highlight" string="Submit" attrs="{'invisible':['|',('new_flow','!=',True),('state_new','!=', 'draft')]}"/>
+                    <!-- <button name = "print_resep" type = "object" string = "Cetak Resep" class = "oe_highlight"/> -->
+                  <field name="new_flow" invisible="1"/>
+                      <field name="state_new" invisible="1"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,kasir,poli,pelayanan,selesai" attrs="{'invisible':[('new_flow','!=',False)]}"/>
+                    <field name="state_new" widget="statusbar" statusbar_visible="draft,poli,pelayanan,kasir,selesai" attrs="{'invisible':[('new_flow','!=',True)]}"/>
+                </header>
+
+                    <sheet>
+
+                        <group>
+                            <group string="Data Pasien">
+                               <field name="pricelist_unit" invisible="1" />
+                               <field name="gelar" />
+                               <field name="name" options="{'no_create': True, 'no_create_edit':True}"/>
+                               <field name="no_rm" />
+                               <field name="no_rm_lama" />
+                               <field name="no_telepon" />
+                               <field name="jenis_kelamin1" />
+                               <field name="warga_negara" />
+                               <label for="kota_lahir" string="Kota/Tgl Lahir"/>
+                            <div class="o_address_format">
+                                <field name="kota_lahir" placeholder="Kota Lahir" class="o_address_format"/>
+                                <field name="tgl_lahir" class="o_address_format"/>
+                            </div>
+                               <field name="umur" />
+                               <label for="alamat" string="Alamat"/>
+                            <div class="o_address_format">
+                                <field name="propinsi" placeholder="Nama Propinsi ..." class="o_address_format" options="{'no_create': True, 'no_create_edit':True}"/>
+                                <field name="kabupaten" placeholder="Nama Kabupaten ..." class="o_address_format" options="{'no_create': True, 'no_create_edit':True}"/>
+                                <field name="kecamatan" placeholder="Nama Kecamatan ..." class="o_address_format" options="{'no_create': True, 'no_create_edit':True}"/>
+                                <field name="kelurahan" placeholder="Nama Kelurahan ..." class="o_address_format" options="{'no_create': True, 'no_create_edit':True}"/>
+                                <field name="alamat" placeholder="Jl Raya Kalimalang ....." class="o_address_format" options="{'no_create': True, 'no_create_edit':True}"/>
+                            </div>
+                                <field name="nama_ibu_kandung" />
+                                <field name="pekerjaan" />
+
+                                <field name="jenis_id" />
+                                <field name="no_id" />
+
+                                <field name="gol_darah" />
+                                <field name="agama1" />
+
+
+
+                            </group>
+                            <group  string="Data Registrasi">
+                                <label for="tanggal" string="Tanggal"/>
+                                <div class="o_address_format">
+                                    <field name="tanggal" placeholder="Kota Lahir" class="o_address_format"/>-
+                                    <field name="nama_hari" class="o_address_format"/>-
+                                    <field name="status_hari" class="o_address_format"/>
+                                </div>
+                                <field name="tanggal_janji" />
+
+                                <field name="no_registrasi" />
+                                <field name="user_id" />
+                                <field name="aps" />
+                                <!-- <field name="paket_layanan" options="{'no_create': True, 'no_create_edit':True}"  /> -->
+
+                                <!-- <field name="is_rujukan" /> -->
+                                <field name="layanan" attrs="{'invisible':[('is_paket_lab','=',True)]}" />
+                                <field name="jenis_layanan" attrs="{'invisible':[('is_paket_lab','=',True)]}" />
+                                <field name="nama_dokter" attrs="{'invisible':[('is_paket_lab','=',True)]}" />
+                                <field name="layanan1" invisible="1"/>
+                                <field name="is_paket_lab" attrs="{'invisible':[('aps','!=',True)]}"/>
+                               <!-- <field name="is_paket_lab" /> -->
+                                <field name="paket_layanan" options="{'no_create': True, 'no_create_edit':True}" attrs="{'invisible':[('aps','!=',True)]}"/>
+<!--                                 <field name="daftar_multilayanan" attrs="{'invisible':[('is_paket_lab','!=',True)]}" required="1" nolabel="1"/>-->
+                                <div colspan='2'>
+                                    <field name="daftar_multilayanan" attrs="{'invisible':[('is_paket_lab','!=',True)]}" nolabel="1">
+                                            <tree editable="bottom">
+                                            <field name="ke_penunjang" invisible="1"/>
+                                            <!-- <field name="operating_unit_ids" widget='many2many_tags'/> -->
+                                            <field name="operating_unit_ids" widget='many2many_tags' invisible="1"/>
+                                            <field name="name"/>
+                                            <field name="unit_layanan"/>
+                                            <field name="nama_dokter"/>
+                                            <!-- <field name="name" options="{'no_create': True, 'no_create_edit':True}" /> -->
+                                            <!-- <field name="unit_layanan" options="{'no_create': True, 'no_create_edit':True}" /> -->
+                                            <!-- <field name="nama_dokter" options="{'no_create': True, 'no_create_edit':True}" /> -->
+                                            <!-- <field name="name" options="{'no_create': True, 'no_create_edit':True}" /> -->
+                                            <!-- <field name="unit_layanan" options="{'no_create': True, 'no_create_edit':True}" /> -->
+                                            <!-- <field name="nama_dokter" options="{'no_create': True, 'no_create_edit':True}" /> -->
+                                            <!-- <field name="name"/> -->
+                                            <!-- <field name="unit_layanan"/> -->
+                                            <!-- <field name="nama_dokter"/> -->
+                                            <!-- <field name="price_service"/> -->
+                                        </tree>
+                                    </field>
+                                </div>
+                                <field name="operating_unit_ids" widget='many2many_tags' readonly="1" />
+                                <field name="penjamin_digunakan" />
+                                <!-- <field name="tipe_rujukan" attrs="{'invisible': [('is_rujukan','!=', True)]}" />
+                                <field name="nama_rs" attrs="{'invisible': [('is_rujukan','!=', True)]}" />
+                                <field name="periode" attrs="{'invisible': [('is_rujukan','!=', True)]}" /> -->
+
+                                <field name="kode_aps" invisible="1" />
+                                <field name="pilih_layanan" invisible="1"/>
+                                <field name="ke_penunjang" invisible="1"/>
+                                <!-- <field name="pembayaran"/> -->
+                                <field name="pembayaran" invisible="1" options="{'no_create': True, 'no_create_edit':True}" />
+                                <!-- <field name="lokasi" invisible="1"/> -->
+                                <!-- <field name="nama_bidan" /> -->
+
+                            </group>
+                        </group>
+
+
+                    <notebook>
+                        <page string="Penjamin &amp; Penanggung Jawab" autofocus="autofocus">
+                        <group>
+                            <group string='Penanggung Jawab'>
+                               <field name="pj_kel" />
+                               <field name="pj_hub" />
+                            </group>
+                        </group>
+                        <group string='Penjamin'>
+                            <field name="daftar_penjamin" options="{'no_create': True, 'no_create_edit':True}">
+                                <tree editable="bottom" create="false">
+                                    <field name="tipe_penjamin1" options="{'no_create': True, 'no_create_edit':True,'no_open': True}"/>
+                                    <field name="nama_penjamin" options="{'no_create': True, 'no_create_edit':True,'no_open': True}"/>
+                                    <field name="perusahaan_provider_" attrs="{'invisible': [('tipe_penjamin1','!=','asuransi_provider')]}"/>
+                                    <field name="nomor"/>
+                                    <field name="tanggal_berlaku"/>
+                                    <field name="berkas_penjamin" widget="many2many_binary"/>
+                                </tree>
+                            </field>
+                        </group>
+                        </page>
+                        <page string="Rujukan">
+                        <group>
+                            <group>
+                               <field name="rujuk" />
+                               <field name="p_rujuk" />
+                               <field name="paramedis" />
+
+                            </group>
+                            <group >
+                            </group>
+                        </group>
+                        </page>
+
+
+                    </notebook>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="tbl_pendaftaran_tree" model="ir.ui.view">
+            <field name="name">tree.registrasi</field>
+            <field name="model">tbl_pendaftaran</field>
+            <field name="arch" type="xml">
+                <tree string="Daftar">
+                    <field name="tanggal" />
+                    <field name="no_registrasi" />
+                    <field name="name" />
+                    <field name="no_rm" />
+                    <field name="jenis_layanan" />
+                    <field name="layanan" />
+                    <field name="nama_dokter" />
+                    <field name="new_flow" invisible="1"/>
+                    <field name="state_new" widget="badge"
+                                        decoration-muted="state_new=='kasir'"
+                                        decoration-info="state_new=='poli'"
+                                        decoration-danger="state_new=='pelayanan'"
+                                        decoration-success="state_new=='selesai'"
+                                        decoration-primary="state_new=='draft'"
+                                        decoration-warning="state_new=='cancelled'" attrs="{'invisible':[('new_flow','!=',True)]}"/>
+                     <field name="state" widget="badge"
+                                        decoration-muted="state_new=='kasir'"
+                                        decoration-info="state_new=='poli'"
+                                        decoration-danger="state_new=='pelayanan'"
+                                        decoration-success="state_new=='selesai'"
+                                        decoration-primary="state_new=='draft'"
+                                        decoration-warning="state_new=='cancelled'" attrs="{'invisible':[('new_flow','!=',False)]}"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_pendaftaran" model="ir.actions.act_window">
+            <field name="name">Pendaftaran</field>
+            <field name="res_model">tbl_pendaftaran</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Pendaftaran" id="menu_pendaftaran" sequence = "10" action="action_pendaftaran" parent="menu_hospital_atas_pendaftaran"/>
+
+
+        <record id="tbl_jadwal_kontrol_form" model="ir.ui.view">
+            <field name="name">form.tbl_jadwal_kontrol</field>
+            <field name="model">tbl_jadwal_kontrol</field>
+            <field name="arch" type="xml">
+                <form string="Jadwal Kontrol">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" />
+                                <field name="no_rekam_medis" />
+                                <field name="nama_layanan" />
+                                <field name="nama_dokter" />
+                                <field name="tanggal" />
+                                <field name="keterangan" />
+                                <field name="operating_unit_ids" widget='many2many_tags' readonly="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="tbl_jadwal_kontrol_tree" model="ir.ui.view">
+            <field name="name">tree.jadwal_kontrol</field>
+            <field name="model">tbl_jadwal_kontrol</field>
+            <field name="arch" type="xml">
+                <tree string="Jadwal Kontrol">
+                    <field name="name" />
+                    <field name="no_rekam_medis" />
+                    <field name="nama_layanan" />
+                    <field name="nama_dokter" />
+                    <field name="tanggal" />
+                    <field name="keterangan" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_jadwal_kontrol" model="ir.actions.act_window">
+            <field name="name">Jadwal Kontrol</field>
+            <field name="res_model">tbl_jadwal_kontrol</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Jadwal Kontrol" id="menu_jadwal_kontrol" sequence = "20" action="action_jadwal_kontrol" parent="menu_hospital_atas_pendaftaran" />
+
+        <record id="jadwal_praktek_form" model="ir.ui.view">
+            <field name="name">form.jadwal_praktek</field>
+            <field name="model">jadwal_praktek</field>
+            <field name="arch" type="xml">
+                <form string="Jadwal Praktek">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="operating_unit_ids" widget='many2many_tags' readonly="1" />
+                                <field name="nama_dokter" />
+                                <!-- <field name="detail" /> -->
+                                <field name="jadual" />
+                                <!-- <field name="keterangan" /> -->
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="jadwal_praktek_tree" model="ir.ui.view">
+            <field name="name">tree.jadwal_praktek</field>
+            <field name="model">jadwal_praktek</field>
+            <field name="arch" type="xml">
+                <tree string="Jadwal Praktek">
+                    <field name="nama_dokter" />
+                    <!-- <field name="detail" /> -->
+                    <field name="jadual" />
+                    <!-- <field name="keterangan" /> -->
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_jadwal_praktek" model="ir.actions.act_window">
+            <field name="name">Jadwal Praktek</field>
+            <field name="res_model">jadwal_praktek</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem name="Jadwal Praktek" id="menu_jadwal_praktek" sequence = "30" action="action_jadwal_praktek" parent="menu_hospital_atas_pendaftaran" />
+
+
+
+
+
+        <record id="tbl_analisa_form" model="ir.ui.view">
+            <field name="name">form.tbl_analisa</field>
+            <field name="model">tbl_analisa</field>
+            <field name="arch" type="xml">
+                <form string="analisa">
+                    <sheet>
+                        <group>
+                            <group>
+                               <field name="name" />
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="tbl_analisa_tree" model="ir.ui.view">
+            <field name="name">tree.analisa</field>
+            <field name="model">tbl_analisa</field>
+            <field name="arch" type="xml">
+                <tree string="analisa">
+                    <field name="name" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_analisa" model="ir.actions.act_window">
+            <field name="name">Analisa</field>
+            <field name="res_model">tbl_analisa</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- <menuitem name="Analisa" id="menu_analisa" action="action_analisa" parent="menu_hospital_atas_laporan"/> -->
+
+
+        <record id="tbl_layanan_form" model="ir.ui.view">
+            <field name="name">form.tbl_layanan</field>
+            <field name="model">tbl_layanan</field>
+            <field name="arch" type="xml">
+                <form string="Master Data Layanan">
+                    <sheet>
+                        <group>
+                            <group>
+                               <field name="name" />
+                                <field name="kode" />
+                                <field name="product" />
+                                <!-- <field name="operating_unit_ids" widget='many2many_tags' /> -->
+                            </group>
+                            <field name="detail_gudang" >
+                                <tree editable="bottom">
+                                    <field name="name"/>
+                                    <field name="nama_gudang"/>
+                                    <field name="lokasi_gudang"/>
+                                    <field name="detail_"/>
+                                    <field name="depo_obat_jadi"/>
+                                    <field name="depo_obat_racikan"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="tbl_layanan_tree" model="ir.ui.view">
+            <field name="name">tree.layanan</field>
+            <field name="model">tbl_layanan</field>
+            <field name="arch" type="xml">
+                <tree string="Master Data Layanan">
+                    <field name="name" />
+                    <field name="kode" />
+                    <field name="product" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_layanan" model="ir.actions.act_window">
+            <field name="name">Master Data Layanan</field>
+            <field name="res_model">tbl_layanan</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Master Data Layanan" id="menu_layanan" action="action_layanan" sequence = "1" parent="menu_hospital_atas_seting"/>
+        
+
+        <record id="action_pasien" model="ir.actions.act_window">
+            <field name="name">Pasien</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('is_pasien', '=', True)]</field>
+        </record>
+
+        <menuitem name="Master Data Pasien" id="menu_pasien" action="action_pasien" sequence = "2" parent="menu_hospital_atas_seting"/>
+
+
+        <record id="tbl_dokter_form" model="ir.ui.view">
+            <field name="name">form.tbl_dokter</field>
+            <field name="model">tbl_dokter</field>
+            <field name="arch" type="xml">
+                <form string="Master Data Dokter">
+                    <sheet>
+                        <group>
+                            <group>
+                               <field name="name" />
+                               <field name="layanan_">
+                                <tree editable="bottom">
+                                    <field name="name"/>
+                                </tree>
+                               </field>
+                               <field name="jenis" />
+                               <field name="internal" />
+                               <field name="pegawai" attrs="{'invisible': [('internal', '!=', 'internal')]}"/>
+                               <field name="contact" attrs="{'invisible': [('internal', '=', 'internal')]}"/>
+                                <field name="operating_unit_ids" widget='many2many_tags' />
+
+
+                            </group>
+                            <group>
+                            </group>
+                        </group>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="tbl_dokter_tree" model="ir.ui.view">
+            <field name="name">tree.dokter</field>
+            <field name="model">tbl_dokter</field>
+            <field name="arch" type="xml">
+                <tree string="Master Data Dokter">
+                    <field name="name" />
+                    <!-- <field name="poli" /> -->
+                    <field name="layanan_" widget = "many2many_tags"/>
+                    <field name="jenis" />
+                    <field name="internal" />
+                    <field name="pegawai" attrs="{'invisible': [('internal', '!=', 'internal')]}"/>
+                    <field name="contact" attrs="{'invisible': [('internal', '=', 'internal')]}"/>
+                    <field name="jadwal" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_dokter" model="ir.actions.act_window">
+            <field name="name">Dokter/Perawat</field>
+            <field name="res_model">tbl_dokter</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Dokter/Perawat" id="menu_dokter" action="action_dokter" sequence = "3" parent="menu_hospital_atas_seting"/>
+
+
+        <record id="action_pegawai" model="ir.actions.act_window">
+            <field name="name">Master Data Pegawai</field>
+            <field name="res_model">hr.employee</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Master Data Pegawai" id="menu_pegawai" action="action_pegawai" sequence = "4" parent="menu_hospital_atas_seting"/>
+
+
+        <record id="action_obat" model="ir.actions.act_window">
+            <field name="name">Master Obat dan Jasa</field>
+            <field name="res_model">product.template</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Master Obat dan Jasa" id="menu_obat" action="action_obat" sequence = "5" parent="menu_hospital_atas_seting"/>
+
+        <record id="tbl_unit_form" model="ir.ui.view">
+            <field name="name">form.tbl_unit</field>
+            <field name="model">tbl_unit</field>
+            <field name="arch" type="xml">
+                <form string="Master Data Unit">
+                    <sheet>
+                        <group>
+                            <group>
+                               <field name="name" />
+                               <field name="tipe_layanan" />
+                               <!-- <field name="operating_unit_ids" widget='many2many_tags' /> -->
+                               
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="tbl_unit_tree" model="ir.ui.view">
+            <field name="name">tree.unit</field>
+            <field name="model">tbl_unit</field>
+            <field name="arch" type="xml">
+                <tree string="Master Data Unit">
+                    <field name="name" />
+                    <field name="tipe_layanan" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_unit" model="ir.actions.act_window">
+            <field name="name">Master Data Unit</field>
+            <field name="res_model">tbl_unit</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Master Data Unit" id="menu_unit" action="action_unit" sequence = "6" parent="menu_hospital_atas_seting"/>
+
+
+        <record id="tbl_jadwal_praktek_form" model="ir.ui.view">
+            <field name="name">form.tbl_jadwal_praktek</field>
+            <field name="model">tbl_jadwal_praktek</field>
+            <field name="arch" type="xml">
+                <form string="Master Data Jadwal Praktek">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="operating_unit_ids" widget='many2many_tags' />
+                                <field name="nama_dokter" />
+                                <field name="jadual" />
+                            </group>
+                        </group>
+                        <field name="detail">
+                            <tree string="Jadwal" editable="bottom">
+                                <field name="hari" />
+                                <field name="jam" />
+                            </tree>
+                        </field>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="tbl_jadwal_praktek_tree" model="ir.ui.view">
+            <field name="name">tree.tbl_jadwal_praktek</field>
+            <field name="model">tbl_jadwal_praktek</field>
+            <field name="arch" type="xml">
+                <tree string="Master Data Jadwal Praktek">
+                    <field name="nama_dokter" />
+                    <field name="jadual" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_tbl_jadwal_praktek" model="ir.actions.act_window">
+            <field name="name">Master Data Jadwal Praktek</field>
+            <field name="res_model">tbl_jadwal_praktek</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Master Data Jadwal Praktek" id="menu_tbl_jadwal_praktek" action="action_tbl_jadwal_praktek" sequence = "7" parent="menu_hospital_atas_seting"/>
+
+        <record id="tbl_penjamin_form" model="ir.ui.view">
+            <field name="name">form.tbl_penjamin</field>
+            <field name="model">tbl_penjamin</field>
+            <field name="arch" type="xml">
+                <form string="Master Data Penjamin">
+                    <sheet>
+                        <group>
+                            <group>
+                               <field name="name" />
+                               <field name="tipe_penjamin1" />
+                               <field name="partner_id"/>
+                               <field name="perusahaan_provider" />
+                               <field name="web_penjamin" widget="url"/>
+                               <!-- <field name="operating_unit_ids" widget = "many2many_tags"/> -->
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <record id="tbl_penjamin_tree" model="ir.ui.view">
+            <field name="name">tree.penjamin</field>
+            <field name="model">tbl_penjamin</field>
+            <field name="arch" type="xml">
+                <tree string="Master Data Penjamin">
+                    <field name="name" />
+                    <field name="tipe_penjamin1" />
+                    <field name="perusahaan_provider" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_penjamin" model="ir.actions.act_window">
+            <field name="name">Master Data Penjamin</field>
+            <field name="res_model">tbl_penjamin</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Master Data Penjamin" id="menu_penjamin" action="action_penjamin" sequence = "8" parent="menu_hospital_atas_seting"/>
+
+
+        <record id="tbl_tipe_bayar_form" model="ir.ui.view">
+            <field name="name">form.tbl_tipe_bayar</field>
+            <field name="model">tbl_tipe_bayar</field>
+            <field name="arch" type="xml">
+                <form string="Master Data Tipe Bayar">
+                    <sheet>
+                        <group>
+                            <group>
+                               <field name="name" />
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="tbl_tipe_bayar_tree" model="ir.ui.view">
+            <field name="name">tree.tipe_bayar</field>
+            <field name="model">tbl_tipe_bayar</field>
+            <field name="arch" type="xml">
+                <tree string="Master Data Tipe Bayar">
+                    <field name="name" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_tipe_bayar" model="ir.actions.act_window">
+            <field name="name">Master Data Tipe Bayar</field>
+            <field name="res_model">tbl_tipe_bayar</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Master Data Tipe Bayar" id="menu_tipe_bayar" action="action_tipe_bayar" sequence = "9" parent="menu_hospital_atas_seting"/>
+
+       
+
+
+        <record id="tbl_icd9_form" model="ir.ui.view">
+            <field name="name">form.tbl_icd9</field>
+            <field name="model">tbl_icd9</field>
+            <field name="arch" type="xml">
+                <form string="Master Tindakan ICD-9">
+                    <sheet>
+                        <group>
+                            <group>
+                               <field name="name" />
+                               <field name="kode" />
+                               <field name="keterangan" />
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="tbl_icd9_tree" model="ir.ui.view">
+            <field name="name">tree.icd9</field>
+            <field name="model">tbl_icd9</field>
+            <field name="arch" type="xml">
+                <tree string="Master Tindakan ICD-9">
+                    <field name="name" />
+                    <field name="kode" />
+                    <field name="keterangan" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_icd9" model="ir.actions.act_window">
+            <field name="name">Master Tindakan ICD-9</field>
+            <field name="res_model">tbl_icd9</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <record id = "icd9_search" model = "ir.ui.view">
+            <field name="name">tbl.icd9.search</field>
+            <field name="model">tbl_icd9</field>
+            <field name="arch" type="xml">
+                <search string = "Tindakan ICD-9">
+                    <field name="name"/>
+                    <field name="kode" />
+                    <field name="keterangan" />
+                </search>
+            </field>
+        </record>
+
+        <menuitem name="Master Tindakan ICD-9" id="menu_icd9" action="action_icd9" sequence = "10" parent="menu_hospital_atas_seting"/>
+
+
+        <record id="tbl_icd10_form" model="ir.ui.view">
+            <field name="name">form.tbl_icd10</field>
+            <field name="model">tbl_icd10</field>
+            <field name="arch" type="xml">
+                <form string="Master Diagnosa ICD-10">
+                    <sheet>
+                        <group>
+                            <group>
+                               <field name="name" />
+                                <field name="kode" />
+                                <field name="keterangan" />
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="tbl_icd10_tree" model="ir.ui.view">
+            <field name="name">tree.icd10</field>
+            <field name="model">tbl_icd10</field>
+            <field name="arch" type="xml">
+                <tree string="Master Diagnosa ICD-10">
+                    <field name="name" />
+                    <field name="kode" />
+                    <field name="keterangan" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_icd10" model="ir.actions.act_window">
+            <field name="name">Master Diagnosa ICD-10</field>
+            <field name="res_model">tbl_icd10</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id = "icd10_search" model = "ir.ui.view">
+            <field name="name">tbl.icd10.search</field>
+            <field name="model">tbl_icd10</field>
+            <field name="arch" type="xml">
+                <search string = "Diagnosa ICD-10">
+                    <field name="name"/>
+                    <field name="kode" />
+                    <field name="keterangan" />
+                </search>
+            </field>
+        </record>
+
+
+        <menuitem name="Master Diagnosa ICD-10" id="menu_icd10" action="action_icd10" sequence = "11" parent="menu_hospital_atas_seting"/>
+
+        <record id="location_propinsi_form" model="ir.ui.view">
+            <field name="name">form.location_propinsi</field>
+            <field name="model">location_propinsi</field>
+            <field name="arch" type="xml">
+                <form string="Master Propinsi">
+                    <sheet>
+                        <group>
+                            <group>
+                               <field name="name" />
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="location_propinsi_tree" model="ir.ui.view">
+            <field name="name">tree.location_propinsi</field>
+            <field name="model">location_propinsi</field>
+            <field name="arch" type="xml">
+                <tree string="Master Propinsi">
+                    <field name="name" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_location_propinsi" model="ir.actions.act_window">
+            <field name="name">Master Propinsi</field>
+            <field name="res_model">location_propinsi</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Master Propinsi" id="menu_propinsi" action="action_location_propinsi" sequence = "12" parent="menu_hospital_atas_seting"/>
+
+        
+        <record id="location_kabupaten_form" model="ir.ui.view">
+            <field name="name">form.location_kabupaten</field>
+            <field name="model">location_kabupaten</field>
+            <field name="arch" type="xml">
+                <form string="Master Kabupaten">
+                    <sheet>
+                        <group>
+                            <group>
+                               <field name="name" />
+                               <field name="propinsi" />
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="location_kabupaten_tree" model="ir.ui.view">
+            <field name="name">tree.location_kabupaten</field>
+            <field name="model">location_kabupaten</field>
+            <field name="arch" type="xml">
+                <tree string="Master Kabupaten">
+                    <field name="name" />
+                    <field name="propinsi" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_location_kabupaten" model="ir.actions.act_window">
+            <field name="name">Master Kabupaten</field>
+            <field name="res_model">location_kabupaten</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Master Kabupaten" id="menu_kabupaten" action="action_location_kabupaten" sequence = "13" parent="menu_hospital_atas_seting"/>
+
+        <record id="location_kecamatan_form" model="ir.ui.view">
+            <field name="name">form.location_kecamatan</field>
+            <field name="model">location_kecamatan</field>
+            <field name="arch" type="xml">
+                <form string="Master Kecamatan">
+                    <sheet>
+                        <group>
+                            <group>
+                               <field name="name" />
+                               <field name="kabupaten" />
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="location_kecamatan_tree" model="ir.ui.view">
+            <field name="name">tree.location_kecamatan</field>
+            <field name="model">location_kecamatan</field>
+            <field name="arch" type="xml">
+                <tree string="Master Kecamatan">
+                    <field name="name" />
+                    <field name="kabupaten" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_location_kecamatan" model="ir.actions.act_window">
+            <field name="name">Master Kecamatan</field>
+            <field name="res_model">location_kecamatan</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Master Kecamatan" id="menu_kecamatan" action="action_location_kecamatan" sequence = "14" parent="menu_hospital_atas_seting"/>
+
+        <record id="location_kelurahan_form" model="ir.ui.view">
+            <field name="name">form.location_kelurahan</field>
+            <field name="model">location_kelurahan</field>
+            <field name="arch" type="xml">
+                <form string="Master Kelurahan">
+                    <sheet>
+                        <group>
+                            <group>
+                               <field name="name" />
+                               <field name="kecamatan" />
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="location_kelurahan_tree" model="ir.ui.view">
+            <field name="name">tree.location_kelurahan</field>
+            <field name="model">location_kelurahan</field>
+            <field name="arch" type="xml">
+                <tree string="Master Kelurahan">
+                    <field name="name" />
+                    <field name="kecamatan" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_location_kelurahan" model="ir.actions.act_window">
+            <field name="name">Master Kelurahan</field>
+            <field name="res_model">location_kelurahan</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Master Kelurahan" id="menu_kelurahan" action="action_location_kelurahan" sequence = "15" parent="menu_hospital_atas_seting"/>
+        
+        
+        <record id="pekerjaan_form" model="ir.ui.view">
+            <field name="name">form.pekerjaan</field>
+            <field name="model">tbl_pekerjaan</field>
+            <field name="arch" type="xml">
+                <form string="Master Pekerjaan">
+                    <sheet>
+                        <group>
+                            <group>
+                               <field name="name" />
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="pekerjaan_tree" model="ir.ui.view">
+            <field name="name">tree.pekerjaan</field>
+            <field name="model">tbl_pekerjaan</field>
+            <field name="arch" type="xml">
+                <tree string="Master Pekerjaan">
+                    <field name="name" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_pekerjaan" model="ir.actions.act_window">
+            <field name="name">Master Pekerjaan</field>
+            <field name="res_model">tbl_pekerjaan</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Master Pekerjaan" id="menu_pekerjaan" action="action_pekerjaan" sequence = "15" parent="menu_hospital_atas_seting"/>
+        
+        <record id="provider_form" model="ir.ui.view">
+            <field name="name">form.provider</field>
+            <field name="model">tbl_provider</field>
+            <field name="arch" type="xml">
+                <form string="Master Provider">
+                    <sheet>
+                        <group>
+                            <group>
+                               <field name="name" />
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="provider_tree" model="ir.ui.view">
+            <field name="name">tree.provider</field>
+            <field name="model">tbl_provider</field>
+            <field name="arch" type="xml">
+                <tree string="Master Provider">
+                    <field name="name" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_provider" model="ir.actions.act_window">
+            <field name="name">Master Provider</field>
+            <field name="res_model">tbl_provider</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Master Provider" id="menu_provider" action="action_provider" sequence = "15" parent="menu_hospital_atas_seting"/>
+<!-- 
+        <record id="proses_form" model="ir.ui.view">
+            <field name="name">form.provider</field>
+            <field name="model">tbl_proses</field>
+            <field name="arch" type="xml">
+                <form string="Master Proses">
+                    <sheet>
+                        <group>
+                            <group>
+                               <field name="name" />
+                               <field name="bayar_dulu" />
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="proses_tree" model="ir.ui.view">
+            <field name="name">tree.provider</field>
+            <field name="model">tbl_proses</field>
+            <field name="arch" type="xml">
+                <tree string="Master Proses">
+                    <field name="name" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_proses" model="ir.actions.act_window">
+            <field name="name">Master Proses</field>
+            <field name="res_model">tbl_proses</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Master Proses" id="menu_proses" action="action_proses" sequence = "15" parent="menu_hospital_atas_seting"/>
+         -->
+        <record id="tipe_penjamin_form" model="ir.ui.view">
+            <field name="name">form.master_tipe_penjamin</field>
+            <field name="model">master_tipe_penjamin</field>
+            <field name="arch" type="xml">
+                <form string="Master Tipe Penjamin">
+                    <sheet>
+                        <group>
+                            <group>
+                               <field name="name" />
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="tipe_penjamin_tree" model="ir.ui.view">
+            <field name="name">tree.master_tipe_penjamin</field>
+            <field name="model">master_tipe_penjamin</field>
+            <field name="arch" type="xml">
+                <tree string="Master Tipe Penjamin">
+                    <field name="name" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_tipe_penjamin" model="ir.actions.act_window">
+            <field name="name">Master Tipe Penjamin</field>
+            <field name="res_model">master_tipe_penjamin</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Master Tipe Penjamin" id="menu_tipe_penjamin" action="action_tipe_penjamin" sequence = "15" parent="menu_hospital_atas_seting"/>
+        
+        <record id="aturan_pakai_form" model="ir.ui.view">
+            <field name="name">form.aturan_pakai</field>
+            <field name="model">aturan_pakai</field>
+            <field name="arch" type="xml">
+                <form string="Master Aturan Pakai">
+                    <sheet>
+                        <group>
+                            <group>
+                               <field name="name" />
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="aturan_pakai_tree" model="ir.ui.view">
+            <field name="name">tree.aturan_pakai</field>
+            <field name="model">aturan_pakai</field>
+            <field name="arch" type="xml">
+                <tree string="Master Aturan Pakai">
+                    <field name="name" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_aturan_pakai" model="ir.actions.act_window">
+            <field name="name">Master Aturan Pakai</field>
+            <field name="res_model">aturan_pakai</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Master Aturan Pakai" id="menu_aturan_pakai" action="action_aturan_pakai" sequence = "15" parent="menu_hospital_atas_seting"/>
+
+        <record id="view_bisa_sales_form" model="ir.ui.view">
+            <field name="name">sale.order.form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+	            <xpath expr="//field[@name='payment_term_id']" position="after">
+                    <field name="keperluan"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="view_partner_form" model="ir.ui.view">
+            <field name="name">res.partner.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+
+	            <xpath expr="//field[@name='type']" position="before">
+
+                    
+                    
+                        <field name="gelar" attrs="{'invisible': [('is_vendor','=', True)]}"/>
+                        <field name="no_rm" attrs="{'invisible': [('is_pasien','=', False)]}"/>
+                        <field name="no_rm_lama" attrs="{'invisible': [('is_pasien','=', False)]}"/>
+                        <field name="kota_lahir" attrs="{'invisible': [('is_vendor','=', True)]}" />
+                        <field name="tgl_lahir" attrs="{'invisible': [('is_vendor','=', True)]}" />
+                       <field name="agama1" attrs="{'invisible': [('is_vendor','=', True)]}" />
+                       <field name="jenis_kelamin1" attrs="{'invisible': [('is_vendor','=', True)]}"/>
+                       <field name="jenis_id" attrs="{'invisible': [('is_vendor','=', True)]}"/>
+                       <field name="no_id" attrs="{'invisible': [('is_vendor','=', True)]}"/>
+                       <field name="warga_negara" attrs="{'invisible': [('is_vendor','=', True)]}"/>
+                       <field name="gol_darah" attrs="{'invisible': [('is_vendor','=', True)]}"/>
+                       <field name="nama_ibu_kandung" attrs="{'invisible': [('is_pasien','=', False)]}"/>
+                       <field name="pekerjaan" attrs="{'invisible': [('is_pasien','=', False)]}"/>
+                       <!-- vendor -->
+                        <field name="company_name" attrs="{'invisible': [('is_vendor','=', False)]}"/>
+                        <field name="co_address" attrs="{'invisible': [('is_vendor','=', False)]}"/>
+                        <field name="co_city" attrs="{'invisible': [('is_vendor','=', False)]}"/>
+                        <field name="co_post_code" attrs="{'invisible': [('is_vendor','=', False)]}"/>
+                        <field name="co_name_of_contact" attrs="{'invisible': [('is_vendor','=', False)]}"/>
+                        <field name="co_position" attrs="{'invisible': [('is_vendor','=', False)]}"/>
+                        <!-- <field name="co_telp" attrs="{'invisible': [('is_vendor','=', False)]}"/> -->
+                        <!-- <field name="co_web" attrs="{'invisible': [('is_vendor','=', False)]}"/> -->
+                        <!-- <field name="co_Reg" attrs="{'invisible': [('is_vendor','=', False)]}"/> -->
+                        <field name="co_pih" attrs="{'invisible': [('is_vendor','=', False)]}"/>
+                        <field name="co_ncage" attrs="{'invisible': [('is_vendor','=', False)]}"/>
+                        <field name="co_sam" attrs="{'invisible': [('is_vendor','=', False)]}"/>
+                        <field name="co_desc" attrs="{'invisible': [('is_vendor','=', False)]}"/>
+                        <!-- karyawan -->
+                        <field name="nip_" attrs="{'invisible': [('is_dokter','=', False)]}"/>
+                        <field name="title_" attrs="{'invisible': [('is_dokter','=', False)]}"/>
+                        <field name="spesialis_" attrs="{'invisible': [('is_dokter','=', False)]}"/>
+                        <field name="jabatan_" attrs="{'invisible': [('is_dokter','=', False)]}"/>
+                        <field name="tahun_masuk_" attrs="{'invisible': [('is_dokter','=', False)]}"/>
+                        <field name="pend_terakhir_" attrs="{'invisible': [('is_dokter','=', False)]}"/>
+
+                       
+	            </xpath>
+	            <xpath expr="//field[@name='street']" position="replace">
+                                <!-- <field name="propinsi_" class="o_address_street"/> -->
+                       <field name="propinsi" placeholder="Propinsi..." class="o_address_street" options="{'no_create': True, 'no_create_edit':True}"/>
+                                <field name="street" placeholder="Street..." class="o_address_street"
+                                    attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}" invisible="1"/>
+
+	            </xpath>
+	            <xpath expr="//field[@name='street2']" position="replace">
+                                <!-- <field name="kabupaten_" class="o_address_street"/> -->
+                       <field name="kabupaten" placeholder="Kabupaten..." class="o_address_street" options="{'no_create': True, 'no_create_edit':True}"/>
+                       <!-- <field name="kelurahan" placeholder="Kelurahan..." class="o_address_street"/> -->
+                                <field name="street2" placeholder="Street 2..." class="o_address_street"
+                                    attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}" invisible="1"/>
+
+	            </xpath>
+
+	            <xpath expr="//field[@name='city']" position="replace">
+                                <!-- <field name="kecamatan_" class="o_address_street"/> -->
+                       <field name="kecamatan" placeholder="Kecamatan..." class="o_address_street" options="{'no_create': True, 'no_create_edit':True}"/>
+                       <!-- <field name="kecamatan" placeholder="Kecamatan..." class="o_address_street"/> -->
+                                <field name="city" placeholder="City" class="o_address_city"
+                                    attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}" invisible="1"/>
+
+	            </xpath>
+	            <xpath expr="//field[@name='state_id']" position="replace">
+                                <!-- <field name="kelurahan_" class="o_address_street"/> -->
+                       <field name="kelurahan" placeholder="Kelurahan..." class="o_address_street"/>
+                       <!-- <field name="kabupaten" placeholder="Kabupaten..." class="o_address_street"/> -->
+                                <field name="state_id" class="o_address_state" placeholder="State" options="{'no_create': True, 'no_open': True, 'no_quick_create': True}"
+                                    attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}" context="{'country_id': country_id, 'default_country_id': country_id, 'zip': zip}" invisible="1"/>
+
+	            </xpath>
+	            <xpath expr="//field[@name='zip']" position="replace">
+                       <!-- <field name="propinsi" placeholder="Propinsi..." class="o_address_street"/> -->
+                       <field name="alamat" placeholder="Alamat..." class="o_address_street"/>
+                                <field name="zip" placeholder="ZIP" class="o_address_zip"
+                                    attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}" invisible="1"/>
+
+	            </xpath>
+	            <xpath expr="//field[@name='function']" position="before">
+                                <field name="is_kantor" attrs="{'invisible': [('is_vendor','=', True)]}" />
+                                <field name="is_asuransi" attrs="{'invisible': [('is_vendor','=', True)]}" />
+                                <field name="is_pasien" attrs="{'invisible': [('is_vendor','=', True)]}" />
+                                <field name="is_dokter" attrs="{'invisible': [('is_vendor','=', True)]}" />
+                                <field name="is_vendor"/>
+                                <!-- <field name="is_karyawan"/> -->
+                                
+	            </xpath>
+	            <xpath expr="//field[@name='title']" position="replace">
+                                <field name="title" invisible="1"/>
+                                <!-- <field name="is_karyawan"/> -->
+                                
+	            </xpath>
+                <xpath expr="//page[@name='contact_addresses']" position="before">
+                    <page string="Penjamin" autofocus="autofocus">
+                        <field name="daftar_penjamin">
+                            <tree editable="bottom">
+                                <field name="pilihan_penjamin" invisible="1" readonly="1" />
+                                <field name="tipe_penjamin1" options="{'no_create': True, 'no_create_edit':True,'no_open': True}"/>
+                                <field name="nama_penjamin" options="{'no_create': True, 'no_create_edit':True,'no_open': True}"/>
+                                <field name="perusahaan_provider_"  attrs="{'invisible': [('tipe_penjamin1','!=','asuransi_provider')]}"/>
+                                <field name="nomor"/>
+                                <!-- <field name="keterangan"/> -->
+                                <field name="tanggal_berlaku"/>
+                                <field name="berkas_penjamin" widget="many2many_binary"/>
+                            </tree>
+                        </field>
+                        <!-- <group>
+                            <group>
+                                <field name="penjamin" />
+                                <field name="nama_penjamin_perusahaan" attrs="{'invisible': [('penjamin', '!=', 'pribadi_kantor')]}"/>
+                                <field name="no_polis_perusahaan" attrs="{'invisible': [('penjamin', '!=', 'pribadi_kantor')]}"/>
+                                <field name="ket_penjamin_perusahaan" attrs="{'invisible': [('penjamin', '!=', 'pribadi_kantor')]}"/>
+                                
+                                
+                                <field name="nama_penjamin_asuransi"  attrs="{'invisible': [('penjamin', '!=', 'pribadi_asuransi')]}"/>
+                                <field name="no_polis_asuransi"  attrs="{'invisible': [('penjamin', '!=', 'pribadi_asuransi')]}"/>
+                                <field name="ket_penjamin_asuransi" attrs="{'invisible': [('penjamin', '!=', 'pribadi_asuransi')]}"/>
+                                
+
+                                <field name="no_polis_bpjs" attrs="{'invisible': [('penjamin', '!=', 'bpjs')]}"/>
+                                <field name="ket_penjamin_bpjs" attrs="{'invisible': [('penjamin', '!=', 'bpjs')]}"/>
+                                <field name="berkas_penjamin" widget="many2many_binary" attrs="{'invisible': [('penjamin', '==', 'pribadi')]}"/>
+                            </group>
+                        </group> -->
+                    </page>
+                </xpath>
+
+                <field name="vat" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+
+                
+
+                <!-- <field name="l10n_id_pkp" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field> -->
+
+
+            </field>
+        </record>
+
+        <record id = "view_partner_search" model = "ir.ui.view">
+            <field name="name">res.partner.search</field>
+            <field name="model">res.partner</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="alamat"/>
+                    <field name="tgl_lahir"/>
+                    <field name="kota_lahir"/>
+                    <field name="no_id"/>
+                    <field name="no_rm"/>
+                    <field name="no_rm_lama" />
+                </search>
+            </field>
+        </record>
+
+        <record id="view_invoice_bisa_form" model="ir.ui.view">
+            <field name="name">invoice.form</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <!-- versi 1 -->
+                <xpath expr="//button[@name='action_register_payment']" position="after">
+                         <!-- <button name = "printKwitansi" type = "object" string = "Print Kwitansi" class = "oe_highlight" attrs="{'invisible': [('payment_state','in', ('not_paid', False))]}"/>
+                         <button name = "printReceiptFarmasi" type = "object" string = "Print Receipt Farmasi" class = "oe_highlight" attrs="{'invisible': [('payment_state','in', ('not_paid', False))]}"/> -->
+                    <!-- <button name="return_barang" string="Return barang" type="object" attrs="{'invisible':['|',('request_status','!=','approved'),('sudah_return','=',True),('is_return','!=',True)]}"/> -->
+	            </xpath>
+	            <xpath expr="//field[@name='invoice_line_ids']//tree//field[@name='price_unit']" position="after">
+                    <field name="potongan" force_save="1"/>
+	            </xpath>
+	            <xpath expr="//field[@name='edi_document_ids']" position="after">
+                    <field name="flag_shift" invisible="1" />
+                    <field name="journal_id_" invisible="1"/>
+                    <field name="payment_id"/>
+                    <field name="pendaftaran_id"/>
+                    <field name="user_pj"/>
+                    <field name="waktu_transaksi"/>
+                    <field name="pembayar"/>
+                    <field name="date_transaksi" invisible="0"/>
+	            </xpath>
+                <field name="ref" position='after'>
+                    <field name="penjamin"/>
+                    <field name="keterangan_paket" invisible="1"/>
+                    <field name="penjamin_partner"/>
+                    <field name="terbilang_" invisible="1"/>
+                    <field name="non_pribadi" invisible="1"/>
+                    <field name="benefit" readonly="1" attrs="{'invisible': [('non_pribadi','!=',True)]}"/>
+                    <field name="no_polis" invisible="1" />
+                    <field name="breakdown_harga_nama" invisible="1" />
+                    <field name="breakdown_harga_harga" invisible="1" />
+                    <!-- <field name="nominal" widget="monetary" attrs="{'invisible': [('non_pribadi','!=',True)]}"/> -->
+                </field>
+                <field name="edi_state" position='after'>
+                    <field name="pricelist_id"/>
+                </field>
+                <field name="name" position="attributes">
+                    <attribute name="optional">1</attribute>
+                </field>
+                <!-- <xpath expr="//field[@name='payment_reference']" position="after">
+                    <field name="partial_amount"/>
+                </xpath> -->
+
+<!--             <xpath expr="//button[@name='action_register_payment']" position="replace">-->
+<!--                  <button name="action_register_payment" id="account_invoice_payment_btn"-->
+<!--                            type="object" class="oe_highlight"-->
+
+<!--                            attrs="{'invisible': [('state', '!=', posted)]}"-->
+<!--                            context="{'dont_redirect_to_payments': True}"-->
+<!--                            string="Register Payment YESSSS"-->
+<!--                            groups="account.group_account_invoice"/>-->
+<!--            </xpath>-->
+                
+	            <!-- <xpath expr="//button[@name='action_post']" position="after">
+                    <button name="action_refund" string="Refund/Batal" class="oe_highlight" type="object" attrs="{'invisible': [('state', '!=', 'posted')]}"/>
+	            </xpath> -->
+                <!-- versi 2 -->
+                <!-- <field name='edi_document_ids' position='after'>
+                    <field name="pendaftaran_id"/>
+	            </field> -->
+            </field>
+        </record>
+        
+        <!-- <record id="view_invoice_line_bisa_form" model="ir.ui.view">
+            <field name="name">invoice.line.form</field>
+            <field name="model">account.move.line</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+	            <field name="name" position="attributes">
+                    <attribute name="optional">1</attribute>
+                </field>
+            </field>
+        </record> -->
+        
+        
+        <record id="action_radiologi" model="ir.actions.act_window">
+        	<field name="name">Radiologi</field> 
+        	<field name="res_model">tbl_rs_sarana</field> 
+        	<field name="view_mode">tree,form</field>
+            <field name="domain">[('sarana', '=', 'radiologi')]</field>
+    	</record>
+
+        <menuitem name="Radiologi" id="menu_radiologi" action="action_radiologi" parent="menu_hospital_atas_sarana"/>
+
+        <!-- <record id="tbl_area_form" model="ir.ui.view">
+            <field name="name">form.tbl_area</field>
+            <field name="model">tbl_area</field>
+            <field name="arch" type="xml">
+                <form string="Area">
+                    <sheet>
+                        <group>
+                            <group>
+                               <field name="name" />
+                               <field name="sistem_pembayaran" />
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record> -->
+
+        <!-- <record id="tbl_area_tree" model="ir.ui.view">
+            <field name="name">tree.tbl_area</field>
+            <field name="model">tbl_area</field>
+            <field name="arch" type="xml">
+                <tree string="Area">
+                    <field name="name" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_tbl_area" model="ir.actions.act_window">
+            <field name="name">Area</field>
+            <field name="res_model">tbl_area</field>
+            <field name="view_mode">tree,form</field>
+        </record> -->
+
+        <!-- <menuitem name="Area" id="menu_tbl_area" action="action_tbl_area" sequence = "15" parent="menu_hospital_atas_seting"/> -->
+
+        <record id="view_warehouse_bisa_form" model="ir.ui.view">
+            <field name="name">stock.warehouse</field>
+            <field name="model">stock.warehouse</field>
+            <field name="inherit_id" ref="stock.view_warehouse"/>
+            <field name="arch" type="xml">
+	            <xpath expr="//field[@name='code']" position="after">
+                    <field name="area"/>
+	            </xpath>
+            </field>
+        </record>
+<!-- 
+        <record id="view_user_bisa_form" model="ir.ui.view">
+            <field name="name">res.users.form</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='preferences']" position="after">
+                    <page string="List Dokter/Perawat">
+                        <field name="daftar_dokter_perawat">
+                            <tree>
+                                <field name="name"/>
+                            </tree>
+                        </field>
+                    </page>
+	            </xpath>
+            </field>
+        </record> -->
+
+        <record id="bisa_approval_form" model="ir.ui.view">
+            <field name="name">approval.request.view.form</field>
+            <field name="model">approval.request</field>
+            <field name="inherit_id" ref="approvals.approval_request_view_form"/>
+            <field name="arch" type="xml">
+	            <xpath expr="//button[@name='action_approve']" position="after">
+                    <button name="create_rfq" string="Create RFQ" type="object" attrs="{'invisible':['|','|',('request_status','!=','approved'),('create_rfq_','=',True),('is_return','=',True)]}"/>
+                    <field name="create_rfq_" invisible="1"/>
+                    <field name="is_return" invisible="1" />
+                    <!-- <button name="return_barang" string="Return barang" type="object" attrs="{'invisible':['|',('request_status','!=','approved'),('sudah_return','=',True),('is_return','!=',True)]}"/> -->
+	            </xpath>
+	            <xpath expr="//field[@name='request_owner_id']" position="replace">
+                    <field name="penerima" invisible="1" />
+                    <field name="lokasi" invisible="1"/>
+                    <field name="date" string="Tanggal PO"/>
+                    <field name="user_id_app" invisible="1"/>
+	            </xpath>
+	            <xpath expr="//field[@name='amount']" position="replace">
+                    <field name="amount" invisible="1" />
+	            </xpath>
+	            <!-- <xpath expr="//field[@name='date']" position="after">
+                    <field name="date" string="Tanggal PO"/>
+	            </xpath> -->
+	            <xpath expr="//field[@name='category_id']" position="replace">
+                    <field name="category_id" invisible="1"/>
+	            </xpath>
+            </field>
+        </record>
+
+        <record id="bisa_prod_line_tree" model="ir.ui.view">
+            <field name="name">approval.product.line.view.tree</field>
+            <field name="model">approval.product.line</field>
+            <field name="inherit_id" ref="approvals.approval_product_line_view_tree"/>
+            <field name="arch" type="xml">
+	            <xpath expr="//field[@name='quantity']" position="replace">
+                    <field name="warehouse_id"/>
+                    <field name="quantity_produk"/>
+                    <field name="quantity"/>
+                    <!-- <field name="product_uom_id"/> -->
+	            </xpath>
+            </field>
+        </record>
+
+
+        <record id="view_po_bisa_form" model="ir.ui.view">
+            <field name="name">purchase.order.form</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+	            <xpath expr="//field[@name='product_qty']" position="replace">
+                    <field name="stok" invisible="1"/>
+                    <field name="stok_int"/>
+                    <field name="product_qty" invisible="1"/>
+                    <field name="product_qty_int"/>
+                    <field name="disc_rp" invisible="1"/>
+	            </xpath>
+                <xpath expr="//field[@name='origin']" position="replace">
+                    <field name="origin" invisible="1"/>
+                    <field name="dokumen_sumber_"/>
+                    <field name="nomor_faktur"/>
+                    <field name="nomor_faktur_pajak"/>
+                    <field name="apoteker"/>
+                    <field name="tanda_tangan_" widget='signature' invisible="1" />
+                    <field name="ttd"  widget='image' invisible="1"/>
+                    <!-- <field name="picking_type_id"/> -->
+	            </xpath>
+	            <!-- <xpath expr="//div[@class='o_td_label']" position="before">
+                    <field name="origin" string="Nomor PO"/>
+	            </xpath> -->
+                <!-- div class="o_td_label" -->
+	            <!-- <xpath expr="//field[@name='partner_id']" position="before">
+                    <field name="nomor_po"/>
+	            </xpath> -->
+            </field>
+        </record>
+
+        <record id="bisa_register_payment" model="ir.ui.view">
+            <field name="name">account.payment.register.form</field>
+            <field name="model">account.payment.register</field>
+            <field name="inherit_id" ref="account.view_account_payment_register_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='communication']" position="after">
+                    <field name="pembayaran_" widget = "monetary"/>
+                    <field name="kembali_" widget = "monetary"/>    
+	            </xpath>
+            </field>
+        </record>
+
+        <record id="bisa_register_payment" model="ir.ui.view">
+            <field name="name">account.payment.register.form</field>
+            <field name="model">account.payment.register</field>
+            <field name="inherit_id" ref="account.view_account_payment_register_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='communication']" position="after">
+                    <field name="pembayaran_" widget = "monetary"/>
+                    <field name="kembali_" widget = "monetary"/>    
+	            </xpath>
+            </field>
+        </record>
+
+        <!-- Shift Management -->
+        <record id="shift_management_form" model="ir.ui.view">
+            <field name="name">Shift Management Form</field>
+            <field name="model">tbl_shift_management</field>
+            <field name="arch" type="xml">
+                <form string="Shift Management">
+                    <group col='2'>
+                        <group>
+                            <field name="name"/>
+                            <field name="pass_day"/>
+                        </group>
+                        <group>
+                            <div class="o_row">
+                                <field name="start_time" widget="float_time" placeholder="Start Time"/>
+                                -
+                                <field name="end_time" widget="float_time" placeholder="End Time"/>
+                            </div>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+        <record id="shift_management_tree" model="ir.ui.view">
+            <field name="name">Shift Management Tree</field>
+            <field name="model">tbl_shift_management</field>
+            <field name="arch" type="xml">
+                <tree string="Shift Management">
+                    <field name="name"/>
+                    <field name="start_time"/>
+                    <field name="end_time"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_shift_management" model="ir.actions.act_window">
+            <field name="name">Shift Management</field>
+            <field name="res_model">tbl_shift_management</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Shift Management" id="menu_shift_management" action="action_shift_management" sequence = "20" parent="account.account_management_menu"/>
+
+        <!-- REPORT INVOICE BY SHIFT -->
+        <record id="report_invoice_shift_form" model="ir.ui.view">
+            <field name="name">Report Invoice by Shift Form</field>
+            <field name="model">tbl_report_detail_invoice</field>
+            <field name="arch" type="xml">
+                <form string="Report Invoice by Shift">
+                    <header>
+                        <button name = "act_report_all" type = "object" string = "SUBMIT" class = "oe_highlight" state='draft' attrs="{'invisible': [('get_true','=', True)]}"/>
+                        <button name = "act_serah_terima" type = "object" string = "SERAH TERIMA" class = "oe_highlight" attrs="{'invisible': [('state','!=', 'submit')]}"/>
+                        <button name = "act_set_draft" type = "object" string = "SET TO DRAFT" class = "oe_highlight" attrs="{'invisible': [('state','!=', 'submit')]}"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group col='2'>
+                            <group>
+                                <field name="name"/>
+                                <field name="date"/>
+                                <label for="shift"/>
+                                <div class="o_row">
+                                    <field name="shift" options="{'no_create': True}"/>
+                                </div>
+                                <field name="nominal_diterima1" widget = "monetary" attrs="{'readonly': [ ('state', 'not in', ['draft'])]}"/>
+                                <field name="operating_unit_ids" widget = "many2many_tags"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Details" name="Details">
+                                <field name="get_true" invisible="1"/>
+                                <field name="detail_id">
+                                    <tree create='false' edit='false' delete='false'>
+                                        <field name="name" invisible="1"/>
+                                        <field name="payment_state"/>
+                                        <field name="penjamin_id"/>
+                                        <field name="memo"/>
+                                        <field name="unit_layanan"/>
+                                        <field name="layanan"/>
+                                        <field name="waktu_transaksi"/>
+                                        <field name="pasien_id"/>
+                                        <field name="journal_id"/>
+                                        <field name="nominal" sum="Total Of Nominal"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                        <group col='2'>
+                            <group>
+                                <field name="total_pribadi"/>
+                                <field name="total_bpjs"/>
+                                <field name="total_asuransi"/>
+                                <field name="count_total"/>
+                            </group>
+                            <group>
+                                <field name="total_harga_pribadi"/>
+                                <field name="total_harga_bpjs"/>
+                                <field name="total_harga_asuransi"/>
+                                <field name="count_nominal_total"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="report_invoice_shift_tree" model="ir.ui.view">
+            <field name="name">Report Invoice by Shift Tree</field>
+            <field name="model">tbl_report_detail_invoice</field>
+            <field name="arch" type="xml">
+                <tree string="Report Invoice by Shift">
+                    <field name="name"/>
+                    <field name="date"/>
+                    <field name="shift"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_report_invoice_shift" model="ir.actions.act_window">
+            <field name="name">Report Invoice by Shift</field>
+            <field name="res_model">tbl_report_detail_invoice</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Report Invoice by Shift" id="menu_report_invoice_shift" action="action_report_invoice_shift" sequence = "100" parent="account.menu_finance_reports"/>
+
+        <record id="view_warehouse_bisa_form" model="ir.ui.view">
+            <field name="name">operating.unit.form</field>
+            <field name="model">operating.unit</field>
+            <field name="inherit_id" ref="operating_unit.view_operating_unit_form"/>
+            <field name="arch" type="xml">
+	            <xpath expr="//field[@name='company_id']" position="after">
+                    <field name="tipe_transaksi_unit_"/>
+                    <field name="warehouse_farmasi"/>
+                    <field name="pricelist_unit_"/>
+                    <field name="pricelist_ids" widget="many2many_tags" />
+                    <field name="kop_surat" widget='image' class="oe_avatar"/>
+	            </xpath>
+            </field>
+        </record>
+
+    <record id="view_inventory" model="ir.ui.view">
+        <field name="name">stock.picking.form</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='origin']" position="after">
+                <field name="sumber_dokumen"/>
+                <field name="waktu__"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_inventory" model="ir.ui.view">
+        <field name="name">stock.inventory</field>
+        <field name="model">stock.inventory</field>
+        <field name="inherit_id" ref="stock.view_inventory_form" />
+        <field name="arch" type="xml">
+            <field name="company_id" position="after">
+                <field name="operating_unit_id"/>
+                <field name="user_id"/>
+            </field>
+        </field>
+    </record>
+
+    <!-- <record id="view_move_line" model="ir.ui.view">
+        <field name="name">account.move.line.form.penjamin</field>
+        <field name="model">account.move.line</field>
+        <field name="inherit_id" ref="account.view_move_line_form" />
+        <field name="arch" type="xml">
+            <field name="product_id" position="after">
+                <field name="penjamin_"/>
+            </field>
+        </field>
+    </record> -->
+
+    
+    <record id="tbl_breakdown_harga_form" model="ir.ui.view">
+        <field name="name">form.tbl_breakdown_harga</field>
+        <field name="model">tbl_breakdown_harga</field>
+        <field name="arch" type="xml">
+            <form string="Master Data Breakdown Harga">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="tbl_breakdown_harga_tree" model="ir.ui.view">
+        <field name="name">tree.tbl_breakdown_harga</field>
+        <field name="model">tbl_breakdown_harga</field>
+        <field name="arch" type="xml">
+            <tree string="Master Data Breakdown Harga">
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_tbl_breakdown_harga" model="ir.actions.act_window">
+        <field name="name">Master Data Layanan</field>
+        <field name="res_model">tbl_breakdown_harga</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Master Data Breakdown Harga" id="menu_tbl_breakdown_harga" action="action_tbl_breakdown_harga" sequence = "70" parent="menu_hospital_atas_seting"/>
+
+     <!-- <record id="view_partner_tree_inherit" model="ir.ui.view">
+            <field name="name">res.partner.tree</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='email']" position="before">
+                    <field name="alamat"/>
+                    <field name="jenis_kelamin1"/>
+                    <field name="kota_lahir"/>
+                    <field name="tgl_lahir"/>
+                </xpath>
+
+            </field>
+    </record> -->
+
+     <record id="view_account_payment_form" model="ir.ui.view">
+        <field name="name">account.payment.form</field>
+        <field name="model">account.payment</field>
+        <field name="inherit_id" ref="account.view_account_payment_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='mark_as_sent']" position="after">
+                <!-- <button name="printPartialAmount" string="Print Partial Amount" class="oe_highlight" type="object" /> -->
+                <!-- <button name="return_barang" string="Return barang" type="object" attrs="{'invisible':['|',('request_status','!=','approved'),('sudah_return','=',True),('is_return','!=',True)]}"/> -->
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_pembayaran" model="ir.actions.act_window">
+            <field name="name">Master Pembiayaan</field>
+            <field name="res_model">tbl_pembiayaan_pendaftaran</field>
+            <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Master Pembiayaan" id="menu_pembayaran" action="action_pembayaran" sequence = "75" parent="menu_hospital_atas_seting"/>
+
+
+        <!--Message Wizard -->
+    <record id="mymodule_message_wizard_form" model="ir.ui.view">
+        <field name="name">message.wizard.form</field>
+        <field name="model">message_wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <field name="message" readonly="True"/>
+                <footer>
+                    <button name="action_close" string="Ok" type="object" default_focus="1" class="oe_highlight"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>

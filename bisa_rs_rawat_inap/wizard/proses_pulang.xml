@@ -1,0 +1,54 @@
+<openerp>
+    <data>
+
+       <record id="view_proses_pulang_form" model="ir.ui.view">
+            <field name="name">view.proses_pulang.form</field>
+            <field name="model">tbl_proses_pulang</field>
+            <field name="arch" type="xml">
+                <form string="QC">
+
+
+                    <sheet string="Sync">
+
+                    <h1>
+                    <label string="Proses Pulang"/>
+                    </h1>
+                    <group>
+                        <group>
+                                    <field name="is_billing"/>
+                                    <field name="is_kunjungan"/>
+                                    <field name="is_obat_pulang"/>
+                                    <field name="status_pulang"/>
+                                    <field name="status_pulang_rujuk"  attrs="{'invisible': [('status_pulang','!=', 'Rujuk')]}"/>
+                                    <field name="is_tagihan"/>
+                                    <field name="alasan_tagihan"  attrs="{'invisible': [('is_tagihan','!=', True)]}"/>
+
+
+                        </group>
+                        <group>
+
+
+                        </group>
+                    </group>
+ 
+                    <footer>
+                   <button name="do_proses_pulang"  string="Proses" type="object"   />
+                    </footer>
+
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+
+        <record id="act_proses_pulang" model="ir.actions.act_window">
+            <field name="name">Proses Pulang</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">tbl_proses_pulang</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+    </data>
+</openerp>

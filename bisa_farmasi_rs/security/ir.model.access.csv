@@ -1,0 +1,13 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+mgr_tbl_farmasi,mgr_tbl_farmasi,model_tbl_farmasi,,1,1,1,1
+mgr_tbl_return_farmasi,mgr_tbl_return_farmasi,model_tbl_return_farmasi,,1,1,1,1
+mgr_detail_return,mgr_detail_return,model_detail_return,,1,1,1,1
+mgr_tbl_farmasi_resep,mgr_tbl_farmasi_resep,model_tbl_farmasi_resep,,1,1,1,1
+mgr_tbl_farmasi_resep_racikan,mgr_tbl_farmasi_resep_racikan,model_tbl_farmasi_resep_racikan,,1,1,1,1
+mgr_penjualan_luar,mgr_penjualan_luar,model_penjualan_luar,,1,1,1,1
+mgr_penjualan_non_farmasi,mgr_penjualan_non_farmasi,model_penjualan_non_farmasi,,1,1,1,1
+mgr_master_apoteker,mgr_master_apoteker,model_master_apoteker,,1,1,1,1
+mgr_riwayat_obat_pasien,mgr_riwayat_obat_pasien,model_riwayat_obat_pasien,,1,1,1,1
+mgr_list_riwayat_obat_pasien,mgr_list_riwayat_obat_pasien,model_list_riwayat_obat_pasien,,1,1,1,1
+mgr_report_penjualan_d3,mgr_report_penjualan_d3,model_report_penjualan_d3,,1,1,1,1
+mgr_detail_penjualan_d3,mgr_detail_penjualan_d3,model_detail_penjualan_d3,,1,1,1,1

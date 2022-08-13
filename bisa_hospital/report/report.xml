@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="action_report_resep" model="ir.actions.report">
+            <field name="name">resep obat</field>
+            <field name="model">tbl_poli</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">bisa_hospital.report_resep</field>
+            <field name="report_file">bisa_hospital.report_resep</field>
+            <!-- <field name="paperformat_id">bisa_hospital.paperformat_resep_report</field> -->
+        </record>
+    </data>
+    <data>
+        <record id="action_report_resep_racikan" model="ir.actions.report">
+            <field name="name">resep obat racikan</field>
+            <field name="model">tbl_poli</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">bisa_hospital.report_resep_racikan</field>
+            <field name="report_file">bisa_hospital.report_resep_racikan</field>
+            <!-- <field name="paperformat_id">bisa_hospital.paperformat_resep_report</field> -->
+        </record>
+    </data>
+    <data>
+        <record id="action_report_resep_mix" model="ir.actions.report">
+            <field name="name">resep obat dan resep racikan</field>
+            <field name="model">tbl_poli</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">bisa_hospital.report_resep_mix</field>
+            <field name="report_file">bisa_hospital.report_resep_mix</field>
+            <!-- <field name="paperformat_id">bisa_hospital.paperformat_resep_report</field> -->
+        </record>
+    </data>
+    <data>
+        <record id="action_report_label_lab" model="ir.actions.report">
+            <field name="name">Label Lab</field>
+            <field name="model">tbl_rs_sarana</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">bisa_hospital.report_label_lab</field>
+            <field name="report_file">bisa_hospital.report_label_lab</field>
+            <!-- <field name="paperformat_id">bisa_hospital.paperformat_resep_report</field> -->
+        </record>
+    </data>
+    <data>
+        <record id="action_report_hasil_lab" model="ir.actions.report">
+            <field name="name">Hasil Lab</field>
+            <field name="model">tbl_rs_sarana</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">bisa_hospital.report_hasil_lab</field>
+            <field name="report_file">bisa_hospital.report_hasil_lab</field>
+            <!-- <field name="paperformat_id">bisa_hospital.paperformat_resep_report</field> -->
+        </record>
+    </data>
+
+    <data>
+        <record id="action_surat_sakit" model="ir.actions.report">
+            <field name="name">Surat Keterangan Sakit</field>
+            <field name="model">tbl_poli</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">bisa_hospital.report_hasil_surat_sakit</field>
+            <field name="report_file">bisa_hospital.report_hasil_surat_sakit</field>
+            <!-- <field name="paperformat_id">bisa_hospital.paperformat_resep_report</field> -->
+        </record>
+        <record id="action_surat_rujukan" model="ir.actions.report">
+            <field name="name">Surat Rujukan</field>
+            <field name="model">tbl_poli</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">bisa_hospital.report_surat_rujukan</field>
+            <field name="report_file">bisa_hospital.report_surat_rujukan</field>
+            <!-- <field name="paperformat_id">bisa_hospital.paperformat_resep_report</field> -->
+        </record>
+
+        <record id="action_surat_rujukan1" model="ir.actions.report">
+            <field name="name">Surat Rujukan</field>
+            <field name="model">tbl_rujukan</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">bisa_hospital.report_surat_rujukan</field>
+            <field name="report_file">bisa_hospital.report_surat_rujukan</field>
+            <!-- <field name="paperformat_id">bisa_hospital.paperformat_resep_report</field> -->
+        </record>
+
+        <record id="action_hasil_antigen" model="ir.actions.report">
+            <field name="name">Surat Hasil Rapidtest</field>
+            <field name="model">tbl_rs_sarana</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">bisa_hospital.report_hasil_antigen</field>
+            <field name="report_file">bisa_hospital.report_hasil_antigen</field>
+            <!-- <field name="paperformat_id">bisa_hospital.paperformat_resep_report</field> -->
+        </record>   
+
+        <record id="partial_amount" model="ir.actions.report">
+            <field name="name">Partial Amount</field>
+            <field name="model">account.payment</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">bisa_hospital.report_partial_amount</field>
+            <field name="report_file">bisa_hospital.report_partial_amount</field>
+            <!-- <field name="paperformat_id">bisa_hospital.paperformat_resep_report</field> -->
+        </record>   
+
+        <record id="kwitansi1" model="ir.actions.report">
+            <field name="name">Kwitansi</field>
+            <field name="model">account.move</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">bisa_hospital.template_kwitansi</field>
+            <field name="report_file">bisa_hospital.template_kwitansi</field>
+            <!-- <field name="paperformat_id">bisa_hospital.paperformat_resep_report</field> -->
+        </record>   
+
+        
+        <record id="paperformat_receiptFarmasi" model="report.paperformat">
+            <field name="name">European A4</field>
+            <field name="default" eval="True" />
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">40</field>
+            <field name="margin_bottom">23</field>
+            <field name="margin_left">7</field>
+            <field name="margin_right">7</field>
+            <field name="header_line" eval="False" />
+            <field name="header_spacing">35</field>
+            <field name="dpi">90</field>
+        </record>
+
+       <record id="receipt_farmasi" model="ir.actions.report">
+            <field name="name">Receipt Farmasi</field>
+            <field name="model">account.move</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">bisa_hospital.template_receipt_farmasi</field>
+            <field name="report_file">bisa_hospital.template_receipt_farmasi</field>
+            <field name="paperformat_id" ref="bisa_hospital.paperformat_receiptFarmasi" />
+            <!-- <field name="paperformat_id">bisa_hospital.paperformat_resep_report</field> -->
+        </record>   
+
+
+
+
+        
+    </data>
+    <data>
+        <record id="action_xls_PO" model="ir.actions.report">
+            <field name="name">Print_PO</field>
+            <field name="model">purchase.order</field>
+            <field name="report_type">xlsx</field>
+            <field name="report_name">bisa_hospital.report_po_xlsx</field>
+            <field name="report_file">Laporan Rekap Penerimaan Barang</field>
+            <!-- <field name="paperformat_id">bisa_hospital.paperformat_resep_report</field> -->
+        </record>
+    </data>
+</odoo>

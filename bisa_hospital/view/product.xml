@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<odoo>
+    <record id="product_template_hospital1_form_view" model="ir.ui.view">
+        <field name="name">product.template.product_hospital1.form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='options']" position="after">
+                <!-- <group> -->
+                <div>
+                    <field name="availability"/>
+                    <label for="availability"/>
+                </div>
+                <div>
+                    <field name="is_paket"/>
+                    <label for="is_paket"/>
+                <!-- </group> -->
+                </div>
+            </xpath>
+            <!-- <xpath expr="//field[@name='taxes_id']" position="before">
+                <field name="biaya_admin"/>
+            </xpath> -->
+            <xpath expr="//page[@name='general_information']" position="after">
+                 <page string="Paket Layanan" attrs="{'invisible':[('is_paket','!=',True)]}">
+                    <field name="paket_lab" >
+                        <tree editable="bottom">
+                            <field name="name" options="{'no_create': True, 'no_create_edit':True}" />
+                            <field name="layanan" options="{'no_create': True, 'no_create_edit':True}" />
+                            <field name="harga"/>
+                        </tree>
+                      </field>
+                 </page>
+                 <page string="Konfigurasi Harga">
+                    <field name="detail" >
+                        <tree string="Harga" editable="bottom">
+                            <field name="pricelist" options="{'no_create': True, 'no_create_edit':True}" />
+                            <field name="pembagian" options="{'no_create': True, 'no_create_edit':True}" />
+                            <field name="pembagian_name" invisible="1"/>
+                            <field name="akun"/>
+                            <field name="dokter"/>
+                            <field name="warga_negara"/>
+                            <field name="status_hari"/>
+                            <field name="jenis_layanan" invisible="1"/>
+                            <field name="kategori_bayar"/>
+                            <field name="persen_harga"/>
+                            <field name="nilai" />
+                        </tree>
+                      </field>
+                 <group>
+                    <field name="biaya_admin_" invisible="1"/>
+                    <field name="biaya_bhp" invisible="1"/>
+                 </group>
+
+                 </page>
+                 <page string="BHP dan Layanan">
+                  <group>
+                     <group>
+                            <field name="is_laboratorium" />
+
+
+                     </group>
+
+                     <group>
+                            <field name="is_radiologi" />
+                     </group>
+                  </group>
+
+                  <group>
+                    <!-- <field name="biaya_bhp" /> -->
+                    <field name="detail_bhp" >
+                        <tree string="Harga" editable="bottom">
+                            <field name="product" />
+                            <field name="qty" />
+                            <field name="uom" />
+                        </tree>
+                      </field>
+                  </group>
+                  <group>
+                    <field name="template" >
+                        <tree string="Harga" editable="bottom">
+                            <field name="nama" />
+                            <field name="nilai_normal" />
+                            <field name="keterangan" />
+                        </tree>
+                      </field>
+                  </group>
+
+                 </page>
+            </xpath>
+            <xpath expr="//field[@name='type']" position="before">
+                            <field name="is_resep" />
+                            <field name="layanan" />
+                            <field name="is_d3" />
+                            <field name="is_konsinyasi" />
+
+            </xpath>
+
+            </field>
+        </record>
+
+        <record id = "search_product" model = "ir.ui.view">
+            <field name="name">product.template.search</field>
+            <field name="model">product.template</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="barcode"/>
+                </search>
+            </field>
+        </record>
+
+    <!-- <record id="inhe_pricelist_form" model="ir.ui.view">
+            <field name="name">pricelist.ati</field>
+            <field name="model">product.pricelist</field>
+            <field name="inherit_id" ref="product.product_pricelist_view"/>
+            <field name="arch" type="xml">
+                <notebook position="before">
+                    <group>
+                        <group>
+                            <field name="operating_unit_ids" widget="many2many_tags" />
+                        </group>
+                    </group>
+                </notebook>
+            </field>
+        </record> -->
+
+</odoo>
+

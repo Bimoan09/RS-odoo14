@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="view_order_form" model="ir.ui.view">
+    <field name="name">sale.order.line.global.discount</field>
+    <field name="model">sale.order</field>
+    <field name="inherit_id" ref="sale.view_order_form"/>
+    <field name="arch" type="xml">
+
+      <xpath expr="//field[@name='payment_term_id']" position="after">
+        <label for="x_descuento_1"/>
+          <div class="o_row">
+              <field name="x_descuento_1"/>
+              <button name="discount_global" type="object" string=" Apply" class="fa fa-refresh oe_link pt-0"/>
+          </div>
+      </xpath>
+     
+    </field>
+  </record>
+
+</odoo>

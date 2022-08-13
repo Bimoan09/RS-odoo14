@@ -1,0 +1,45 @@
+// {
+//     // Use IntelliSense to learn about possible attributes.
+//     // Hover to view descriptions of existing attributes.
+//     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+//     "version": "0.2.0",
+//     "configurations": [
+
+//         {
+//             "name": "Python: Current File",
+//             "type": "python",
+//             "request": "launch",
+//             "program": "${file}",
+//             "console": "integratedTerminal"
+//         }
+//     ]
+// }
+
+// -- ------------------------------------
+// -- Perhatian
+// -- Khusus untuk Linux User : 
+// -- hasil dari Copy Path tidak perlu diganti dengan double-backslash \\
+// -- ------------------------------------
+{
+    "version": "0.2.0",
+    "configurations": [
+    
+
+
+        {
+            "name": "Run RS",
+            "type": "python",
+            "request": "launch",
+            "stopOnEntry": false,
+            "console": "integratedTerminal",
+            "python": "/usr/bin/python3", // cari dengan which python3
+            "program": "/opt/odoo14/odoo/odoo-bin",
+            "args": [
+                "--config=/opt/odoo14/addons/rsproject.conf",
+                // "--database=tutor1,tutor2",
+                // "--update=msi_5sale"
+            ]
+        },
+    ]
+}
+

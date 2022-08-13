@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+mgr_tbl_rekammedis_document,mgr_tbl_rekammedis_document,model_tbl_rekammedis_document,,1,1,1,1
+mgr_tbl_rekammedis,mgr_tbl_rekammedis,model_tbl_rekammedis,,1,1,1,1
+mgr_tbl_rekammedis_,mgr_tbl_rekammedis_,model_tbl_rekammedis_,,1,1,1,1
+mgr_tbl_rm,mgr_tbl_rm,model_tbl_rm,,1,1,1,1
+
+
+

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <template id = "stocking_report_inherit" inherit_id = "stock.report_picking">
+        <xpath expr = "//div[@class='row mt48 mb32']" position = "before">
+            <div class = "row mt48 mb32" id = "test_inherit">
+                <div class="col-auto" name="o_rpb">
+                    <strong>RPB:</strong>
+                    <p t-field="o.nomor_penerimaan_"/>
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+
+</odoo>

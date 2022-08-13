@@ -1,0 +1,254 @@
+<table style="border-collapse:collapse;width:552,8000pt;margin-left:6,7500pt;margin-right:6,7500pt;border:none;">
+    <tbody>
+        <tr>
+            <td style="width:106,3500pt;padding:0,0000pt 5,4000pt 0,0000pt 5,4000pt ;border-left:none;border-right:none;border-top:none;border-bottom:1,0000pt solid windowtext;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:left;"><span style="font-family:'Times New Roman';font-size:12px;">No. RM</span></p>
+            </td>
+            <td style="width:14,1500pt;padding:0,0000pt 5,4000pt 0,0000pt 5,4000pt ;border-left:none;border-right:none;border-top:none;border-bottom:1,0000pt solid windowtext;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:center;"><span style="font-family:'Times New Roman';font-size:12px;">:</span></p>
+            </td>
+            <td style="width:170,0500pt;padding:0,0000pt 5,4000pt 0,0000pt 5,4000pt ;border-left:none;border-right:none;border-top:none;border-bottom:1,0000pt solid windowtext;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:left;"><span style="font-family:'Times New Roman';font-size:12px;">&laquo;o.pendaftaran_id.no_rm&raquo;</span></p>
+            </td>
+            <td style="width:49,6500pt;padding:0,0000pt 5,4000pt 0,0000pt 5,4000pt ;border-left:none;border-right:none;border-top:none;border-bottom:1,0000pt solid windowtext;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:left;"><span style="font-family:'Times New Roman';font-size:12px;">&nbsp;</span></p>
+            </td>
+            <td style="width:63,8000pt;padding:0,0000pt 5,4000pt 0,0000pt 5,4000pt ;border-left:none;border-right:none;border-top:none;border-bottom:1,0000pt solid windowtext;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:left;"><span style="font-family:'Times New Roman';font-size:12px;">Nama Pasien</span></p>
+            </td>
+            <td style="width:14,2000pt;padding:0,0000pt 5,4000pt 0,0000pt 5,4000pt ;border-left:none;border-right:none;border-top:none;border-bottom:1,0000pt solid windowtext;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:left;"><span style="font-family:'Times New Roman';font-size:12px;">:</span></p>
+            </td>
+            <td style="width:134,6000pt;padding:0,0000pt 5,4000pt 0,0000pt 5,4000pt ;border-left:none;border-right:none;border-top:none;border-bottom:1,0000pt solid windowtext;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:left;"><span style="font-family:'Times New Roman';font-size:12px;">&laquo;o.partner_id.name&raquo;</span></p>
+            </td>
+        </tr>
+        <tr>
+            <td style="border-width: initial;border-style: none;border-color: initial;vertical-align: top;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:left;"><span style="font-family:'Times New Roman';font-size:12px;">Terima Dari</span></p>
+            </td>
+            <td style="width:14,1500pt;padding:0,0000pt 5,4000pt 0,0000pt 5,4000pt ;border-left:none;border-right:none;border-top:none;border-bottom:none;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:center;"><span style="font-family:'Times New Roman';font-size:12px;">:</span></p>
+            </td>
+            <td style="border-width: initial;border-style: none;border-color: initial;vertical-align: top;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:left;"><span style="font-family:'Times New Roman';font-size:12px;">&laquo;o.pembayar&raquo;</span></p>
+            </td>
+            <td style="border-width: initial;border-style: none;border-color: initial;vertical-align: top;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:left;"><span style="font-family:'Times New Roman';font-size:12px;">&nbsp;</span></p>
+            </td>
+            <td style="border-width: initial;border-style: none;border-color: initial;vertical-align: top;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:left;"><span style="font-family:'Times New Roman';font-size:12px;">No. Kwitansi</span></p>
+            </td>
+            <td style="width:14,2000pt;padding:0,0000pt 5,4000pt 0,0000pt 5,4000pt ;border-left:none;border-right:none;border-top:none;border-bottom:none;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:center;"><span style="font-family:'Times New Roman';font-size:12px;">:</span></p>
+            </td>
+            <td style="border-width: initial;border-style: none;border-color: initial;vertical-align: top;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:left;"><span style="font-family:'Times New Roman';font-size:12px;">&laquo;o.name&raquo;</span> (<span style="font-family:'Times New Roman';font-size:12px;">&laquo;o.journal_id_&raquo;</span>)</p>
+            </td>
+        </tr>
+        <tr>
+            <td style="border-width: initial;border-style: none;border-color: initial;vertical-align: top;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:left;"><span style="font-family:'Times New Roman';font-size:12px;">Klinik&nbsp;</span><span style="font-family:'Times New Roman';font-size:12px;"><br></span><span style="font-family:'Times New Roman';font-size:12px;">Paket Layanan</span></p>
+            </td>
+            <td style="width:14,1500pt;padding:0,0000pt 5,4000pt 0,0000pt 5,4000pt ;border-left:none;border-right:none;border-top:none;border-bottom:none;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:center;"><span style="font-family:'Times New Roman';font-size:12px;">:</span><span style="font-family:'Times New Roman';font-size:12px;"><br></span><span style="font-family:'Times New Roman';font-size:12px;">:</span></p>
+            </td>
+            <td style="border-width: initial;border-style: none;border-color: initial;vertical-align: top;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:left;"><span style="font-family:'Times New Roman';font-size:12px;">&laquo;o.unit_layanan_&raquo;</span><br><span style="font-family:'Times New Roman';font-size:12px;">&laquo;o.paket_layanan&raquo;</span></p>
+            </td>
+            <td style="border-width: initial;border-style: none;border-color: initial;vertical-align: top;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:left;"><span style="font-family:'Times New Roman';font-size:12px;">&nbsp;</span></p>
+            </td>
+            <td style="border-width: initial;border-style: none;border-color: initial;vertical-align: top;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:left;"><span style="font-family:'Times New Roman';font-size:12px;">No. Reg</span></p>
+            </td>
+            <td style="width:14,2000pt;padding:0,0000pt 5,4000pt 0,0000pt 5,4000pt ;border-left:none;border-right:none;border-top:none;border-bottom:none;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:center;"><span style="font-family:'Times New Roman';font-size:12px;">:</span></p>
+            </td>
+            <td style="border-width: initial;border-style: none;border-color: initial;vertical-align: top;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:left;"><span style="font-family:'Times New Roman';font-size:12px;">&laquo;o.pendaftaran_id.no_registrasi&raquo;</span></p>
+            </td>
+        </tr>
+        <tr>
+            <td style="border-left: none;border-right: none;border-top: none;vertical-align: top;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:left;"><span style="font-family:'Times New Roman';font-size:12px;">Dokter</span></p>
+            </td>
+            <td style="width:14,1500pt;padding:0,0000pt 5,4000pt 0,0000pt 5,4000pt ;border-left:none;border-right:none;border-top:none;border-bottom:1,0000pt solid windowtext;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:center;"><span style="font-family:'Times New Roman';font-size:12px;">:</span></p>
+            </td>
+            <td style="border-left: none;border-right: none;border-top: none;vertical-align: top;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:left;"><span style="font-family:'Times New Roman';font-size:12px;">&laquo;o.nama_dokter_&raquo;</span></p>
+            </td>
+            <td style="border-left: none;border-right: none;border-top: none;vertical-align: top;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:left;"><span style="font-family:'Times New Roman';font-size:12px;">&nbsp;</span></p>
+            </td>
+            <td style="border-left: none;border-right: none;border-top: none;vertical-align: top;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:left;"><span style="font-family:'Times New Roman';font-size:12px;">Penjamin</span></p>
+            </td>
+            <td style="width:14,2000pt;padding:0,0000pt 5,4000pt 0,0000pt 5,4000pt ;border-left:none;border-right:none;border-top:none;border-bottom:1,0000pt solid windowtext;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:center;"><span style="font-family:'Times New Roman';font-size:12px;">:</span></p>
+            </td>
+            <td style="border-left: none;border-right: none;border-top: none;vertical-align: top;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:left;"><span style="font-family:'Times New Roman';font-size:12px;">&laquo;o.penjamin.name&raquo;</span></p>
+            </td>
+        </tr>
+        <tr>
+            <td style="border-width: initial;border-style: none;border-color: initial;vertical-align: top;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:left;"><span style="font-family:'Times New Roman';font-size:11px;">Untuk Keperluan</span></p>
+            </td>
+            <td style="border-width: initial;border-style: none;border-color: initial;vertical-align: top;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:center;"><span style="font-family:'Times New Roman';font-size:11px;">:</span></p>
+            </td>
+            <td style="border-width: initial;border-style: none;border-color: initial;vertical-align: top;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:left;"><span style="font-family:'Times New Roman';font-size:11px;">&laquo;o.invoice_line_ids.product_id.name&raquo;</span></p>
+            </td>
+            <td style="border-width: initial;border-style: none;border-color: initial;vertical-align: top;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:left;"><span style="font-family:'Times New Roman';font-size:11px;">&laquo;o.invoice_line_ids.price_subtotal&raquo;</span></p>
+            </td>
+            <td style="border-width: initial;border-style: none;border-color: initial;vertical-align: top;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:left;"><span style="font-family:'Times New Roman';font-size:12px;">&nbsp;</span></p>
+            </td>
+            <td style="border-width: initial;border-style: none;border-color: initial;vertical-align: top;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:left;"><span style="font-family:'Times New Roman';font-size:12px;">&nbsp;</span></p>
+            </td>
+            <td style="border-width: initial;border-style: none;border-color: initial;vertical-align: top;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:left;"><span style="font-family:'Times New Roman';font-size:12px;">&nbsp;</span></p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="width:120,5000pt;padding:0,0000pt 5,4000pt 0,0000pt 5,4000pt ;border-left:none;border-right:none;border-top:none;border-bottom:none;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:left;"><br></p>
+            </td>
+            <td style="width:170,0500pt;padding:0,0000pt 5,4000pt 0,0000pt 5,4000pt ;border-left:none;border-right:none;border-top:none;border-bottom:none;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:right;"><span style="font-family:'Times New Roman';font-size:11px;">&laquo;o.breakdown_harga_harga&raquo;</span></p>
+            </td>
+            <td style="width:49,6500pt;padding:0,0000pt 5,4000pt 0,0000pt 5,4000pt ;border-left:none;border-right:none;border-top:none;border-bottom:none;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:left;"><span style="font-family:'Times New Roman';font-size:11px;">&nbsp;</span></p>
+            </td>
+            <td style="width:63,8000pt;padding:0,0000pt 5,4000pt 0,0000pt 5,4000pt ;border-left:none;border-right:none;border-top:none;border-bottom:none;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:left;"><span style="font-family:'Times New Roman';font-size:12px;">&nbsp;</span></p>
+            </td>
+            <td style="width:14,2000pt;padding:0,0000pt 5,4000pt 0,0000pt 5,4000pt ;border-left:none;border-right:none;border-top:none;border-bottom:none;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:left;"><span style="font-family:'Times New Roman';font-size:12px;">&nbsp;</span></p>
+            </td>
+            <td style="width:134,6000pt;padding:0,0000pt 5,4000pt 0,0000pt 5,4000pt ;border-left:none;border-right:none;border-top:none;border-bottom:none;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:left;"><span style="font-family:'Times New Roman';font-size:12px;">&nbsp;</span></p>
+            </td>
+        </tr>
+        <tr>
+            <td style="border-left: none;border-right: none;border-top: none;vertical-align: top;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:left;"><span style="font-family:'Times New Roman';font-size:11px;">Sebesar</span></p>
+            </td>
+            <td style="border-left: none;border-right: none;border-top: none;vertical-align: top;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:left;"><span style="font-family:'Times New Roman';font-size:11px;">:</span><span style="font-family:'Times New Roman';font-size:11px;"><br></span><span style="font-family:'Times New Roman';font-size:11px;"><br></span></p>
+            </td>
+            <td style="width:170,0500pt;padding:0,0000pt 5,4000pt 0,0000pt 5,4000pt ;border-left:none;border-right:none;border-top:none;border-bottom:1,0000pt solid windowtext;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:right;"><span style="font-family:'Times New Roman';font-size:11px;">&nbsp;</span></p>
+            </td>
+            <td style="border-left: none;border-right: none;border-top: none;vertical-align: top;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:left;"><span style="font-family:'Times New Roman';font-size:11px;">&laquo;o.amount_total&raquo;</span></p>
+            </td>
+            <td style="border-left: none;border-right: none;border-top: none;vertical-align: top;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:left;"><span style="font-family:'Times New Roman';font-size:12px;">&nbsp;</span></p>
+            </td>
+            <td style="border-left: none;border-right: none;border-top: none;vertical-align: top;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:left;"><span style="font-family:'Times New Roman';font-size:12px;">&nbsp;</span></p>
+            </td>
+            <td style="border-left: none;border-right: none;border-top: none;vertical-align: top;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:left;"><span style="font-family:'Times New Roman';font-size:12px;">&nbsp;</span></p>
+            </td>
+        </tr>
+        <tr>
+            <td style="width:106,3500pt;padding:0,0000pt 5,4000pt 0,0000pt 5,4000pt ;border-left:none;border-right:none;border-top:none;border-bottom:none;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:center;"><span style="font-family:'Times New Roman';font-size:12px;">&nbsp;</span></p>
+            </td>
+            <td style="border-width: initial;border-style: none;border-color: initial;vertical-align: top;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:left;"><span style="font-family:'Times New Roman';font-size:12px;">&nbsp;</span></p>
+            </td>
+            <td style="width:170,0500pt;padding:0,0000pt 5,4000pt 0,0000pt 5,4000pt ;border-left:none;border-right:none;border-top:none;border-bottom:none;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:center;"><span style="font-family:'Times New Roman';font-size:12px;">Penjamin</span></p>
+            </td>
+            <td style="border-width: initial;border-style: none;border-color: initial;vertical-align: top;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:left;"><span style="font-family:'Times New Roman';font-size:12px;">&nbsp;</span></p>
+            </td>
+            <td style="border-width: initial;border-style: none;border-color: initial;vertical-align: top;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:left;"><span style="font-family:'Times New Roman';font-size:12px;">&nbsp;</span></p>
+            </td>
+            <td style="border-width: initial;border-style: none;border-color: initial;vertical-align: top;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:left;"><span style="font-family:'Times New Roman';font-size:12px;">&nbsp;</span></p>
+            </td>
+            <td style="border-width: initial;border-style: none;border-color: initial;vertical-align: top;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:center;"><span style="font-family:'Times New Roman';font-size:12px;">&laquo;o.waktu_transaksi&raquo;</span></p>
+            </td>
+        </tr>
+        <tr>
+            <td style="width:106,3500pt;padding:0,0000pt 5,4000pt 0,0000pt 5,4000pt ;border-left:none;border-right:none;border-top:none;border-bottom:none;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:center;"><span style="font-family:'Times New Roman';font-size:12px;">&nbsp;</span></p>
+            </td>
+            <td style="border-width: initial;border-style: none;border-color: initial;vertical-align: top;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:left;"><span style="font-family:'Times New Roman';font-size:12px;">&nbsp;</span></p>
+            </td>
+            <td style="width:170,0500pt;padding:0,0000pt 5,4000pt 0,0000pt 5,4000pt ;border-left:none;border-right:none;border-top:none;border-bottom:none;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:center;"><span style="font-family:'Times New Roman';font-size:12px;">&nbsp;</span></p>
+            </td>
+            <td style="border-width: initial;border-style: none;border-color: initial;vertical-align: top;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:left;"><span style="font-family:'Times New Roman';font-size:12px;">&nbsp;</span></p>
+            </td>
+            <td style="border-width: initial;border-style: none;border-color: initial;vertical-align: top;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:left;"><span style="font-family:'Times New Roman';font-size:12px;">&nbsp;</span></p>
+            </td>
+            <td style="border-width: initial;border-style: none;border-color: initial;vertical-align: top;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:left;"><span style="font-family:'Times New Roman';font-size:12px;">&nbsp;</span></p>
+            </td>
+            <td style="border-width: initial;border-style: none;border-color: initial;vertical-align: top;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:center;"><span style="font-family:'Times New Roman';font-size:12px;">Kasir</span></p>
+            </td>
+        </tr>
+        <tr>
+            <td style="width:106,3500pt;padding:0,0000pt 5,4000pt 0,0000pt 5,4000pt ;border-left:none;border-right:none;border-top:none;border-bottom:none;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:center;"><span style="font-family:'Times New Roman';font-size:12px;">&nbsp;</span></p>
+            </td>
+            <td style="border-width: initial;border-style: none;border-color: initial;vertical-align: top;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:left;"><span style="font-family:'Times New Roman';font-size:12px;">&nbsp;</span></p>
+            </td>
+            <td style="width:170,0500pt;padding:0,0000pt 5,4000pt 0,0000pt 5,4000pt ;border-left:none;border-right:none;border-top:none;border-bottom:none;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:center;"><span style="font-family:'Times New Roman';font-size:12px;">&nbsp;</span></p>
+            </td>
+            <td style="border-width: initial;border-style: none;border-color: initial;vertical-align: top;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:left;"><span style="font-family:'Times New Roman';font-size:12px;">&nbsp;</span></p>
+            </td>
+            <td style="border-width: initial;border-style: none;border-color: initial;vertical-align: top;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:left;"><span style="font-family:'Times New Roman';font-size:12px;">&nbsp;</span></p>
+            </td>
+            <td style="border-width: initial;border-style: none;border-color: initial;vertical-align: top;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:left;"><span style="font-family:'Times New Roman';font-size:12px;">&nbsp;</span></p>
+            </td>
+            <td style="border-width: initial;border-style: none;border-color: initial;vertical-align: top;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:center;"><span style="font-family:'Times New Roman';font-size:12px;">&nbsp;</span></p>
+            </td>
+        </tr>
+        <tr>
+            <td style="width:106,3500pt;padding:0,0000pt 5,4000pt 0,0000pt 5,4000pt ;border-left:none;border-right:none;border-top:none;border-bottom:none;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:center;"><span style="font-family:'Times New Roman';font-size:12px;">&nbsp;</span></p>
+            </td>
+            <td style="border-width: initial;border-style: none;border-color: initial;vertical-align: top;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:left;"><span style="font-family:'Times New Roman';font-size:12px;">&nbsp;</span></p>
+            </td>
+            <td style="width:170,0500pt;padding:0,0000pt 5,4000pt 0,0000pt 5,4000pt ;border-left:none;border-right:none;border-top:none;border-bottom:none;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:center;"><span style="font-family:'Times New Roman';font-size:12px;">&laquo;o.penjamin.name&raquo;</span></p>
+            </td>
+            <td style="border-width: initial;border-style: none;border-color: initial;vertical-align: top;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:left;"><span style="font-family:'Times New Roman';font-size:12px;">&nbsp;</span></p>
+            </td>
+            <td style="border-width: initial;border-style: none;border-color: initial;vertical-align: top;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:left;"><span style="font-family:'Times New Roman';font-size:12px;">&nbsp;</span></p>
+            </td>
+            <td style="border-width: initial;border-style: none;border-color: initial;vertical-align: top;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:left;"><span style="font-family:'Times New Roman';font-size:12px;">&nbsp;</span></p>
+            </td>
+            <td style="border-width: initial;border-style: none;border-color: initial;vertical-align: top;">
+                <p style="margin-top:0,0000pt;margin-bottom:0,0000pt;text-align:center;"><span style="font-family:'Times New Roman';font-size:12px;">&laquo;o.user_pj.name&raquo;</span></p>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+mgr_tbl_collection_header,mgr_tbl_collection_header,model_tbl_collection_header,,1,1,1,1
+mgr_tbl_collection,mgr_tbl_collection,model_tbl_collection,,1,1,1,1
+mgr_tbl_collection_seting,mgr_tbl_collection_seting,model_tbl_collection_seting,,1,1,1,1
+
+
+

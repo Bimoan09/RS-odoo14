@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<odoo>
+
+
+
+        <record id="tbl_collection_header_form" model="ir.ui.view">
+            <field name="name">form.tbl_collection_header</field>
+            <field name="model">tbl_collection_header</field>
+            <field name="arch" type="xml">
+                <form string="Colecction">
+                    <header>
+                        <button name="act_get_data" type="object" string="Get Data" states="draft"/>
+                        <button name="act_billing" type="object" string="Buat Invoice" states="billing" class="oe_highlight"/>
+
+                        <field name="state" widget="statusbar" statusbar_visible="draft,billing,done"/>
+                    </header>
+ 
+                    <sheet>
+                        <group>
+                            <group>
+                             <field name="name"/>
+                             <field name="tanggal"/>
+                             <field name="tanggal_start"/>
+                             <field name="tanggal_end"/>
+                            </group>
+                            <group>
+                            </group>
+                        </group>
+                        <group>
+                           <button name="act_create_invoice" type="object" string="Create Invoice" states="billing"/>
+                            <field name="detail" nolabel="1">
+                                <tree>
+                                    <field name="to_invoice"/>
+                                    <field name="no_invoice"/>
+                                    <field name="partner_id"/>
+                                    <field name="nominal"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="tbl_collection_header_tree" model="ir.ui.view">
+            <field name="name">tree.tbl_collection_header</field>
+            <field name="model">tbl_collection_header</field>
+            <field name="arch" type="xml">
+                <tree string="Collection">
+
+                    <field name="name"/>
+                    <field name="tanggal"/>
+                    <field name="tanggal_start"/>
+                    <field name="tanggal_end"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_collection" model="ir.actions.act_window">
+            <field name="name">Collection</field>
+            <field name="res_model">tbl_collection_header</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Collection" id="menu_collection_kanan" sequence = "10" action="action_collection" parent="menu_atas_collection" />
+
+        <record id="tbl_collection_seting_form" model="ir.ui.view">
+            <field name="name">form.tbl_collection_seting</field>
+            <field name="model">tbl_collection_seting</field>
+            <field name="arch" type="xml">
+                <form string="Collection">
+ 
+                    <sheet>
+                        <group>
+                            <group>
+                             <field name="name"/>
+                            </group>
+                            <group>
+                            </group>
+                        </group>
+                        <group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="tbl_collection_seting_tree" model="ir.ui.view">
+            <field name="name">tree.tbl_collection_seting</field>
+            <field name="model">tbl_collection_seting</field>
+            <field name="arch" type="xml">
+                <tree string="Collection">
+
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_collection_transaksi_seting" model="ir.actions.act_window">
+            <field name="name">Transaksi</field>
+            <field name="res_model">tbl_collection_seting</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Transaksi" id="menu_transaksi_kanan" sequence = "10" action="action_collection_transaksi_seting" parent="menu_atas_collection_seting" />
+
+
+
+</odoo>

@@ -1,0 +1,41 @@
+<odoo>
+  <record id="model_subcontract_agreement" model="ir.model.access">
+    <field name="name">model.subcontract.agreement</field>
+    <field name="model_id" ref="model_subcontract_agreement"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="perm_read" eval="1"/>
+    <field name="perm_write" eval="1"/>
+    <field name="perm_create" eval="1"/>
+    <field name="perm_unlink" eval="1"/>
+  </record>
+
+  <!-- <record id="model_subcontract_agreement_line" model="ir.model.access">
+    <field name="name">model.subcontract.agreement.line</field>
+    <field name="model_id" ref="model_subcontract_agreement_line"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="perm_read" eval="1"/>
+    <field name="perm_write" eval="1"/>
+    <field name="perm_create" eval="1"/>
+    <field name="perm_unlink" eval="1"/>
+  </record> -->
+
+  <record id="model_saleorder_line_workitem" model="ir.model.access">
+    <field name="name">model.saleorder.line.workitem</field>
+    <field name="model_id" ref="model_saleorder_line_workitem"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="perm_read" eval="1"/>
+    <field name="perm_write" eval="1"/>
+    <field name="perm_create" eval="1"/>
+    <field name="perm_unlink" eval="1"/>
+  </record>
+
+<record id="model_res_partner_segment" model="ir.model.access">
+    <field name="name">model.res.partner.segment</field>
+    <field name="model_id" ref="model_res_partner_segment"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="perm_read" eval="1"/>
+    <field name="perm_write" eval="1"/>
+    <field name="perm_create" eval="1"/>
+    <field name="perm_unlink" eval="1"/>
+  </record>
+</odoo>

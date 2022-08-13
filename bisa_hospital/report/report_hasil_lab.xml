@@ -1,0 +1,1285 @@
+<odoo>
+    <data>
+
+
+        <!-- <template id="monthly_report_header" inherit_id="web.external_layout_standard">
+            <xpath expr="//div[@class='header']" position="replace">
+                <div class="header">
+                    <div class="row">
+                        <div class="col-xs-3">
+
+                        </div>
+                        <div class="col-xs-9 text-right" style="margin-top:5px;">
+                            <h5>Custom Header</h5>
+                        </div>
+                    </div>
+                    <div class="row zero_min_height">
+                        <div class="col-xs-12">
+                            <div style="border-bottom: 1px solid black;"/>
+                        </div>
+                    </div>        
+                </div>
+            </xpath>
+        </template> -->
+
+     <template id="template_receipt_farmasi">
+        <t t-call="web.html_container">
+         <!-- <t t-call="bisa_hospital.monthly_report_header"/> -->
+    <div class="header">   
+
+    <div class="row">
+        <div class="col-12 mb4" style="display: flex; display: -webkit-box;margin-top:30px; ">
+            <th><img style=" width:100%;height:auto;" t-att-src="'data:image/png;base64,%s' % to_text(logo)"/></th>
+            <h4 style="max-width:450px;margin-left:500px;overflow-wrap: break-word;font-size:30px;"> <th><span t-esc="nama_ou"/></th> </h4>
+        </div>
+            <div class="col-9 text-right" style="margin-top:22px;" name="moto"/>
+        </div>
+    <!--        </tr>--> 
+    <!--           <tr t-foreach="docs" t-as="det">-->
+        <div class="col-12 mb4" style="display: flex; display: -webkit-box; ">
+                <h4 style="margin-top:80px;margin-left:400px;font-size:30px;"><th><span t-esc="apotek"/></th> </h4>
+        </div>
+
+      <p style='margin-bottom: 0in;line-height: 100%;text-align: left;background: transparent;font-family: "DejaVu Sans", serif;font-size:15px;margin-left: 0.08in;'><br></br></p>
+        <p style='margin-bottom: 0in;line-height: 100%;text-align: left;background: transparent;font-family: "DejaVu Sans", serif;font-size:15px;'><br> </br></p>
+        <p style='margin-bottom: 0in;line-height: 100%;text-align: left;background: transparent;font-family: "DejaVu Sans", serif;font-size:15px;'><br> </br></p>
+        <p style='margin-bottom: 0in;line-height: 100%;text-align: left;background: transparent;font-family: "DejaVu Sans", serif;font-size:15px;'><br> </br></p>
+        <p style='margin-bottom: 0in;line-height: 100%;text-align: left;background: transparent;font-family: "DejaVu Sans", serif;font-size:15px;'><br> </br></p>
+        <p style='margin-bottom: 0in;line-height: 100%;text-align: left;background: transparent;font-family: "DejaVu Sans", serif;font-size:15px;'><br> </br></p>
+        <p style='margin-bottom: 0in;text-align: center;background: transparent;font-family: "DejaVu Sans", serif;font-size:15px;margin-right: 0.09in;line-height: 0.16in;'>Apoteker:</p>
+        <p style='margin-bottom: 0in;line-height: 100%;text-align: center;background: transparent;font-family: "DejaVu Sans", serif;font-size:15px;margin-right: 0.04in;'><u>&#160;</u><u>SIPA:</u></p>
+        <p style='margin-bottom: 0in;line-height: 100%;text-align: left;background: transparent;font-family: "DejaVu Sans", serif;font-size:15px;'><br> </br></p>
+        <p style='margin-bottom: 0in;line-height: 100%;text-align: left;background: transparent;font-family: "DejaVu Sans", serif;font-size:15px;'><br> </br></p>
+        <p style='margin-bottom: 0in;line-height: 100%;text-align: left;background: transparent;font-family: "DejaVu Sans", serif;font-size:15px;margin-top: 0.01in;'><br> </br></p>
+        <dl>
+    <dd>
+        <table cellpadding="0" cellspacing="0" width="359">
+            <tbody>
+                <tr>
+                     <td height="68" style="border-top: none;border-bottom: 1px solid #000000;border-left: none;border-right: none;padding: 0in;" width="39.55431754874652%">
+                        <p style="margin-bottom: 0in;line-height: 100%;text-align: left;background: transparent;margin-left: 0.07in;">Nota:</p>
+                        <p style="margin-bottom: 0in;line-height: 100%;text-align: left;background: transparent;margin-left: 0.07in;">Tanggal:</p>
+                    </td>
+                    <td colspan="2" style="border-top: none;border-bottom: 1px solid #000000;" width="60.44568245125348%">
+                        <p style="margin-bottom: 0in;line-height: 100%;text-align: left;background: transparent;margin-top: 0.01in;"><br> </br></p>
+                        <p style="margin-bottom: 0in;line-height: 100%;text-align: left;background: transparent;margin-left: 0.07in;">02/11/2021 09:34:10</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td height="68" style="border-top: none;border-bottom: 1px solid #000000;" width="30.44568245125348%">
+                        <p style="margin-bottom: 0in;line-height: 100%;text-align: left;background: transparent;margin-left: 0.07in;">Kasir:</p>
+                        <p style="margin-bottom: 0in;line-height: 100%;text-align: left;background: transparent;margin-left: 0.07in;">Perusahaan:</p>
+                        <p style="margin-bottom: 0in;line-height: 100%;text-align: left;background: transparent;margin-left: 0.07in;">Penjamin:</p>
+                        <p style="margin-bottom: 0in;line-height: 100%;text-align: left;background: transparent;margin-left: 0.07in;">Pembeli:</p>
+                    </td>
+                    <td style="border-top: none;border-bottom: 1px solid #000000" width="60.44568245125348%">
+                        <p style="margin-bottom: 0in;line-height: 100%;text-align: left;background: transparent;margin-left: 0.07in;">Syifa</p>
+                        <p style="margin-bottom: 0in;line-height: 100%;text-align: left;background: transparent;"><br> </br></p>
+                        <p style="margin-bottom: 0in;line-height: 100%;text-align: left;background: transparent;margin-left: 0.07in;margin-top: 0.15in;">Konsumen Apotek</p>
+                    </td>
+                    <td style="border: none;padding: 0in;" width="15.877437325905293%">
+                        <p style="margin-bottom: 0in;line-height: 100%;text-align: left;background: transparent;"><br> </br></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td height="68" style="border-top: none;border-bottom: 1px solid #000000;border-left: none;border-right: none;padding: 0in;" width="39.55431754874652%">
+                        <p style="margin-bottom: 0in;line-height: 100%;text-align: left;background: transparent;margin-left: 0.07in;">Pasien:</p>
+                        <p style="margin-bottom: 0in;line-height: 100%;text-align: left;background: transparent;margin-left: 0.07in;">Dokter:</p>
+                    </td>
+                    <td style="border-top: none;border-bottom: 1px solid #000000;border-left: none;border-right: none;padding: 0in;" width="44.56824512534819%">
+                        <p style="margin-bottom: 0in;line-height: 100%;text-align: left;background: transparent;margin-left: 0.07in;">Konsumen Apotek</p>
+                    </td>
+                    <td style="border-top: none;border-bottom: 1px solid #000000;border-left: none;border-right: none;padding: 0in;" width="15.877437325905293%">
+                        <p style="margin-bottom: 0in;line-height: 100%;text-align: left;background: transparent;"><br> </br></p>
+                    </td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td height="17" style="border-top: 1px solid #000000;border-bottom: 1px solid #000000;border-left: none;border-right: none;padding: 0in;" width="39.55431754874652%">
+                        <p style="margin-bottom: 0in;line-height: 100%;text-align: left;background: transparent;margin-left: 0.08in;">Product</p>
+                    </td>
+                    <td style="border-top: 1px solid #000000;border-bottom: 1px solid #000000;border-left: none;border-right: none;padding: 0in;" width="44.56824512534819%">
+                        <p style="margin-bottom: 0in;line-height: 100%;text-align: left;background: transparent;margin-left: 0.4in;">Qty</p>
+                    </td>
+                    <td style="border-top: 1px solid #000000;border-bottom: 1px solid #000000;border-left: none;border-right: none;padding: 0in;" width="15.877437325905293%">
+                        <p style="margin-bottom: 0in;line-height: 100%;text-align: right;background: transparent;margin-right: 0.07in;">Jumlah</p>
+                    </td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td height="17" style="border-top: 1px solid #000000;border-bottom: 1px solid #000000;border-left: none;border-right: none;padding: 0in;" width="39.55431754874652%">
+                        <p style="margin-bottom: 0in;line-height: 100%;text-align: left;background: transparent;"><br> </br></p>
+                    </td>
+                    <td style="border-top: 1px solid #000000;border-bottom: 1px solid #000000;border-left: none;border-right: none;padding: 0in;" width="44.56824512534819%">
+                        <p style="margin-bottom: 0in;line-height: 100%;text-align: left;background: transparent;margin-left: 0.37in;">1.00</p>
+                    </td>
+                    <td style="border-top: 1px solid #000000;border-bottom: 1px solid #000000;border-left: none;border-right: none;padding: 0in;" width="15.877437325905293%">
+                        <p style="margin-bottom: 0in;line-height: 100%;text-align: right;background: transparent;margin-right: 0.07in;">Rp 0</p>
+                    </td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td height="17" style="border-top: 1px solid #000000;border-bottom: 1px solid #000000;border-left: none;border-right: none;padding: 0in;" width="39.55431754874652%">
+                        <p style="margin-bottom: 0in;line-height: 100%;text-align: left;background: transparent;"><br> </br></p>
+                    </td>
+                    <td style="border-top: 1px solid #000000;border-bottom: 1px solid #000000;border-left: none;border-right: none;padding: 0in;" width="44.56824512534819%">
+                        <p style="margin-bottom: 0in;line-height: 100%;text-align: left;background: transparent;margin-left: 0.37in;">1.00</p>
+                    </td>
+                    <td style="border-top: 1px solid #000000;border-bottom: 1px solid #000000;border-left: none;border-right: none;padding: 0in;" width="15.877437325905293%">
+                        <p style="margin-bottom: 0in;line-height: 100%;text-align: right;background: transparent;margin-right: 0.07in;">Rp 0</p>
+                    </td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td height="17" style="border-top: 1px solid #000000;border-bottom: 1px solid #000000;border-left: none;border-right: none;padding: 0in;" width="39.55431754874652%">
+                        <p style="margin-bottom: 0in;line-height: 100%;text-align: left;background: transparent;margin-left: 0.08in;">Total</p>
+                    </td>
+                    <td style="border-top: 1px solid #000000;border-bottom: 1px solid #000000;border-left: none;border-right: none;padding: 0in;" width="44.56824512534819%">
+                        <p style="margin-bottom: 0in;line-height: 100%;text-align: left;background: transparent;"><br> </br></p>
+                    </td>
+                    <td style="border-top: 1px solid #000000;border-bottom: 1px solid #000000;border-left: none;border-right: none;padding: 0in;" width="15.877437325905293%">
+                        <p style="margin-bottom: 0in;line-height: 100%;text-align: right;background: transparent;margin-right: 0.07in;">Rp</p>
+                    </td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td height="34" style="border-top: 1px solid #000000;border-bottom: none;border-left: none;border-right: none;padding: 0in;" width="39.55431754874652%">
+                        <p style="margin-bottom: 0in;line-height: 100%;text-align: left;background: transparent;margin-left: 0.08in;">Diskon(%)</p>
+                        <p style="margin-bottom: 0in;line-height: 100%;text-align: left;background: transparent;margin-left: 0.08in;">Totalakhir</p>
+                    </td>
+                    <td style="border-top: 1px solid #000000;border-bottom: none;border-left: none;border-right: none;padding: 0in;" width="44.56824512534819%">
+                        <p style="margin-bottom: 0in;line-height: 100%;text-align: left;background: transparent;"><br> </br></p>
+                    </td>
+                    <td style="border-top: 1px solid #000000;border-bottom: none;border-left: none;border-right: none;padding: 0in;" width="15.877437325905293%">
+                        <p style="margin-bottom: 0in;line-height: 100%;text-align: left;background: transparent;margin-top: 0.01in;"><br> </br></p>
+                        <p style="margin-bottom: 0in;line-height: 100%;text-align: right;background: transparent;margin-right: 0.07in;">Rp 0</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td height="16" style="border-top: none;border-bottom: 1px solid #000000;border-left: none;border-right: none;padding: 0in;" width="39.55431754874652%">
+                        <p style="margin-bottom: 0in;line-height: 100%;text-align: left;background: transparent;margin-left: 0.08in;">Bayar</p>
+                    </td>
+                    <td style="border-top: none;border-bottom: 1px solid #000000;border-left: none;border-right: none;padding: 0in;" width="44.56824512534819%">
+                        <p style="margin-bottom: 0in;line-height: 100%;text-align: left;background: transparent;"><br> </br></p>
+                    </td>
+                    <td style="border-top: none;border-bottom: 1px solid #000000;border-left: none;border-right: none;padding: 0in;" width="15.877437325905293%">
+                        <p style="margin-bottom: 0in;line-height: 100%;text-align: right;background: transparent;margin-right: 0.07in;">Rp 0</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </dd>
+</dl>
+    <p style='margin-bottom: 0in;line-height: 100%;text-align: left;background: transparent;font-family: "DejaVu Sans", serif;font-size:15px;'><br> </br></p>
+    <p style='margin-bottom: 0in;line-height: 100%;text-align: left;background: transparent;font-family: "DejaVu Sans", serif;font-size:15px;'><br> </br></p>
+    <p style='margin: 0.07in 0.52in 0in 0.63in;line-height: 100%;text-align: center;background: transparent;font-family: "DejaVu Sans", serif;font-size:15px;'>Terima Kasih. Semoga Lekas Sembuh</p>
+</div>
+        </t>
+    </template>
+   
+
+
+     <template id="template_kwitansi">
+        <t t-call="web.html_container">
+         <!-- <t t-call="bisa_hospital.monthly_report_header"/> -->
+    <div class="header">      
+        <table cellpadding="2" cellspacing="0" width="837">
+        <tr t-foreach="docs" t-as="det">
+    <tbody>
+          
+            <td height="12" style="border-top: none;border-bottom: 1px solid #000000;border-left: none;border-right: none;padding: 0in;" width="20%">
+                <p style='margin-bottom: 0.1in;color: #000000;line-height: 115%;text-align: left;background: transparent;font-family: "Calibri", serif;font-size:15px;'>No. RM</p>
+            </td>
+            <td style="border-top: none;border-bottom: 1px solid #000000;border-left: none;border-right: none;padding: 0in;" width="0.78125%">
+                <p style='margin-bottom: 0.1in;color: #000000;line-height: 115%;text-align: center;background: transparent;font-family: "Calibri", serif;font-size:15px;'>:</p>
+            </td>
+            <td style="border-top: none;border-bottom: 1px solid #000000;border-left: none;border-right: none;padding: 0in;" width="33.28125%">
+                <p style='margin-bottom: 0.1in;color: #000000;line-height: 115%;text-align: left;background: transparent;font-family: "Calibri", serif;font-size:15px; margin-left:10px;'><span t-field="det.pendaftaran_id.no_rm"/></p>
+            </td>
+            <td style="border-top: none;border-bottom: 1px solid #000000;border-left: none;border-right: none;padding: 0in;" width="8.125%">
+                <p style='margin-bottom: 0.1in;color: #000000;line-height: 115%;text-align: left;background: transparent;font-family: "Calibri", serif;font-size:15px;'></p>
+            </td>
+            <td style="border-top: none;border-bottom: 1px solid #000000;border-left: none;border-right: none;padding: 0in;" width="105%">
+                <p style='width:100%; margin-bottom: 0.1in;color: #000000;line-height: 115%;text-align: left;background: transparent;font-family: "Calibri", serif;font-size:15px;'>Nama Pasien</p>
+            </td>
+            <td style="border-top: none;border-bottom: 1px solid #000000;border-left: none;border-right: none;padding: 0in;" width="0.78125%">
+                <p style='margin-bottom: 0.1in;color: #000000;line-height: 115%;text-align: left;background: transparent;font-family: "Calibri", serif;font-size:15px;'>:</p>
+            </td>
+            <td style="border-top: none;border-bottom: 1px solid #000000;border-left: none;border-right: none;padding: 0in;" width="25.9375%">
+                <p style='margin-bottom: 0.1in;color: #000000;line-height: 115%;text-align: left;background: transparent;font-family: "Calibri", serif;font-size:15px; margin-left:10px;'><span t-field="det.partner_id.name"/></p>
+            </td>
+      
+     
+    </tbody>
+    <tbody>
+        <tr>
+            <td style="border-top: 1px solid rgb(0, 0, 0);border-bottom: none;border-left: none;border-right: none;padding: 0in;" width="30%">
+            <br></br>
+                <p style='margin-bottom: 10px;color: #000000;line-height: 115%;text-align: left;background: transparent;font-family: "Calibri", serif;font-size:15px;'>Terima Dari</p>
+            </td>
+            <td style="border-top: 1px solid #000000;border-bottom: none;border-left: none;border-right: none;padding: 0in;" width="0.78125%">
+             <br></br>
+                <p style='margin-bottom: 0.1in;color: #000000;line-height: 115%;text-align: center;background: transparent;font-family: "Calibri", serif;font-size:15px;'>:</p>
+            </td>
+            &#160;&#160;&#160;&#160;&#160;&#160;
+            <td style="border-top: 1px solid rgb(0, 0, 0);border-bottom: none;border-left: none;border-right: none;padding: 0in;" width="33.28125%">
+             <br></br>
+                <p style='margin-bottom: 10px;color: #000000;line-height: 115%;margin-left: 15px;background: transparent;font-family: "Calibri", serif;font-size:15px;'><span t-field="det.pembayar"/></p>
+            </td>
+            <td style="border-top: 1px solid rgb(0, 0, 0);border-bottom: none;border-left: none;border-right: none;padding: 0in;vertical-align: top;" valign="top" width="8.125%">
+                <p style='margin-bottom: 0.1in;color: #000000;line-height: 115%;text-align: left;background: transparent;font-family: "Calibri", serif;font-size:15px;'></p>
+            </td>
+            <td style="border-top: 1px solid rgb(0, 0, 0);border-bottom: none;border-left: none;border-right: none;padding: 0in;" width="35%">
+             <br></br>
+                <p style='margin-bottom: 15px;color: #000000;line-height: 115%;text-align: left;background: transparent;font-family: "Calibri", serif;font-size:15px;'>No. Kwitansi</p>
+            </td>
+            <td style="border-top: 1px solid #000000;border-bottom: none;border-left: none;border-right: none;padding: 0in;" width="0.78125%">
+             <br></br>
+                <p style='margin-bottom: 0.1in;color: #000000;line-height: 115%;text-align: center;background: transparent;font-family: "Calibri", serif;font-size:15px;'>:</p>
+            </td>
+            <td style="border-top: 1px solid rgb(0, 0, 0);border-bottom: none;border-left: none;border-right: none;padding: 0in;" width="25.9375%">
+             <br></br>
+                <p style='margin-bottom: 15px;color: #000000;line-height: 115%;text-align: left;background: transparent;font-family: "Calibri", serif;font-size:15px;margin-left:10px;'><span t-field="det.name"/>(<span t-field="det.journal_id_"/>)</p>
+            </td>
+        </tr>
+        <tr>
+            <td style="border: none;padding: 0in;vertical-align: top;" valign="top" width="20%">
+                <p style='margin-top: -10px;color: #000000;line-height: 115%;text-align: left;background: transparent;font-family: "Calibri", serif;font-size:15px;'>Klinik<br></br>
+                <br></br>Paket Layanan</p>
+            </td>
+            <td style="border: none;padding: 0in;" width="0.78125%">
+                <p style='margin-top: -15px;color: #000000;line-height: 115%;text-align: center;background: transparent;font-family: "Calibri", serif;font-size:15px;'>:<br></br>:</p>
+            </td>
+            <td style="border: none;padding: 0in;vertical-align: top;" valign="top" width="33.28125%">
+                <p style='margin-left:15px; margin-top: -15px;color: #000000;line-height: 115%;text-align: left;background:margin-left:15px; transparent;font-family: "Calibri", serif;font-size:15px;'><span t-field="det.unit_layanan_"/><br></br><span t-field="det.pendaftaran_id.paket_layanan.name"/></p>
+            </td>
+            <td style="border: none;padding: 0in;vertical-align: top;" valign="top" width="8.125%">
+                <p style='margin-bottom: 0.1in;color: #000000;line-height: 115%;text-align: left;background: transparent;font-family: "Calibri", serif;font-size:15px;'><br></br></p>
+            </td>
+            <td style="border: none;padding: 0in;vertical-align: top;" valign="top" width="11.09375%">
+                <p style='margin-top: -10px;color: #000000;line-height: 115%;text-align: left;background: transparent;font-family: "Calibri", serif;font-size:15px;'>No. Reg</p>
+            </td>
+            <td style="border: none;padding: 0in;" width="0.78125%">
+                <p style='margin-top: -15px;color: #000000;line-height: 115%;text-align: center;background: transparent;font-family: "Calibri", serif;font-size:15px;'>:</p>
+            </td>
+            <td style="border: none;padding: 0in;vertical-align: top;" valign="top" width="25.9375%">
+                <p style='margin-left:10px;margin-top: -13px;color: #000000;line-height: 115%;text-align: left;background: transparent;font-family: "Calibri", serif;font-size:15px;'><span t-field="det.pendaftaran_id.no_registrasi"/></p>
+            </td>
+        </tr>
+        <tr>
+            <td style="border-top: none;border-bottom: 1px solid rgb(0, 0, 0);border-left: none;border-right: none;padding: 0in;vertical-align: top;" valign="top" width="20%">
+                <p style='margin-top: -10px;color: #000000;line-height: 115%;text-align: left;background: transparent;font-family: "Calibri", serif;font-size:15px;'>Dokter</p>
+            </td>
+            <td style="border-top: none;border-bottom: 1px solid #000000;border-left: none;border-right: none;padding: 0in;" width="0.78125%">
+                <p style='margin-top: -15px;color: #000000;line-height: 115%;text-align: center;background: transparent;font-family: "Calibri", serif;font-size:15px;'>:</p>
+            </td>
+            <td style="border-top: none;border-bottom: 1px solid rgb(0, 0, 0);border-left: none;border-right: none;padding: 0in;vertical-align: top;" valign="top" width="33.28125%">
+                <p style='margin-left:15px; margin-bottom: 0.1in;color: #000000;line-height: 115%;text-align: left;background: transparent;font-family: "Calibri", serif;font-size:15px;'><span t-field="det.nama_dokter_"/></p>
+            </td>
+            <td style="border-top: none;border-bottom: 1px solid rgb(0, 0, 0);border-left: none;border-right: none;padding: 0in;vertical-align: top;" valign="top" width="8.125%">
+                <p style='margin-bottom: 0.1in;color: #000000;line-height: 115%;text-align: left;background: transparent;font-family: "Calibri", serif;font-size:15px;'><br></br></p>
+            </td>
+            <td style="border-top: none;border-bottom: 1px solid rgb(0, 0, 0);border-left: none;border-right: none;padding: 0in;vertical-align: top;" valign="top" width="11.09375%">
+                <p style='margin-top: -30px;color: #000000;line-height: 115%;text-align: left;background: transparent;font-family: "Calibri", serif;font-size:15px;'>Penjamin</p>
+            </td>
+            <td style="border-top: none;border-bottom: 1px solid #000000;border-left: none;border-right: none;padding: 0in;" width="0.78125%">
+                <p style='margin-top: -30px;color: #000000;line-height: 115%;text-align: center;background: transparent;font-family: "Calibri", serif;font-size:15px;'>:</p>
+            </td>
+            <td style="border-top: none;border-bottom: 1px solid rgb(0, 0, 0);border-left: none;border-right: none;padding: 0in;vertical-align: top;" valign="top" width="25.9375%">
+                <p style='margin-left: 10px; margin-top: -30px;color: #000000;line-height: 115%;text-align: left;background: transparent;font-family: "Calibri", serif;font-size:15px;'><span t-field="det.penjamin.name"/></p>
+            </td>
+        </tr>
+    </tbody>
+    <tbody>
+    
+            <tr t-foreach="det.invoice_line_ids" t-as="data">
+            <td style="border-top: 1px solid #000000;border-bottom: none;border-left: none;border-right: none;padding: 0in;" width="35%">
+            <br></br>
+                <p style='margin-bottom: 10px;color: #000000;line-height: 115%;text-align: left;background: transparent;font-family: "Calibri", serif;font-size:15px;'>Untuk Keperluan</p>
+            </td>
+             <br></br>
+            <td style="border-top: 1px solid #000000;border-bottom: none;border-left: none;border-right: none;padding: 0in;" width="0.78125%">
+             <br></br>
+                <p style='margin-bottom:10px;color: #000000;line-height: 115%;text-align: center;background: transparent;font-family: "Calibri", serif;font-size:15px;'>:</p>
+            </td>
+            <br></br>
+            <td style="border-top: 1px solid #000000;border-bottom: none;border-left: none;border-right: none;padding: 0in;" width="35%">
+             <br></br>
+                <p style='margin-bottom:10px;margin-left: 15px; margin-bottom: 0.1in;color: #000000;line-height: 115%;text-align: left;background: transparent;font-family: "Calibri", serif;font-size:15px;'><span t-field="data.product_id"/></p>
+           </td>
+ 
+            <td colspan="5" style="border-top: 1px solid #000000;border-bottom: none;border-left: none;border-right: none;padding: 0in;" width="8.125%">
+             <br></br>
+                <p style='margin-bottom: 10px;color: #000000;line-height: 115%;text-align: left;background: transparent;font-family: "Calibri", serif;font-size:15px;'><span t-field="data.price_subtotal"/> / <span t-esc="data.priceSubtotal(data.price_subtotal)"/></p>
+            </td>
+            
+            <td style="border-top: 1px solid #000000;border-bottom: none;border-left: none;border-right: none;padding: 0in;" width="11.09375%">
+                <p style='margin-bottom: 0.1in;color: #000000;line-height: 115%;text-align: left;background: transparent;font-family: "Calibri", serif;font-size:15px;'><br></br></p>
+            </td>
+            <td style="border-top: 1px solid #000000;border-bottom: none;border-left: none;border-right: none;padding: 0in;" width="0.78125%">
+                <p style='margin-bottom: 0.1in;color: #000000;line-height: 115%;text-align: left;background: transparent;font-family: "Calibri", serif;font-size:15px;'><br></br></p>
+            </td>
+            <td style="border-top: 1px solid #000000;border-bottom: none;border-left: none;border-right: none;padding: 0in;" width="25.9375%">
+                <p style='margin-bottom: 0.1in;color: #000000;line-height: 115%;text-align: left;background: transparent;font-family: "Calibri", serif;font-size:15px;'><br> </br></p>
+            </td>
+         
+        </tr>
+        <tr>
+            <td colspan="2" style="border: none;padding: 0in;" width="22.477064220183486%">
+                <p style='margin-bottom: 0.1in;color: #000000;line-height: 115%;text-align: left;background: transparent;font-family: "Calibri", serif;font-size:15px;'><br> </br></p>
+            </td>
+            <td colspan="5" style="border: none;padding: 0in;" width="32.56880733944954%">
+                <p style='margin-bottom: 0.1in;color: #000000;line-height: 115%;text-align: right;background: transparent;font-family: "Calibri", serif;font-size:15px;'><span t-field="det.breakdown_harga_harga"/> </p>
+            </td>
+            <td style="border: none;padding: 0in;" width="7.951070336391437%">
+                <p style='margin-bottom: 0.1in;color: #000000;line-height: 115%;text-align: left;background: transparent;font-family: "Calibri", serif;font-size:15px;'><br> </br></p>
+            </td>
+            <td style="border: none;padding: 0in;" width="10.856269113149848%">
+                <p style='margin-bottom: 0.1in;color: #000000;line-height: 115%;text-align: left;background: transparent;font-family: "Calibri", serif;font-size:15px;'><br> </br></p>
+            </td>
+            <td style="border: none;padding: 0in;" width="0.764525993883792%">
+                <p style='margin-bottom: 0.1in;color: #000000;line-height: 115%;text-align: left;background: transparent;font-family: "Calibri", serif;font-size:15px;'><br> </br></p>
+            </td>
+            <td style="border: none;padding: 0in;" width="25.382262996941897%">
+                <p style='margin-bottom: 0.1in;color: #000000;line-height: 115%;text-align: left;background: transparent;font-family: "Calibri", serif;font-size:15px;'><br> </br></p>
+            </td>
+        </tr>
+        <tr>
+            <td style="border-top: none;border-bottom: 1px solid rgb(0, 0, 0);border-left: none;border-right: none;padding: 0in;vertical-align: top;" valign="top" width="20%">
+                <p style='margin-top: -30px;color: #000000;line-height: 115%;text-align: left;background: transparent;font-family: "Calibri", serif;font-size:15px;'>Sebesar</p>
+            </td>
+            <td style="border-top: none;border-bottom: 1px solid rgb(0, 0, 0);border-left: none;border-right: none;padding: 0in;vertical-align: top;" valign="top" width="0.78125%">
+                <p style='margin-top: -30px;color: #000000;line-height: 115%;text-align: left;background: transparent;font-family: "Calibri", serif;font-size:15px;'>:<br> </br><br> </br></p>
+            </td>
+            <td style="border-top: none;border-bottom: 1px solid #000000;border-left: none;border-right: none;padding: 0in;" width="33.28125%">
+                <p style='margin-bottom: 0.1in;color: #000000;line-height: 115%;text-align: right;background: transparent;font-family: "Calibri", serif;font-size:15px;'><br> </br></p>
+            </td>
+            <td colspan="5" style="border-top: none;border-bottom: 1px solid rgb(0, 0, 0);border-left: none;border-right: none;padding: 0in;vertical-align: top;" valign="top" width="8.125%">
+                <p style='margin-top: -30px;color: #000000;line-height: 115%;text-align: left;background: transparent;font-family: "Calibri", serif;font-size:15px;'><span t-field="det.amount_total"/> / <span t-esc="det.qty_to_text(det.amount_total)"/></p>
+            </td>
+            <td style="border-top: none;border-bottom: 1px solid rgb(0, 0, 0);border-left: none;border-right: none;padding: 0in;vertical-align: top;" valign="top" width="11.09375%">
+                <p style='margin-bottom: 0.1in;color: #000000;line-height: 115%;text-align: left;background: transparent;font-family: "Calibri", serif;font-size:15px;'><br> </br></p>
+            </td>
+            <td style="border-top: none;border-bottom: 1px solid rgb(0, 0, 0);border-left: none;border-right: none;padding: 0in;vertical-align: top;" valign="top" width="0.78125%">
+                <p style='margin-bottom: 0.1in;color: #000000;line-height: 115%;text-align: left;background: transparent;font-family: "Calibri", serif;font-size:15px;'><br> </br></p>
+            </td>
+            <td style="border-top: none;border-bottom: 1px solid rgb(0, 0, 0);border-left: none;border-right: none;padding: 0in;vertical-align: top;" valign="top" width="25.9375%">
+                <p style='margin-bottom: 0.1in;color: #000000;line-height: 115%;text-align: left;background: transparent;font-family: "Calibri", serif;font-size:15px;'><br> </br></p>
+            </td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr>
+            <td style="border-top: 1px solid #000000;border-bottom: none;border-left: none;border-right: none;padding: 0in;" width="20%">
+                <p style='margin-bottom: 0.1in;color: #000000;line-height: 115%;text-align: center;background: transparent;font-family: "Calibri", serif;font-size:15px;'><br> </br></p>
+            </td>
+            <td style="border-top: 1px solid rgb(0, 0, 0);border-bottom: none;border-left: none;border-right: none;padding: 0in;vertical-align: top;" valign="top" width="0.78125%">
+                <p style='margin-bottom: 0.1in;color: #000000;line-height: 115%;text-align: left;background: transparent;font-family: "Calibri", serif;font-size:15px;'><br> </br></p>
+            </td>
+            <td style="border-top: 1px solid #000000;border-bottom: none;border-left: none;border-right: none;padding: 0in;" width="33.28125%">
+            <br></br>
+                <p style='margin-bottom: 10px;color: #000000;line-height: 115%;text-align: center;background: transparent;font-family: "Calibri", serif;font-size:15px;'>Penjamin</p>
+            </td>
+            <td style="border-top: 1px solid rgb(0, 0, 0);border-bottom: none;border-left: none;border-right: none;padding: 0in;vertical-align: top;" valign="top" width="8.125%">
+                <p style='margin-bottom: 0.1in;color: #000000;line-height: 115%;text-align: left;background: transparent;font-family: "Calibri", serif;font-size:15px;'><br> </br></p>
+            </td>
+            <td style="border-top: 1px solid rgb(0, 0, 0);border-bottom: none;border-left: none;border-right: none;padding: 0in;vertical-align: top;" valign="top" width="11.09375%">
+                <p style='margin-bottom: 0.1in;color: #000000;line-height: 115%;text-align: left;background: transparent;font-family: "Calibri", serif;font-size:15px;'><br> </br></p>
+            </td>
+            <td style="border-top: 1px solid rgb(0, 0, 0);border-bottom: none;border-left: none;border-right: none;padding: 0in;vertical-align: top;" valign="top" width="0.78125%">
+                <p style='margin-bottom: 0.1in;color: #000000;line-height: 115%;text-align: left;background: transparent;font-family: "Calibri", serif;font-size:15px;'><br> </br></p>
+            </td>
+            <td style="border-top: 1px solid rgb(0, 0, 0);border-bottom: none;border-left: none;border-right: none;padding: 0in;vertical-align: top;" valign="top" width="25.9375%">
+            <br></br>
+                <p style='margin-bottom: 10px;color: #000000;line-height: 115%;text-align: center;background: transparent;font-family: "Calibri", serif;font-size:15px;'><span t-field="det.waktu_transaksi"/></p>
+            </td>
+    
+        </tr>
+        <tr>
+            <td style="border: none;padding: 0in;" width="20%">
+                <p style='margin-bottom: 0.1in;color: #000000;line-height: 115%;text-align: center;background: transparent;font-family: "Calibri", serif;font-size:15px;'><br> </br></p>
+            </td>
+            <td style="border: none;padding: 0in;vertical-align: top;" valign="top" width="0.78125%">
+                <p style='margin-bottom: 0.1in;color: #000000;line-height: 115%;text-align: left;background: transparent;font-family: "Calibri", serif;font-size:15px;'><br> </br></p>
+            </td>
+            <td style="border: none;padding: 0in;" width="33.28125%">
+                <p style='margin-bottom: 0.1in;color: #000000;line-height: 115%;text-align: center;background: transparent;font-family: "Calibri", serif;font-size:15px;'><br> </br></p>
+            </td>
+            <td style="border: none;padding: 0in;vertical-align: top;" valign="top" width="8.125%">
+                <p style='margin-bottom: 0.1in;color: #000000;line-height: 115%;text-align: left;background: transparent;font-family: "Calibri", serif;font-size:15px;'><br> </br></p>
+            </td>
+            <td style="border: none;padding: 0in;vertical-align: top;" valign="top" width="11.09375%">
+                <p style='margin-bottom: 0.1in;color: #000000;line-height: 115%;text-align: left;background: transparent;font-family: "Calibri", serif;font-size:15px;'><br> </br></p>
+            </td>
+            <td style="border: none;padding: 0in;vertical-align: top;" valign="top" width="0.78125%">
+                <p style='margin-bottom: 0.1in;color: #000000;line-height: 115%;text-align: left;background: transparent;font-family: "Calibri", serif;font-size:15px;'><br> </br></p>
+            </td>
+            <td style="border: none;padding: 0in;vertical-align: top;" valign="top" width="25.9375%">
+                <p style='margin-bottom: 0.1in;color: #000000;line-height: 115%;text-align: center;background: transparent;font-family: "Calibri", serif;font-size:15px;'>Kasir</p>
+            </td>
+        </tr>
+
+              <tr>
+            <td style="border: none;padding: 0in;" width="20%">
+                <p style='margin-bottom: 0.1in;color: #000000;line-height: 115%;text-align: center;background: transparent;font-family: "Calibri", serif;font-size:15px;'><br> </br></p>
+            </td>
+            <td style="border: none;padding: 0in;vertical-align: top;" valign="top" width="0.78125%">
+                <p style='margin-bottom: 0.1in;color: #000000;line-height: 115%;text-align: left;background: transparent;font-family: "Calibri", serif;font-size:15px;'><br> </br></p>
+            </td>
+            <td style="border: none;padding: 0in;" width="33.28125%">     
+                <p style='margin-bottom: 0.1in;color: #000000;line-height: 115%;text-align: center;background: transparent;font-family: "Calibri", serif;font-size:15px;'></p>
+            </td>
+            <td style="border: none;padding: 0in;vertical-align: top;" valign="top" width="8.125%">
+                <p style='margin-bottom: 0.1in;color: #000000;line-height: 115%;text-align: left;background: transparent;font-family: "Calibri", serif;font-size:15px;'><br> </br></p>
+            </td>
+            <td style="border: none;padding: 0in;vertical-align: top;" valign="top" width="11.09375%">
+                <p style='margin-bottom: 0.1in;color: #000000;line-height: 115%;text-align: left;background: transparent;font-family: "Calibri", serif;font-size:15px;'><br> </br></p>
+            </td>
+            <td style="border: none;padding: 0in;vertical-align: top;" valign="top" width="0.78125%">
+                <p style='margin-bottom: 0.1in;color: #000000;line-height: 115%;text-align: left;background: transparent;font-family: "Calibri", serif;font-size:15px;'><br> </br></p>
+            </td>
+            <td style="border: none;padding: 0in;vertical-align: top;" valign="top" width="25.9375%">
+                <p style='margin-bottom: 0.1in;color: #000000;line-height: 115%;text-align: center;background: transparent;font-family: "Calibri", serif;font-size:15px;'><br> </br></p>
+            </td>
+             <td style="border: none;padding: 0in;vertical-align: top;" valign="top" width="25.9375%">
+                <p style='margin-bottom: 0.1in;color: #000000;line-height: 115%;text-align: center;background: transparent;font-family: "Calibri", serif;font-size:15px;'><br> </br></p>
+            </td>
+        </tr>
+
+        <tr>
+            <td style="border: none;padding: 0in;" width="20%">
+                <p style='margin-bottom: 0.1in;color: #000000;line-height: 115%;text-align: center;background: transparent;font-family: "Calibri", serif;font-size:15px;'><br> </br></p>
+            </td>
+            <td style="border: none;padding: 0in;vertical-align: top;" valign="top" width="0.78125%">
+                <p style='margin-bottom: 0.1in;color: #000000;line-height: 115%;text-align: left;background: transparent;font-family: "Calibri", serif;font-size:15px;'><br> </br></p>
+            </td>
+            <td style="border: none;padding: 0in;" width="33.28125%">     
+                <p style='margin-bottom: 0.1in;color: #000000;line-height: 115%;text-align: center;background: transparent;font-family: "Calibri", serif;font-size:15px;'><span style="visibility:hidden;" t-field="det.penjamin.name"/></p>
+                   <p style='margin-bottom: 0.1in;color: #000000;line-height: 115%;text-align: center;background: transparent;font-family: "Calibri", serif;font-size:15px;'><span t-field="det.penjamin.name"/></p>
+            </td>
+            <td style="border: none;padding: 0in;vertical-align: top;" valign="top" width="8.125%">
+                <p style='margin-bottom: 0.1in;color: #000000;line-height: 115%;text-align: left;background: transparent;font-family: "Calibri", serif;font-size:15px;'><br> </br></p>
+            </td>
+            <td style="border: none;padding: 0in;vertical-align: top;" valign="top" width="11.09375%">
+                <p style='margin-bottom: 0.1in;color: #000000;line-height: 115%;text-align: left;background: transparent;font-family: "Calibri", serif;font-size:15px;'><br> </br></p>
+            </td>
+            <td style="border: none;padding: 0in;vertical-align: top;" valign="top" width="0.78125%">
+                <p style='margin-bottom: 0.1in;color: #000000;line-height: 115%;text-align: left;background: transparent;font-family: "Calibri", serif;font-size:15px;'><br> </br></p>
+            </td>
+            <td style="border: none;padding: 0in;vertical-align: top;" valign="top" width="25.9375%">
+            <br></br>
+                <p style='margin-top: 10px;color: #000000;line-height: 115%;text-align: center;background: transparent;font-family: "Calibri", serif;font-size:15px;'><span t-field="det.user_pj.name"/></p>
+            </td>
+        </tr>
+     
+    </tbody>
+    </tr>
+   
+</table>
+    
+
+</div>
+        </t>
+         
+    </template>
+
+
+        <template id="report_hasil_lab">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <tr t-foreach="docs" t-as="det">
+                        <center><h2>Hasil Pemeriksaan</h2></center>
+                        <br></br>
+                        <div>
+                            <div>
+                               <left>Nama Pasien   : <th><span t-esc="det.nama_pasien.name"/></th> </left> 
+                            </div>
+                            <div>
+                                <left>No RM : <th><span t-esc="det.no_rm"/></th></left>
+                             </div>
+                            <div>
+                                <left>Nama Dokter : <th><span t-esc="det.nama_dokter.name" /></th> </left>
+                            </div>
+                            <div>
+                                <left>Asal Layanan     : <th><span t-esc="det.asal_jenis_layanan.name"/></th></left>
+                            </div>
+                            <!-- <div>
+                                <tr t-foreach='det.aktual_ukur' t-as='line'>
+                                    <table  class="table table-bordered " >
+                                        <tbody>
+                                        <tr>
+                                            <th style="font-size:10px">Nama</th>
+                                            <th style="font-size:10px">Nilai Aktual</th>
+                                            <th style="font-size:10px">Hasil Ukur</th>
+                                            <th style="font-size:10px">Keterangan</th>
+                                        </tr>
+                                        <tr>
+                                            <td t-esc="line.nama" style="font-size:10px"> </td>
+                                            <td t-esc="line.nilai_normal" style="font-size:10px"> </td>
+                                            <td t-esc="line.nilai_ukur" style="font-size:10px"> </td>
+                                            <td t-esc="line.keterangan" style="font-size:10px"> </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </tr>
+                            </div> -->
+                            <div>
+                                <br></br>
+                                <center>
+                                    Hasil  :
+                                    <br></br>
+                                <tr t-foreach='det.aktual_ukur' t-as='line'>
+                                    <td><span t-esc="line.nama"/></td> 
+                                    |
+                                    <td><span t-esc="line.nilai_normal"/></td>
+                                    |
+                                    <td><span t-esc="line.nilai_ukur"/></td>
+                                    |
+                                    <td><span t-esc="line.keterangan" style="font-size:20px;font-weight: bold"/></td>
+                                    <br></br>
+                                </tr>
+                                </center>
+                            </div>
+                           
+                        </div>
+                    </tr>
+                </t>
+            </t>
+        </template>
+
+
+       <template id="report_hasil_surat_sakit">
+        <t t-call="web.html_container">
+            <div t-attf-class="header o_company_#{4}_layout" t-att-style="report_header_style">
+<!--             <tr t-foreach="operating_unit" t-as="ou">-->
+                <div class="row">
+                    <div class="col-12 mb4" style="display: flex; display: -webkit-box;margin-top:30px; ">
+                        <th><img style=" width:100%;height:auto;" t-att-src="'data:image/png;base64,%s' % to_text(logo)"/></th>
+                        <h4 style="max-width:450px;margin-left:500px;overflow-wrap: break-word;font-size:30px;"> <th><span t-esc="operating_unit"/></th> </h4>
+                    </div>
+                    <div class="col-9 text-right" style="margin-top:22px;" name="moto"/>
+                </div>
+<!--        </tr>--> 
+<!--           <tr t-foreach="docs" t-as="det">-->
+                 <div class="col-12 mb4" style="display: flex; display: -webkit-box; ">
+                         <h4 style="margin-top:80px;margin-left:400px;font-size:30px;"><th><span t-esc="nama_ou"/></th> </h4>
+                    </div>
+                <div class="body" style="text-align: center;">
+                    <h1 style="font-weight:bold;margin-top:100px;">Surat Keterangan Sakit</h1>
+                </div>
+                <br></br>
+                 <h4 style="margin-left:160px;font-size:30px;">Berhubung dengan Kesehatan badannya maka perlu diberi istirahat kepada:</h4>
+                     <br></br>
+                  <div class="body" style="margin-left:190px;">
+                    <!-- <table>
+                        <tbody>
+                        <tr>
+                        <td>Nama</td>
+                        <td>   :</td>
+                        <td></td>
+                        </tr>
+                        <tr>
+                        <td>Alamat</td>
+                        <td>&#160;&#160;:</td>
+                        <td></td>
+                        </tr>
+                        <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        </tr>
+                        <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        </tr>
+                        </tbody>
+                    </table> -->
+<!-- DivTable.com -->
+                    <h4 style="font-size:30px;">Nama&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;: <span t-esc="nama_pasien"/> </h4>
+                      <br></br>
+                    <h4 style="font-size:30px;">Alamat&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;: <span t-esc="alamat"/> </h4>
+                        <br></br>
+                    <h4 style="font-size:30px;">Saran&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;: <span t-esc="saran"/>  </h4>
+                      <br></br>
+                    <h4 style="font-size:30px;">Tanggal Mulai&#160;&#160;&#160;&#160;&#160;&#160;: <span t-esc="tgl_mulai"/>  </h4>
+                      <br></br>
+                    <h4 style="font-size:30px;">Tanggal Selesai&#160;&#160;&#160;: <span t-esc="tgl_selesai"/>  </h4>
+                     <br></br>
+                    <h4 style="font-size:30px;">Jumlah Hari&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;: <span t-esc="jumlah_hari"/>  </h4>
+                </div>
+                  
+                <br></br>
+                 <br></br>
+                 <br></br>
+                  <h4 style="margin-right:120px;font-size:30px;float: right;" >Jakarta,  <span t-esc="str(waktu)[:-8]"/> </h4>
+<!--                 <h4 style="margin-left:170px;font-size:30px;float: right;" ><span t-esc=".nama_dokter"/> </h4>-->
+                <br></br>
+                <br></br>
+                <br></br>
+                   <h4 style="margin-right:120px;font-size:30px;float: right;" >Dokter yang memeriksa </h4>
+                <br></br>
+                <br></br>
+                 <span style="margin-right:190px;font-size:30px;float: right;margin-top:130px;" t-esc="nama_dokter"/>
+<!--            </tr>-->
+        </div>
+
+        <div t-attf-class="article o_report_layout_standard o_company_#{4}_layout"  t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
+            <div class="pt-5">
+                <!-- This div ensures that the address is not cropped by the header. -->
+                <t t-call="web.address_layout"/>
+            </div>
+            <t t-raw="0"/>
+        </div>
+
+<!--        <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout">-->
+<!--            <div class="text-center" style="border-top: 1px solid black;">-->
+<!--                <ul class="list-inline mb4">-->
+<!--                    &lt;!&ndash; using the list-inline-item class from bootstrap causes weird behaviours in pdf report-->
+<!--                         adding d-inline class fixes the problem&ndash;&gt;-->
+<!--                    <li t-if="company.phone" class="list-inline-item d-inline"><span class="o_force_ltr" t-field="company.phone"/></li>-->
+<!--                    <li t-if="company.email" class="list-inline-item d-inline"><span t-field="company.email"/></li>-->
+<!--                    <li t-if="company.website" class="list-inline-item d-inline"><span t-field="company.website"/></li>-->
+<!--                    <li t-if="company.vat" class="list-inline-item d-inline"><t t-esc="company.country_id.vat_label or 'Tax ID'"/>: <span t-field="company.vat"/></li>-->
+<!--                </ul>-->
+
+<!--                <div name="financial_infos">-->
+<!--                    <span t-field="company.report_footer"/>-->
+<!--                </div>-->
+
+<!--                <div t-if="report_type == 'pdf'" class="text-muted">-->
+<!--                    Page: <span class="page"/> / <span class="topage"/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--            <t t-if="company.external_report_layout_id" t-call="{{company.external_report_layout_id.key}}"><t t-raw="0"/></t>-->
+<!--            <t t-else="else" t-call="web.external_layout_standard"><t t-raw="0"/></t>-->
+
+           <h2 style="margin-top:4px; margin-right: 40px;">Alamat 123</h2>
+                        <tr t-foreach="docs" t-as="det">
+                             <h2 style="margin-top:20px; margin-right: 40px;">Alamat</h2>
+                            <center><h2>Surat Keterangan Sakit</h2></center>
+                        <div>
+                           <left>Operating UNIt   : <th><span t-esc="det.operating_unit_id.name"/></th> </left>
+                        </div>
+                </tr>
+
+        </t>
+        </template>
+
+
+     <template id="report_surat_rujukan">
+        <t t-call="web.html_container">
+            <div t-attf-class="header o_company_#{4}_layout" t-att-style="report_header_style">
+<!--             <tr t-foreach="operating_unit" t-as="ou">-->
+                <div class="row">
+                    <div class="mb4" style="display: flex;  justify-content: center; display: -webkit-box;margin-top:30px;">
+                        <div class="image">
+                           <img style="max-width: 100%; height: auto;" t-att-src="'data:image/png;base64,%s' % to_text(logo)"/>
+                        </div> 
+                        <div class="nama_ou">  
+                            <h4 style="margin-top:60px;margin-left:270px;margin-bottom:0;margin:auto;font-size:40px;font-weight:bold;width:600px;text-align:center;justify-content:center"><span t-esc="nama_ou"/> </h4>    
+                            <!-- <h4 style="max-width:450px;margin-left:500px;overflow-wrap: break-word;font-size:30px;"> <th><span t-esc="operating_unit"/></th> </h4> -->
+                        </div>
+                    </div>
+                    <div class="col-9 text-right" style="margin-top:22px;" name="moto"/>
+                </div>
+
+                <div class="col-12 mb4" style="display: flex; display: -webkit-box;margin-top:10px;text-align:center;margin-left:100px;">
+                   <h4 style="max-width:650px;margin-left:270px;overflow-wrap: break-word;font-size:30px;"> <th><span t-esc="operating_unit"/></th> </h4>
+                </div>
+
+                <div class="col-12 mb4" style="display: flex; display: -webkit-box; ">
+                  <h1 style="border-top: double;width:100%"></h1>
+                </div>
+                <div class="body" style="text-align: center;">
+                    <h1 style="font-weight:bold;margin-top:40px;">Surat Rujukan</h1>
+                </div>
+                <br></br>
+                <br></br>
+                <br></br>
+                <h4 style="margin-left:160px;font-size:30px;float: left;font-weight:bold;" >Jakarta,  <span t-esc="str(waktu)[:-8]"/> </h4>
+                <br></br>
+                <br></br>
+                <h4 style="margin-left:160px;font-size:30px;float: left;font-weight:bold;" >Kepada Yth, Teman Sejawat. Dokter <span t-esc="dokter"/></h4>
+                <!-- <br></br>
+                <br></br>
+                <h4 style="margin-left:160px;font-size:30px;float: left;font-weight:bold;" ></h4> -->
+                <br></br>
+                <br></br>
+                 <h4 style="margin-left:160px;font-size:30px;float: left;font-weight:bold;" >Spesialis <span t-esc="poli_tujuan"/></h4>
+                <br></br>
+                <br></br>
+                 <h4 style="margin-left:160px;font-size:30px;float: left;font-weight:bold;" >Di <span t-esc="nama_rs"/></h4>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <h4 style="margin-left:160px;font-size:30px;float: left;" >Dengan Hormat,</h4>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                 <h4 style="margin-left:160px;font-size:30px;">Sudi apalah kiranya consult/merawat therapie selanjutnya penderita,</h4>
+                     <br></br>
+                  <div class="body" style="margin-left:190px;">
+                    <h4 style="font-size:30px;">Nama&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;: <span t-esc="nama_pasien"/> </h4>
+                    <h4 style="font-size:30px;">Tanggal Lahir&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;: <span t-esc="tanggal_lahir"/> </h4>
+                        <br></br>
+                    <h4 style="font-size:30px;">Nomor Ktp&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;: <span t-esc="no_id"/>  </h4>
+                     <br></br>
+                    <h4 style="font-size:30px;">Jenis Kelamin&#160;&#160;&#160;&#160;&#160;&#160;&#160;: <span t-esc="jenis_kelamin"/>  </h4>
+                     <br></br>
+                    <h4 style="font-size:30px;">Nomor Telepon&#160;&#160;&#160;: <span t-esc="nomor_telepon"/>  </h4>
+                </div>
+                  <br></br>
+                  <br></br>
+                  <h4 style="margin-left:170px;font-size:30px;" >Atas Bantuannya kami ucapkan terimakasih </h4>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                   <h4 style="margin-right:120px;font-size:30px;float: right;font-weight:bold;" >Dokter Penanggung jawab </h4>
+                <br></br>
+                <br></br>
+                 <span style="margin-right:190px;font-size:30px;float: right;margin-top:130px;" t-esc="nama_dokter"/>
+<!--            </tr>-->
+        </div>
+
+        <div t-attf-class="article o_report_layout_standard o_company_#{4}_layout"  t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
+            <div class="pt-5">
+                <!-- This div ensures that the address is not cropped by the header. -->
+                <t t-call="web.address_layout"/>
+            </div>
+            <t t-raw="0"/>
+        </div>
+           <h2 style="margin-top:4px; margin-right: 40px;">Alamat 123</h2>
+                        <tr t-foreach="docs" t-as="det">
+                             <h2 style="margin-top:20px; margin-right: 40px;">Alamat</h2>
+                            <center><h2>Surat Keterangan Sakit</h2></center>
+                        <div>
+                           <left>Operating UNIt   : <th><span t-esc="det.operating_unit_id.name"/></th> </left>
+                        </div>
+                </tr>
+
+        </t>
+        </template>
+
+
+     <template id="report_surat_rujukan1">
+        <t t-call="web.html_container">
+            <div t-attf-class="header o_company_#{4}_layout" t-att-style="report_header_style">
+<!--             <tr t-foreach="operating_unit" t-as="ou">-->
+                <div class="row">
+                    <div class="col-12 mb4" style="display: flex; display: -webkit-box;margin-top:30px; ">
+                        <th><img style=" width:300px;height:150px;" t-att-src="'data:image/png;base64,%s' % to_text(logo)"/></th>
+                          <h4 style="margin-top:60px;margin-left:200px;font-size:40px;font-weight:bold;width:400px;color:#4cc251;"><th><span t-esc="nama_ou"/></th> </h4>    
+                        <!-- <h4 style="max-width:450px;margin-left:500px;overflow-wrap: break-word;font-size:30px;"> <th><span t-esc="operating_unit"/></th> </h4> -->
+                    </div>
+                    <div class="col-9 text-right" style="margin-top:22px;" name="moto"/>
+                </div>
+
+                <div class="col-12 mb4" style="display: flex; display: -webkit-box;margin-top:30px;text-align:center;">
+                   <h4 style="max-width:650px;margin-left:300px;overflow-wrap: break-word;font-size:30px;"> <th><span t-esc="operating_unit"/></th> </h4>
+                </div>
+
+                <div class="col-12 mb4" style="display: flex; display: -webkit-box; ">
+                  <h1 style="border-top: double;width:100%"></h1>
+                </div>
+                <div class="body" style="text-align: center;">
+                    <h1 style="font-weight:bold;margin-top:40px;">Surat Rujukan</h1>
+                </div>
+                <br></br>
+                <br></br>
+                <br></br>
+                <!-- <h4 style="margin-left:220px;font-size:30px;float: left;font-weight:bold;" >Jakarta,  <span t-esc="str(waktu)[:-8]"/> </h4> -->
+                <br></br>
+                <br></br>
+                <h4 style="margin-left:220px;font-size:30px;float: left;font-weight:bold;" >Kepada</h4>
+                <br></br>
+                <br></br>
+                <h4 style="margin-left:220px;font-size:30px;float: left;font-weight:bold;" >Yth, <span t-esc="nama_rs"/></h4>
+                <br></br>
+                <br></br>
+                 <h4 style="margin-left:220px;font-size:30px;float: left;font-weight:bold;" >Periode, <span t-esc="periode"/></h4>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <h4 style="margin-left:160px;font-size:30px;float: left;" >Dengan Hormat,</h4>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                 <h4 style="margin-left:160px;font-size:30px;">Sudi apalah kiranya consult/merawat therapie selanjutnya penderita,</h4>
+                     <br></br>
+                  <div class="body" style="margin-left:190px;">
+                    <h4 style="font-size:30px;">Nama : <span t-esc="nama_pasien"/> </h4>
+                      <br></br>
+                    <h4 style="font-size:30px;">Tanggal_lahir : <span t-esc="tanggal_lahir"/> </h4>
+                        <br></br>
+                    <h4 style="font-size:30px;">Nomor Ktp : <span t-esc="no_id"/>  </h4>
+                     <br></br>
+                    <h4 style="font-size:30px;">Jenis Kelamin : <span t-esc="jenis_kelamin"/>  </h4>
+                     <br></br>
+                    <h4 style="font-size:30px;">Nomor Telepon : <span t-esc="nomor_telepon"/>  </h4>
+                </div>
+                  <br></br>
+                  <br></br>
+                  <h4 style="margin-left:170px;font-size:30px;" >Atas Bantuannya kami ucapkan terimakasih </h4>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                   <h4 style="margin-right:120px;font-size:30px;float: right;font-weight:bold;" >Dokter Penanggung jawab </h4>
+                <br></br>
+                <br></br>
+                 <span style="margin-right:120px;font-size:30px;float: right;margin-top:130px;" t-esc="nama_dokter"/>
+<!--            </tr>-->
+        </div>
+        <div t-attf-class="article o_report_layout_standard o_company_#{4}_layout"  t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
+            <div class="pt-5">
+                <!-- This div ensures that the address is not cropped by the header. -->
+                <t t-call="web.address_layout"/>
+            </div>
+            <t t-raw="0"/>
+        </div>
+           <h2 style="margin-top:4px; margin-right: 40px;">Alamat 123</h2>
+                        <tr t-foreach="docs" t-as="det">
+                             <h2 style="margin-top:20px; margin-right: 40px;">Alamat</h2>
+                            <center><h2>Surat Keterangan Sakit</h2></center>
+                        <div>
+                           <left>Operating UNIt   : <th><span t-esc="det.operating_unit_id.name"/></th> </left>
+                        </div>
+                </tr>
+
+        </t>
+        </template>
+
+
+     <template id="report_hasil_antigen">
+        <t t-call="web.html_container">
+            <div t-attf-class="header o_company_#{4}_layout" t-att-style="report_header_style">
+<!--             <tr t-foreach="operating_unit" t-as="ou">-->
+                     <div class="row">
+                    <div class="mb4" style="display: flex;  justify-content: center; display: -webkit-box;margin-top:30px;">
+                        <div class="image">
+                           <img style="max-width: 100%; height: auto;" t-att-src="'data:image/png;base64,%s' % to_text(logo)"/>
+                        </div> 
+                        <div class="nama_ou">  
+                            <h4 style="margin-top:60px;margin-left:270px;margin-bottom:0;margin:auto;font-size:40px;font-weight:bold;width:600px;text-align:center;justify-content:center"><span t-esc="nama_ou"/> </h4>    
+                            <!-- <h4 style="max-width:450px;margin-left:500px;overflow-wrap: break-word;font-size:30px;"> <th><span t-esc="operating_unit"/></th> </h4> -->
+                        </div>
+                    </div>
+                    <div class="col-9 text-right" style="margin-top:22px;" name="moto"/>
+                </div>
+
+
+                <div class="col-12 mb4" style="display: flex; display: -webkit-box;margin-top:30px;text-align:center;">
+                   <h4 style="max-width:650px;margin-left:300px;overflow-wrap: break-word;font-size:30px;text-align:center;"> <th><span t-esc="operating_unit"/></th> </h4>
+                </div>
+
+                <div class="col-12 mb4" style="display: flex; display: -webkit-box; ">
+                  <h1 style="border-top: double;width:100%"></h1>
+                </div>
+                <div class="body" style="text-align: center;margin-top:60px;">
+                    <h4 style="font-weight:bold;font-size:30px;">SURAT KETERANGAN MEDIS</h4>
+                </div>
+                  <div class="body" style="text-align: center;">
+                    <h4 style="font-weight:bold;margin-top:40px;font-size:30px;">HASIL PEMERIKSAAN RAPID TEST LUNGENE SARS-COV-2 ANTIGEN TEST</h4>
+                </div>
+                  <div class="body" style="text-align: center;">
+                    <h4 style="font-weight:bold;margin-top:40px;font-size:30px;"><th><span t-esc="nama_ou"/></th></h4>
+                </div>
+                  <div class="body" style="margin-left:190px;margin-top:100px;">
+                    <h4 style="font-size:30px;">Nama&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;: <span t-esc="nama_pasien"/> </h4>
+                      <br></br>
+                    <h4 style="font-size:30px;">Alamat&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;: <span t-esc="alamat"/>, 
+                    <br></br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                    <span t-esc="kelurahan"/>
+                    <span t-esc="kecamatan"/> , <span t-esc="kabupaten"/>, <span t-esc="propinsi"/>
+                         <br></br>
+                         
+                     </h4>
+                    <h4 style="font-size:30px;">Tanggal Lahir &#160;&#160;&#160;&#160;: <span t-esc="tanggal_lahir"/>  </h4>
+                     <br></br>
+                    <h4 style="font-size:30px;">Nomor KTP &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;: <span t-esc="no_id"/>  </h4>
+                     <br></br>
+                    <h4 style="font-size:30px;">Jenis Kelamin &#160;&#160;&#160;: <span t-esc="jenis_kelamin"/>  </h4>
+                      <br></br>
+                    <h4 style="font-size:30px;">Nomor Telepon: <span t-esc="nomor_telepon"/>  </h4>
+                </div>
+                  <br></br>
+                  <br></br>
+                  <h4 style="margin-left:170px;font-size:30px;" >Telah dilakukan Rapid Test Antigen Covid-19 pada <span t-esc="tanggal"/> pasien tersebut dinyatakan: </h4>
+                <br></br>
+                <div class="table" style="margin-left:50px;">
+                <table style="width:1260px;" class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                        <th scope="col"><h3>Imunologi</h3></th>
+                        <th scope="col"><h3>Hasil</h3></th>
+                        <th scope="col"><h3>Nilai Normal</h3></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <td><h3 t-esc="aktual"/></td>
+                        <td><h3 t-esc="ukur"/></td>
+                        <td><h3 t-esc="nilai_normal"/></td>
+                        
+                    </tbody>
+               </table>
+               </div>
+                <br></br>
+                <br></br>
+                  <h4 style="margin-left:170px;font-size:30px;" >Atas bantuannya kami ucapkan Terimakasih </h4>
+                <br></br>
+                <br></br>
+                  <h4 style="margin-left:120px;font-size:30px;float: left;font-weight:bold;" >Pemeriksa </h4>
+                   <h4 style="margin-right:120px;font-size:30px;float: right;font-weight:bold;" >Dokter Penanggung jawab </h4>
+                <br></br>
+                <br></br>
+                <span style="margin-left:120px;font-size:30px;float: left;margin-top:130px;" t-esc="pemeriksa"/>
+                 <span style="margin-right:120px;font-size:30px;float: right;margin-top:130px;" t-esc="nama_dokter"/>
+                
+<!--            </tr>-->
+        </div>
+        <div t-attf-class="article o_report_layout_standard o_company_#{4}_layout"  t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
+            <div class="pt-5">
+                <!-- This div ensures that the address is not cropped by the header. -->
+                <t t-call="web.address_layout"/>
+            </div>
+            <t t-raw="0"/>
+        </div>
+           <h2 style="margin-top:4px; margin-right: 40px;">Alamat 123</h2>
+                        <tr t-foreach="docs" t-as="det">
+                             <h2 style="margin-top:20px; margin-right: 40px;">Alamat</h2>
+                            <center><h2>Surat Keterangan Sakit</h2></center>
+                        <div>
+                           <left>Operating UNIt   : <th><span t-esc="det.operating_unit_id.name"/></th> </left>
+                        </div>
+                </tr>
+
+        </t>
+        </template>
+
+       <template id="report_partial_amount_core" >
+        <!-- <t t-call="web.external_layout"> -->
+            <t t-set="o" t-value="o.with_context(lang=lang)"/>
+             <tr style="height: 93px;" t-foreach="o.move_id._get_reconciled_invoices_partials()" t-as="rec">
+                    <t t-set="inv" t-value="rec[2].move_id"/>
+            <div class="body_content" style="display: flex; display: -webkit-box;margin-top:0px;">
+                <div class="left-content" style="margin-left:40px;">
+                    <span class="field">No RM&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;: <span t-field="inv.pendaftaran_id.no_rm"/></span>
+                    <br></br>
+                    <span class="field">Terima Dari&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;: <span t-field="inv.pembayar"/></span>
+                    <br></br>
+                    <span class="field">Klinik&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;: <span t-field="inv.unit_layanan_"/></span>
+                    <br></br>
+                    <span class="field">Paket Layanan&#160;&#160;&#160;&#160;&#160;&#160;:<span t-field="o.pendaftaran_id.paket_layanan.name"/></span>
+                    <br></br>
+                    <span class="field">Dokter&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;:<span t-field="inv.nama_dokter_"/></span>
+                    <br></br>
+                    <span class="field">Untuk Keperluan&#160;&#160;&#160;&#160;:</span>
+                    <div class="item" style="margin-left:160px;margin-top:-20px;">
+                        <tr t-foreach="inv.invoice_line_ids" t-as="product">
+                        <span t-field="product.product_id"/>
+                         <br></br>
+                         </tr>
+                    </div>
+                    <br></br>
+                    <br></br>
+                   <span class="field">Sebesar&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;:&#160;&#160;<span t-field="inv.amount_total"/></span>
+                   <br></br>
+                     <br></br>
+                     <br></br>
+                    <span class="field" style="margin-left:100px;">Penjamin&#160;&#160;&#160;&#160;</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                     <br></br>
+                     <br></br>
+                     <br></br>
+                     <br></br>
+                 
+
+                    <span style="margin-left:100px;" t-field="inv.penjamin.name"/>
+                    
+
+                </div>
+                <div class="right_content" style="margin-left:100px;">
+                    <span class="field">Nama Pasien&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;: <span t-field="inv.partner_id.name"/></span>
+                    <br></br>
+                    <br></br>
+                    <span class="field">Nomor Kwitansi: <span t-field="inv.name"/>(<span t-field="inv.journal_id_"/>)</span>
+                    <br></br>
+                    <br></br>
+                    <span class="field">No REG&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;: <span t-field="inv.pendaftaran_id.no_registrasi"/></span>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                  
+
+                      <span class="field" style="margin-top:300px;"><span t-field="inv.waktu_transaksi"/>&#160;&#160;&#160;&#160;</span>
+                    <br></br>
+                    <br></br>
+                    <span>Kasir</span>
+                    <br></br>
+                    <br></br>
+                     <span class="field" style="margin-top:300px;"><span t-field="inv.user_pj.name"/>&#160;&#160;&#160;&#160;</span>
+
+                </div>
+            </div>
+              </tr>
+ 
+
+            <!-- <table style="width:100%;">
+                <tbody>
+                <tr style="height: 23px;" t-foreach="o.move_id._get_reconciled_invoices_partials()" t-as="rec">
+                    <t t-set="inv" t-value="rec[2].move_id"/>
+
+                   
+                    <td style="width: 126px; height: 23px;">No RM</td>
+                    <td style="width: 10px; height: 23px;">:</td>
+                    <td style="width: 289px; height: 23px;"><span t-field="inv.pendaftaran_id.no_rm"/></td>
+                    <td style="width: 134.484px; height: 23px;">Nama Petugas</td>
+                    <td style="width: 10.5156px; height: 23px;">:</td>
+                    <td style="width: 261px; height: 23px;"><span t-field="inv.user_pj"/></td>
+                    
+                    <tr style="height: 23.5px;">
+                    <td style="width: 126px; height: 23.5px;">Terima Dari </td>
+                    <td style="width: 10px; height: 23.5px;">:</td>
+                    <td style="width: 289px; height: 23.5px;"><span t-field="inv.partner_id"/></td>
+                    <td style="width: 134.484px; height: 23.5px;">Paid On</td>
+                    <td style="width: 10.5156px; height: 23.5px;">:</td>
+                    <td style="width: 261px; height: 23.5px;">&#160;</td>
+                    </tr>
+                    <tr style="height: 23px;">
+                    <td style="width: 126px; height: 23px;">Klinik</td>
+                    <td style="width: 10px; height: 23px;">:</td>
+                    <td style="width: 289px; height: 23px;"><span t-field="inv.unit_layanan_"/></td>
+                    <td style="width: 134.484px; height: 23px;">Amount Due</td>
+                    <td style="width: 10.5156px; height: 23px;">:</td>
+                    <td style="width: 261px; height: 23px;">&#160;</td>
+                    </tr>
+                    <tr style="height: 23px;">
+                    <td style="width: 126px; height: 23px;">Paket Layanan</td>
+                    <td style="width: 10px; height: 23px;">:</td>
+                    <td style="width: 289px; height: 23px;"><span t-field="o.pendaftaran_id.paket_layanan.name"/></td>
+                    <td style="width: 134.484px; height: 23px;">&#160;</td>
+                    <td style="width: 10.5156px; height: 23px;">&#160;</td>
+                    <td style="width: 261px; height: 23px;">&#160;</td>
+                    </tr>
+                    <tr style="height: 23px;">
+                    <td style="width: 126px; height: 23px;">Dokter</td>
+                    <td style="width: 10px; height: 23px;">:</td>
+                    <td style="width: 289px; height: 23px;"><span t-field="inv.nama_dokter_"/></td>
+                    <td style="width: 134.484px; height: 23px;">&#160;</td>
+                    <td style="width: 10.5156px; height: 23px;">&#160;</td>
+                    <td style="width: 261px; height: 23px;">&#160;</td>
+                    </tr>
+                   
+                    <tr style="height: 23px;">
+                      
+                    <td style="width: 126px; height: 23px;">Untuk Keperluan</td>
+                    
+                    <td style="width: 10px; height: 23px;">:</td>
+
+                    <tr t-foreach="inv.invoice_line_ids" t-as="product">
+                    <td style="width: 289px; height: 23px;"><span style="margin-left:190px;" t-field="product.product_id"/></td>
+                    </tr>              
+
+                    <td style="width: 134.484px; height: 23px;">&#160;</td>    
+                    <td style="width: 10.5156px; height: 23px;">&#160;</td>
+                    <td style="width: 261px; height: 23px;">&#160;</td> 
+                    </tr>
+                    
+                    <tr style="height: 23px;">
+                    <td style="width: 126px; height: 23px;">Total</td>
+                    <td style="width: 10px; height: 23px;">:</td>
+                    <td style="width: 289px; height: 23px;">&#160;</td>
+                    <td style="width: 134.484px; height: 23px;">&#160;</td>
+                    <td style="width: 10.5156px; height: 23px;">&#160;</td>
+                    <td style="width: 261px; height: 23px;">&#160;</td>
+                    </tr>
+                    <tr style="height: 23px;">
+                    <td style="width: 126px; height: 23px;">Unit Price</td>
+                    <td style="width: 10px; height: 23px;">:</td>
+                    <td style="width: 289px; height: 23px;">&#160;</td>
+                    <td style="width: 134.484px; height: 23px;">&#160;</td>
+                    <td style="width: 10.5156px; height: 23px;">&#160;</td>
+                    <td style="width: 261px; height: 23px;">&#160;</td>
+                    </tr>
+                    <tr style="height: 23px;">
+                    <td style="width: 126px; height: 23px;">Taxes</td>
+                    <td style="width: 10px; height: 23px;">:</td>
+                    <td style="width: 289px; height: 23px;">&#160;</td>
+                    <td style="width: 134.484px; height: 23px;">&#160;</td>
+                    <td style="width: 10.5156px; height: 23px;">&#160;</td>
+                    <td style="width: 261px; height: 23px;">&#160;</td>
+                    </tr>
+                    <tr style="height: 23px;">
+                    <td style="width: 126px; height: 23px;">Amount</td>
+                    <td style="width: 10px; height: 23px;">:</td>
+                    <td style="width: 289px; height: 23px;">&#160;</td>
+                    <td style="width: 134.484px; height: 23px;">&#160;</td>
+                    <td style="width: 10.5156px; height: 23px;">&#160;</td>
+                    <td style="width: 261px; height: 23px;">&#160;</td>
+                    </tr>
+                      </tr>
+                    </tbody>
+                </table>  -->
+
+             <!-- <div class="header" style="float:right;margin-bottom:10px;">
+              <tr t-foreach="o.move_id._get_reconciled_invoices_partials()" t-as="rec">
+               <t t-set="inv" t-value="rec[2].move_id"/>
+              <br></br>
+        
+                <div class="row mt64">
+                    <div class="col-12">
+                        <strong></strong> <span t-field="inv.partner_id"/>
+                    </div>
+                </div>
+                <div class="row mt64">
+                    <div class="col-12">
+                        <strong>Nomor Registrasi : </strong> <span t-field="inv.pendaftaran_id"/>
+                    </div>
+                </div>
+                  <div class="row mt64">
+                    <div class="col-12">
+                        <strong>Nama Pembayar : </strong> <span t-field="inv.partner_id"/>
+                    </div>
+                </div>
+                  <div class="row mt64">
+                    <div class="col-12">
+                        <strong>Nama Petugas : </strong> <span t-field="inv.user_pj"/>
+                    </div>
+                </div>
+                 <div class="row mt64">
+                    <div class="col-6" t-if="o.date">
+                        <strong>Payment Date: </strong> <span t-field="o.date"/>
+                    </div>
+                </div>
+                <div class="row mt64">
+                    <div class="col-6" t-if="o.date">
+                        <strong>Payment Date: </strong> <span t-field="o.date"/>
+                    </div>
+                </div> 
+                 </tr>
+            </div>
+
+            <div class="page">
+            <tr t-foreach="o.move_id._get_reconciled_invoices_partials()" t-as="rec">
+               <t t-set="inv" t-value="rec[2].move_id"/>
+                <h2><strong><span t-field="inv.name"/></strong></h2>
+                <div id="informations" style="display: flex; display: -webkit-box;" class="row mt32 mb32">
+                        <div stylename="invoice_date">
+                            <strong>Invoice Date:</strong>
+                            <p class="m-0" t-field="inv.invoice_date"/>
+                        </div>
+                        <div style="margin-left:350px;" name="due_date">
+                            <strong>Due Date:</strong>
+                            <p class="m-0" t-field="inv.invoice_date_due"/>
+                        </div>
+                   </div>
+               
+        
+          
+                </tr>
+               <table border="2" style="width:100%;">
+                    <thead>
+                        <tr>
+                            <th><span>Description</span></th>
+                            <th><span>Quantity</span></th>
+                            <th><span>Unit Price</span></th>
+                            <th class="text-right"><span>Taxes</span></th>
+                            <th class="text-right"><span>Amount</span></th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr t-foreach="o.move_id._get_reconciled_invoices_partials()" t-as="rec">
+                            <t t-set="amount" t-value="rec[1]"/>
+                            <t t-set="inv" t-value="rec[2].move_id"/>
+                            <t t-if="inv.move_type != 'entry'">
+                            <tr t-foreach="inv.invoice_line_ids" t-as="product">
+                                <td><span t-field="product.product_id"/></td>
+                                <td><span t-field="product.quantity"/></td>
+                                <td><span t-field="product.price_unit"/></td>
+                                <td><span t-field="product.tax_ids"/></td>
+                                <td><span t-field="product.price_subtotal"/></td>
+                               
+                            </tr>
+                            </t>
+                        
+                        </tr>
+                    </tbody>
+                </table>
+                <br></br>
+                 <br></br>
+                  <br></br>    
+                <table border="2" style="width:100%;">
+                    <thead>
+                        <tr>
+                            <th><span>Subtotal</span></th>
+                            <th><span>Total</span></th>
+                            <th><span>Partial Payment </span></th>
+                            <th class="text-right"><span>Paid On</span></th>
+                            <th class="text-right"><span>Amount Due</span></th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                           <tr t-foreach="o.move_id._get_reconciled_invoices_partials()" t-as="rec">
+                            <t t-set="amount" t-value="rec[1]"/>
+                            <t t-set="date" t-value="rec[2].date"/>
+                            <t t-set="inv" t-value="rec[2].move_id"/>
+                            <td><span t-field="inv.sub_total" t-options="{'widget': 'monetary', 'display_currency': inv.currency_id}"/></td>
+                            <td><span t-field="inv.sub_total" t-options="{'widget': 'monetary', 'display_currency': inv.currency_id}"/></td>
+                            <td class="text-right"><span t-esc="amount" t-options="{'widget': 'monetary', 'display_currency': inv.currency_id}"/></td>
+                            <td class="text-right"><span t-esc="o.date"/></td>
+                            <td class="text-right"><span t-field="inv.amount_residual"/></td>
+                        </tr>
+                        
+                      
+                    </tbody>
+                </table>
+            </div>  -->
+         
+    </template>
+
+
+    <template id="report_partial_amount">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-set="lang" t-value="o.partner_id.lang or o.company_id.partner_id.lang"/>
+                <t t-call="bisa_hospital.report_partial_amount_core" t-lang="lang"/>
+            </t>
+        </t>
+    </template>
+
+
+      
+   
+    </data>
+</odoo>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<odoo>
+
+        <!-- <record id="tbl_data_insentif_tree" model="ir.ui.view">
+            <field name="name">tree.tbl_data_insentif</field>
+            <field name="model">tbl_data_insentif</field>
+            <field name="arch" type="xml">
+                <tree string="Insentif">
+                               <field name="tanggal" />
+                               <field name="no_reg" />
+                               <field name="no_rm" />
+                               <field name="nama_pasien" />
+
+                               <field name="warga_negara" />
+                               <field name="status_hari" />
+                               <field name="kategori_bayar" />
+                               <field name="jenis_layanan" />
+                               <field name="nama_dokter" />
+
+                               <field name="pegawai" />
+                               <field name="contact" />
+                               <field name="jenis" />
+                               <field name="produk" />
+                               <field name="nilai" />
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_insentif" model="ir.actions.act_window">
+            <field name="name">Honor Dokter</field>
+            <field name="res_model">tbl_data_insentif</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Honor Dokter" id="menu_left_insentif" sequence = "10" action="action_insentif" parent="menu_hospital_atas_insentif"/> -->
+
+
+        <record id="report_pemberian_obat_form" model="ir.ui.view">
+            <field name="name">form.report_pemberian_obat</field>
+            <field name="model">report_pemberian_obat</field>
+            <field name="arch" type="xml">
+                <form string="Pemberian Obat">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="tanggal"/>
+                                <field name="name"/>
+                                <field name="produk"/>
+                                <field name="jumlah"/>
+                                <field name="satuan"/>
+                            </group>
+                        </group>
+                        <!-- <group>
+                            <field name="list_obat">
+                                <tree>
+                                    <field name="produk"/>
+                                    <field name="jumlah"/>
+                                </tree>
+                            </field>
+                        </group> -->
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="report_pemberian_obat_tree" model="ir.ui.view">
+            <field name="name">tree.report_pemberian_obat</field>
+            <field name="model">report_pemberian_obat</field>
+            <field name="arch" type="xml">
+                <tree string="Pemberian Obat">
+                    <field name="tanggal"/>
+                    <field name="name"/>
+                    <field name="produk"/>
+                    <field name="jumlah"/>
+                    <field name="satuan"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_hospital_report_pemberian_obat" model="ir.actions.act_window">
+            <field name="name">Jumlah Pemberian Obat</field>
+            <field name="res_model">report_pemberian_obat</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Pemberian Obat dari Dokter" id="menu_hospital_report_pemberian_obat" sequence = "10" action="action_hospital_report_pemberian_obat" parent="menu_hospital_atas_laporan" />
+
+
+        <record id="tbl_data_insentif_billing_form" model="ir.ui.view">
+            <field name="name">form.tbl_data_insentif_billing</field>
+            <field name="model">tbl_data_insentif_billing</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name = "action_get_data" type = "object" string = "Get Data" class = "oe_highlight" state='draft' attrs="{'invisible': [('get_true','=', True)]}"/>
+                        <button name = "act_set_draft_" type = "object" string = "Reset to Draft" class = "oe_highlight" attrs="{'invisible': [('state','!=', 'get')]}"/>
+                        <button name = "act_done" type = "object" string = "Done" class = "oe_highlight" attrs="{'invisible': [('state','!=', 'get')]}"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" />
+                                <!-- <field name="waktu_selesai" /> -->
+                                <field name="tgl_awal" />
+                                <field name="tgl_akhir" />
+                                <field name="nama_dokter" />
+                                <field name="get_true" invisible="1"/>
+                            </group>
+                                <!-- <div class="o_row"> -->
+                                <!-- </div> -->
+                        </group>
+                        <!-- <button name="action_get_data" attrs="{'invisible': [('get_true','=', True)]}" type="object" string="GET DATA" class="oe_highlight"/> -->
+                    <field name="detail" >
+                        <tree string="Billing" editable="bottom" create="false">
+                               <field name="tanggal" />
+                               <field name="no_reg" />
+                               <field name="no_rm" />
+                               <field name="nama_pasien" />
+                               <field name="penjamin" />
+                               <field name="warga_negara" />
+                               <field name="status_hari" />
+                               <field name="jenis_layanan" />
+                               <field name="nama_dokter" />
+                               <field name="produk" />
+                               <field name="nilai" sum="Total" widget="monetary"/>
+                        </tree>
+                      </field>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="tbl_data_insentif_billing_tree" model="ir.ui.view">
+            <field name="name">tree.tbl_data_insentif_billing</field>
+            <field name="model">tbl_data_insentif_billing</field>
+            <field name="arch" type="xml">
+                <tree string="Honor Dokter">
+                    <field name="name" />
+                    <field name="tgl_awal" string="Tanggal" />
+                    <!-- <field name="tgl_akhir" /> -->
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_hospital_billing" model="ir.actions.act_window">
+            <field name="name">Honor Dokter</field>
+            <field name="res_model">tbl_data_insentif_billing</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Honor Dokter" id="menu_hospital_billing" sequence = "20" action="action_hospital_billing" parent="menu_hospital_atas_insentif" />
+
+
+</odoo>

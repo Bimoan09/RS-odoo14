@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem name="Healthcare Record" id="menu_rekammedis"  web_icon="bisa_rekammedis,static/description/icon.png"  sequence="46"/>
+
+    <menuitem name="Riwayat" id="menu_rm_data"   sequence="10" parent="menu_rekammedis"/>
+    <menuitem name="File Dokumen" id="menu_rm_doc"  sequence="20" parent="menu_rekammedis"/>
+    <menuitem name="Report" id="menu_rm_report"  sequence="30" parent="menu_rekammedis"/>
+
+</odoo>

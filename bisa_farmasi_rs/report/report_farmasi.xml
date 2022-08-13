@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="action_report_resep_farmasi" model="ir.actions.report">
+            <field name="name">Aturan Pakai</field>
+            <field name="model">tbl_farmasi</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">bisa_farmasi_rs.report_resep_farmasi</field>
+            <field name="report_file">bisa_farmasi_rs.report_resep_farmasi</field>
+            <!-- <field name="paperformat_id">bisa_hospital.paperformat_resep_report</field> -->
+        </record>
+    </data>
+    <data>
+        <record id="action_report_resep_racikan_farmasi" model="ir.actions.report">
+            <field name="name">Aturan Pakai</field>
+            <field name="model">tbl_farmasi</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">bisa_farmasi_rs.report_resep_racikan_farmasi</field>
+            <field name="report_file">bisa_farmasi_rs.report_resep_racikan_farmasi</field>
+            <!-- <field name="paperformat_id">bisa_hospital.paperformat_resep_report</field> -->
+        </record>
+    </data>
+    <data>
+        <record id="action_report_resep_farmasi_mix" model="ir.actions.report">
+            <field name="name">Aturan Pakai</field>
+            <field name="model">tbl_farmasi</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">bisa_farmasi_rs.report_resep_farmasi_mix</field>
+            <field name="report_file">bisa_farmasi_rs.report_resep_farmasi_mix</field>
+            <!-- <field name="paperformat_id">bisa_hospital.paperformat_resep_report</field> -->
+        </record>
+    </data>
+    <data>
+        <record id="action_report_resep" model="ir.actions.report">
+            <field name="name">resep obat</field>
+            <field name="model">tbl_farmasi</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">bisa_farmasi_rs.report_resep</field>
+            <field name="report_file">bisa_farmasi_rs.report_resep</field>
+            <!-- <field name="paperformat_id">bisa_hospital.paperformat_resep_report</field> -->
+        </record>
+    </data>
+</odoo>
+
+<!-- yang diatas buat file di folder report -->
+
+
+<!-- ini button di py -->
+
+
+
+<!-- ini di xml poli -->
+
+    
+<!-- jangan lupa masukkan ke manifest file -->
+
+
+<!-- Ini bikin file xml baru di folder report -->
+<!-- <template id="report_resep_card">
+    <t t-call="web.html_container">
+        <t t-foreach="docs" t-as="doc">
+    
+        </t>
+    </t>
+</template> -->

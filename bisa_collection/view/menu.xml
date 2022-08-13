@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem name="Collection" id="menu_collection"  web_icon="bisa_collection,static/description/icon.png"  sequence="46"/>
+
+    <menuitem name="Collection" id="menu_atas_collection"   sequence="10" parent="menu_collection"/>
+    <menuitem name="Seting" id="menu_atas_collection_seting"   sequence="20" parent="menu_collection"/>
+</odoo>

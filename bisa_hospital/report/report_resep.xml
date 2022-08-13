@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_resep">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <tr t-foreach="docs" t-as="det">
+                        <center><h2>RESEP DOKTER</h2></center>
+                        <br></br>
+                        <div>
+                            <div>
+                               Pasien : <th><span t-esc="det.nama_pasien.name"/></th>
+                            </div>
+                            <div>
+                                No RM : <th><span t-esc="det.no_rm"/></th>
+                             </div>
+                            <div>
+                               Tanggal : <th><span t-esc="det.waktu"  t-options='{"widget": "date"}'/></th>
+                            </div>
+                            <div>
+                               Jam : <th><span t-esc="det.waktu"  t-options='{"widget": "datetime", "format":"HH:MM"}'/></th>
+                            </div>
+                            <div>
+                               Nama Dokter : <th><span t-esc="det.nama_dokter.name"/></th>
+                            </div>
+                        </div>
+                        <br></br>
+                        <div>
+                            <tr t-foreach="det.id_resep" t-as="res">
+                                <th><span t-esc="res.name.name"/></th>
+                                ---
+                                <th><span t-esc="res.jumlah"/></th>
+                                ---
+                                <th><span t-esc="res.satuan.name"/></th>
+                                ---
+                                <th><span t-esc="res.aturan_pakai_.name"/></th>
+                                
+                                <br></br>
+                                <br></br>
+
+
+                            </tr>
+                        </div>
+                        <div class="tandatangan" style="margin-left:20px;">
+                           Tanda Tangan : <th><img t-att-src="'data:image/png;base64,%s' % to_text(det.tanda_tangan_)"/></th>
+                        </div>
+                    </tr>
+                </t>
+            </t>
+        </template>
+    </data>
+
+    <data>
+        <template id="report_resep_racikan">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <tr t-foreach="docs" t-as="det">
+                        <center><h2>RESEP DOKTER</h2></center>
+                        <br></br>
+                        <div>
+                            <div>
+                               Pasien : <th><span t-esc="det.nama_pasien.name"/></th>
+                            </div>
+                            <div>
+                               No RM : <th><span t-esc="det.no_rm"/></th>
+                            </div>
+                            <div>
+                               Tanggal : <th><span t-esc="det.waktu"  t-options='{"widget": "date"}'/></th>
+                            </div>
+                            <div>
+                               Jam : <th><span t-esc="det.waktu"  t-options='{"widget": "datetime", "format":"HH:MM"}'/></th>
+                            </div>
+                            <div>
+                               Nama Dokter : <th><span t-esc="det.nama_dokter.name"/></th>
+                            </div>
+                        </div>
+                        <br></br>
+                        <div>
+                            Resep Racikan : <th><span t-esc="det.resep_racikan"/></th>
+                            <!-- <tr t-foreach="det.id_resep" t-as="res">
+                                <th><span t-esc="res.name.name"/></th>
+                              
+                                <th><span t-esc="res.jumlah"/></th>
+                                
+                                <th><span t-esc="res.satuan.name"/></th>
+                                
+                                <th><span t-esc="res.aturan_pakai_.name"/></th>
+                                
+                                <br></br>
+                                <br></br>
+                            </tr> -->
+                        </div>
+                         <br></br>
+                        <div class="tandatangan" style="margin-left:20px;">
+                            Tanda Tangan : <th><img t-att-src="'data:image/png;base64,%s' % to_text(det.tanda_tangan_)"/></th>
+                        </div>
+                        
+                    </tr>
+                </t>
+            </t>
+        </template>
+    </data>
+
+    <data>
+        <template id="report_resep_mix">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <tr t-foreach="docs" t-as="det">
+                        <center><h2>RESEP DOKTER</h2></center>
+                        <br></br>
+                        <div>
+                            <div>
+                               Pasien : <th><span t-esc="det.nama_pasien.name"/></th>
+                            </div>
+                            <div>
+                                No RM : <th><span t-esc="det.no_rm"/></th>
+                             </div>
+                            <div>
+                               Tanggal : <th><span t-esc="det.waktu"  t-options='{"widget": "date"}'/></th>
+                            </div>
+                            <div>
+                               Jam : <th><span t-esc="det.waktu"  t-options='{"widget": "datetime", "format":"HH:MM"}'/></th>
+                            </div>
+                            <div>
+                               Nama Dokter : <th><span t-esc="det.nama_dokter.name"/></th>
+                            </div>
+                        </div>
+                        <br></br>
+                        <div>
+                            <tr t-foreach="det.id_resep" t-as="res">
+                                <th><span t-esc="res.name.name"/></th>
+                                ---
+                                <th><span t-esc="res.jumlah"/></th>
+                                ---
+                                <th><span t-esc="res.satuan.name"/></th>
+                                ---
+                                <th><span t-esc="res.aturan_pakai_.name"/></th>
+                                
+                                <br></br>
+                                <br></br>
+                            </tr>
+                        </div>
+                        <div>
+                            Resep Racikan : <th><span t-esc="det.resep_racikan"/></th>
+
+                        </div>
+                        <br></br>
+                       <div class="tandatangan" style="margin-left:20px;">
+                           Tanda Tangan : <th><img t-att-src="'data:image/png;base64,%s' % to_text(det.tanda_tangan_)"/></th>
+                       </div>
+                    </tr>
+                </t>
+            </t>
+        </template>
+    </data>
+
+
+   
+
+</odoo>

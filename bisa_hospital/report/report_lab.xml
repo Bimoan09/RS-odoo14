@@ -1,0 +1,36 @@
+<odoo>
+    <data>
+        <template id="report_label_lab">
+            <t t-call="web.html_container">
+                    <tr t-foreach="docs" t-as="det">
+                        <!-- <table> -->
+                            <!-- <tr style="font-weight:bold;"> -->
+                            <!-- <center><h2>LABEL</h2></center> -->
+                                <br></br>
+                                <div >
+                                    <div>
+                                        <left><th><span t-esc="det.nama_pasien.name"/></th> </left>
+                                    </div>
+                                    <div>
+                                        <left><th><span t-esc="det.no_rm"/></th> </left>
+                                    </div>
+                                    <div>
+                                        <left><th><span t-esc="det.nama_pasien.tgl_lahir" t-options='{"widget": "date"}'/></th></left>
+                                    </div>
+                                    <div>
+                                        <left><th><span t-esc="det.jenis_layanan.name" /></th> </left>
+                                    </div>
+                                    <div>
+                                        <left><th><span t-esc="det.name" /></th></left>
+                                    </div>
+                                    <div>
+                                        <left><th><span t-esc="det.tanggal"  t-options='{"widget": "date"}'/></th></left>
+                                    </div>
+                                </div>
+                            <!-- </table> -->
+                            <!-- </tr>    -->
+                    </tr>
+            </t>
+        </template>
+    </data>
+</odoo>

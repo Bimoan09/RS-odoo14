@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem name="L.Pharma" id="menu_farmasi"  web_icon="bisa_farmasi_rs,static/description/icon.png"  sequence="46"/>
+
+    <menuitem name="Transaksi" id="menu_farmasi_transaksi"   sequence="10" parent="menu_farmasi"/>
+    <menuitem name="Billing" id="menu_farmasi_billing"  sequence="20" parent="menu_farmasi"/>
+    <menuitem name="Return" id="menu_farmasi_return"  sequence="25" parent="menu_farmasi"/>
+    <menuitem name="History" id="menu_farmasi_history"  sequence="30" parent="menu_farmasi"/>
+    <menuitem name="Report" id="menu_farmasi_report"  sequence="40" parent="menu_farmasi"/>
+    <menuitem name="Inventory" id="menu_farmasi_barang"  sequence="50" parent="menu_farmasi"/>
+    <menuitem name="Setting" id="menu_farmasi_setting"  sequence="60" parent="menu_farmasi"/>
+
+</odoo>

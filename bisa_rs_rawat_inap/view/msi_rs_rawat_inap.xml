@@ -1,0 +1,709 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+    <menuitem name="Rawat Inap" id="menu_root_rawat_inap" sequence="0">
+        <menuitem id="menu_top_rawat_inap" name="Rawat Inap" sequence="10"/>
+    </menuitem>
+     <menuitem name="Setting" id="menu_setting_baru" sequence="20" parent="menu_root_rawat_inap"/>
+<!--     <menuitem name="Master Bed" id="menu_master_bed" sequence = "30" parent="menu_setting_baru"/>-->
+
+
+
+	<record id="view_tree_rs_rawat_inap" model="ir.ui.view">
+		<field name="name">rs_rawat_inap.tree</field>
+		<field name="model">tbl_rs_rawat_inap</field>
+		<field name="arch" type="xml">
+			<tree >
+                             <field name="waktu"/> 
+                             <field name="name"/>
+                             <field name="no_reg"/>
+                             <field name="no_rm"/> 
+                             <field name="nama_pasien"/>
+                           <field name="penjamin_tipe"/>
+                           <field name="kode_layanan" invisible="1"/>
+                             <field name="phone"/> 
+                             <field name="nama_dokter"/> 
+                             <field name="jenis_layanan"/> 
+
+                             <field name="status"/> 
+			</tree>
+		</field>
+	</record>
+
+
+        <record id="view_rs_rawat_inap_search" model="ir.ui.view">
+            <field name="name">rs_rawat_inap.search.form</field>
+            <field name="model">tbl_rs_rawat_inap</field>
+            <field name="arch" type="xml">
+               <search string="Layanan">
+                    <field name="name" string="Searching" filter_domain="['|','|','|', ('name','ilike',self),('nama_pasien','ilike',self),('phone','ilike',self),('no_rm','ilike',self)]"/>
+                    <field name="name" string="Nama Pasien"/>
+                    <group expand="0" string="Status">
+                        <filter string="No RM" name="no_rm" context="{'group_by':'no_rm'}"/>
+                        <separator/>
+                        <filter string="Bulan" name="tgl" context="{'group_by':'waktu:month'}"/>
+                        <filter string="Tanggal" name="tgl" context="{'group_by':'waktu:day'}"/>
+                        <separator/>
+                        <filter string="Nama Dokter" name="nama_dokter" context="{'group_by':'nama_dokter'}"/>
+                        <filter string="Jenis Layanan" name="jenis_layanan" context="{'group_by':'jenis_layanan'}"/>
+                        <separator/>
+                        <filter string="Status" name="status" context="{'group_by':'status'}"/>
+                    </group>
+
+                </search>
+            </field>
+        </record>
+
+         <record model="ir.ui.view" id="view_rs_rawat_inap_form">
+                    <field name="name">view_rs_rawat_inap_form</field>
+                    <field name="model">tbl_rs_rawat_inap</field>
+                    <field name="arch" type="xml">
+                        <form string="Keperawatan">
+                            <header>
+                                <field name="status" widget="statusbar" statusbar_visible="draft,progress,selesai"/>
+                            </header>
+                            <sheet string="Keperawatan">
+                                <group>
+                                    <group>
+                                        <field name="waktu"/>
+
+                                        <field name="name"/>
+                                        <field name="keterangan_produk"/>
+                                        <field name="penjamin_tipe"/>
+                                        <field name="jenis_layanan_now"/>
+                                    </group>
+                                    <group>
+                                        <field name="no_antrian" invisible="1"/>
+                                        <field name="no_reg" attrs="{'invisible': [('is_pasien_dalam','=', False)]}"/>  
+                                        <field name="no_rm" />
+                                        <label for="nama_pasien"/>
+                                        <div>
+                                                <field name="nama_pasien" options="{'no_create': True}"/> Pasien Dalam <field name="is_pasien_dalam"/>
+                                        </div>
+
+                                        <label for="tahun"/>
+                                        <div>
+                                                        <field name="tahun" class="oe_inline"/>th <field name="bulan" class="oe_inline"/>bl <field name="hari" class="oe_inline"/>hr
+                                        </div>
+
+                                     
+                                    </group>
+                                </group>
+                                <group>
+                                    <group>
+
+                                   </group>
+                                    <group>
+                            
+                                         <field name="phone"/>
+                                       <field name="jenis_kelamin"/>
+
+
+                                    </group>
+                                </group>
+                                <group>
+                                    <group>
+                                       <field name="bed_id"/>
+                                         <field name="nama_dokter_rawat" options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True}" attrs="{'readonly': [('status','=', 'selesai')]}"/>
+                                         <field name="nama_dokter_luar" attrs="{'invisible': [('is_pasien_dalam','=', True)]}"/>
+                                         <field name="nama_dokter" options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True}" attrs="{'invisible': [('is_pasien_dalam','=', False)]}" invisible="1"/>
+                                         <field name="jenis_layanan" options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True}" attrs="{'invisible': [('is_pasien_dalam','=', False)]}"/>
+                                         <field name="kode" invisible="1"/>
+                                    </group>
+                                    <group>
+                            
+                                       <field name="user_pemeriksa"/>
+
+
+                                    </group>
+                                </group>
+                                <group>
+                                    <group>
+                                       <field name="is_transaksi" string="Transaksi Keperawatan dan Kunj Dokter"/>
+                                       <field name="is_transaksi_bhp"/>
+                                       <field name="is_keperawatan" string="Catatan Keperawatan"/>
+                                       <field name="is_kunjungan_dokter" string="Diagnosa Dokter"/>
+                                       <field name="is_permintaan_obat_bhp" invisible="1"/>
+                                       <field name="is_pemberian_obat" invisible="1"/>
+                                    </group>
+                                    <group>
+                                       <field name="is_rujukan"/>
+                                       <field name="is_pindah_kamar"/>
+                                       <field name="is_billing"/>
+                                       <field name="is_paket_produk"/>
+                                       <field name="is_pulang"/>
+                                       <field name="is_lainnya"/>               
+                                    </group>
+                                </group>
+                                <group>
+                                    <group>
+                                       <field name="is_loundry"  invisible="1"/>
+                                       <field name="is_gizi" invisible="1"/>
+                                    </group>
+                                    <group>
+                                    </group>
+                                </group>
+                                <notebook>
+                                    <page string="BHP"  attrs="{'invisible': [('is_transaksi_bhp','!=', True)]}">   
+                                        <group>
+                                          <field name="obatan_bhp_id" nolabel="1" attrs="{'readonly': [('status','=', 'selesai')]}">
+                                             <tree string="Obat dan AlKes" editable="bottom">
+                                                 <field name="waktu"/>
+                                                 <field name="name" on_change="onchange_product(name)" options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True}"/>
+                                                 <field name="qty"/>
+                                                 <field name="uom" options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True}"/>
+                                                 <field name="price"/>
+                                                 <field name="lot_id" context="{'product_id': name}" options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True}" />
+                                                 <field name="is_billing"/>
+                                                 <field name="status_billing"/>
+                                                 <field name="is_bhp"/>
+                                                 <field name="status_bhp"/>
+                                                 <field name="user"/>
+                                             </tree>                        
+                                          </field>
+                                        </group>
+                                    </page>
+                                    <page string="Transaksi Keperawatan dan Kunj Dokter" attrs="{'invisible': [('is_transaksi','!=', True)]}">      
+                                        <group string="Administrasi">
+
+                                          <field name="obat_id" nolabel="1" attrs="{'readonly': [('status','=', 'selesai')]}">
+                                             <tree string="Obat dan AlKes" editable="bottom">
+                                                 <field name="waktu"/>
+                                                 <field name="name" on_change="onchange_product(name)" options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True}"/>
+                                                 <field name="qty"/>
+                                                 <field name="uom" options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True}"/>
+                                                 <field name="price"/>
+                                                 <field name="is_billing"/>
+                                                 <field name="status_billing"/>
+                                                 <field name="is_bhp"/>
+                                                 <field name="status_bhp"/>
+                                                 <field name="user"/>
+                                             </tree>                        
+                                           </field>
+                                        </group>
+                                        <group string="Obat dan BHP" invisible="1">
+
+                                          <field name="obatan_id" nolabel="1" attrs="{'readonly': [('status','=', 'selesai')]}">
+                                             <tree string="Obat dan AlKes" editable="bottom">
+                                                 <field name="waktu"/>
+                                                 <field name="name" on_change="onchange_product(name)" options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True}" attrs="{'readonly': [('status_bhp','=', 'done')]}"/>
+                                                 <field name="qty" attrs="{'readonly': [('status_bhp','=', 'done')]}"/>
+                                                 <field name="uom" options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True}" attrs="{'readonly': [('status_bhp','=', 'done')]}"/>
+                                                 <field name="price"/>
+                                                 <field name="lot_id" domain="[('product_id','=?', name)]" context="{'product_id': name}" options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True}" attrs="{'readonly': [('status_bhp','=', 'done')]}"/>
+
+                                                 <field name="is_billing"/>
+                                                 <field name="status_billing"/>
+                                                 <field name="is_bhp"/>
+                                                 <field name="status_bhp"/>
+                                                 <field name="user"/>
+                                             </tree>                        
+                                          </field>
+                                        </group>
+
+                                        <group string="Tindakan Keperawatan">
+
+                                          <field name="tindakan_id" nolabel="1" attrs="{'readonly': [('status','=', 'selesai')]}">
+                                             <tree string="Tindakan" editable="bottom">
+                                                 <field name="waktu"/>
+                                                 <field name="name" options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True}"/>
+                                                 <field name="pelaksana"/>
+                                                 <field name="partner"/>
+                                                 <field name="is_billing"/>
+                                                 <field name="status_billing"/>
+                                                 <field name="user" readonly="1"/>
+                                             </tree>                        
+                                          </field>
+                                        </group>
+                                        <group string="Kunjungan Dokter">
+
+                                          <field name="visit_id" nolabel="1" attrs="{'readonly': [('status','=', 'selesai')]}">
+                                             <tree string="Kunjungan Dokter" editable="bottom">
+                                                 <field name="waktu"/>
+                                                 <field name="name" options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True}" />
+                                                 <field name="pelaksana"/>
+                                                 <field name="partner"/>
+                                                 <field name="is_billing"/>
+                                                 <field name="status_billing"/>
+                                                 <field name="user"/>
+
+                                             </tree>                        
+                                          </field>
+                                        </group>
+                                    </page>
+                                    <page string="Catatan Keperawatan" attrs="{'invisible': [('is_keperawatan','!=', True)]}">
+                                        <group string="Keperawatan">
+                                          <field name="klinis_id"  nolabel="1" attrs="{'readonly': [('status','=', 'selesai')]}">
+                                             <tree string="Keperawatan" editable="bottom">
+                                                 <field name="waktu"/>
+                                                 <field name="tekanan_darah"/>
+                                                 <field name="pernapasan"/>
+                                                 <field name="nadi"/>
+                                                 <field name="suhu"/>
+                                                 <field name="tb"/>
+                                                 <field name="bb"/>
+
+                                                 <field name="kondisi"/>
+                                                 <field name="keluhan"/>
+                                                 <field name="alergi"/>
+
+                                                 <field name="ket"/>
+
+                                             </tree>
+                          
+                                          </field>
+                                        </group>
+                                        <group string="Catatan Pemberian Obat">
+                                          <field name="pemberian_obat_id"  nolabel="1" attrs="{'readonly': [('status','=', 'selesai')]}">
+                                             <tree string="Pemberian Obat" editable="bottom">
+                                                 <field name="waktu"/>
+                                                 <field name="name" options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True}"/>
+                                                 <field name="qty"/>
+                                                 <field name="uom"/>
+                                                 <field name="pakai"/>
+
+                                                 <field name="user"/>
+
+                                                 <field name="ket"/>
+                                                 <field name="status"/>
+
+                                             </tree>                        
+                                          </field>
+                                        </group>
+                                    </page>
+                                <page string="Diagnosa Dokter"  attrs="{'invisible': [('is_kunjungan_dokter','!=', True)]}">
+                                    <group string="Diagnosa dan Tindakan">
+                                      <field name="diagnosa_id" nolabel="1" attrs="{'readonly': [('status','=', 'selesai')]}">
+                                         <tree string="Diagnosa Tindakan" editable="bottom">
+                                             <field name="waktu"/>
+                                             <field name="diagnosa1_nama"  on_change="onchange_diagnosa1(diagnosa1_nama)" options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True}"/>
+                                             <field name="diagnosa1_kode"/>
+                                             <field name="diagnosa1_desc"/>
+                                             <field name="diagnosa2_nama" on_change="onchange_diagnosa2(diagnosa1_nama)" options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True}"/>
+                                             <field name="diagnosa2_kode"/>
+                                             <field name="diagnosa2_desc"/>
+                                             <field name="tindakan_nama" on_change="onchange_tindakan(tindakan_nama)" options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True}"/>
+                                             <field name="tindakan_kode"/>
+                                             <field name="partner"/>
+                                             <field name="user"/>
+                                         </tree>                        
+                         </field>
+                                    </group>
+                                </page>
+
+                                <page string="Rujukan dan Konsul"  attrs="{'invisible': [('is_rujukan','!=', True)]}">  
+                                <group>
+                                    <group>
+                                        <field name="is_radiologi" />
+                                        <field name="is_laboratorium" />
+                                   </group>
+                                    <group>
+                                        <field name="is_fisioterapi" />
+                                        <field name="is_inap" />
+                                    </group>
+                                </group>
+
+
+                                    <group attrs="{'invisible': [('is_laboratorium','!=', True)]}">
+                                      <field name="inap_konsul_id" attrs="{'readonly': [('status','=', 'selesai')]}">
+                                         <tree string="konsul" editable="bottom">
+                                             <field name="waktu" invisible="1"/>
+                                             <field name="tujuan_k"  options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True}"/>
+                                             <field name="name"  options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True}"/>
+                                            <field name="nomor_konsul" invisible="1"/>
+                                            <field name="nomor_konsul1"/>
+                                            <field name="status" invisible="1"/>
+                                            <field name="status2"/>
+                                            <field name="aktual"/>
+                                            <field name="user"/>
+                                            <field name="status_kasir"/>
+                                         </tree>                       
+                         </field>
+                                    </group>
+
+                                    <group attrs="{'invisible': [('is_fisioterapi','!=', True)]}">
+                                      <field name="inap_fisioterapi_id" attrs="{'readonly': [('status','=', 'selesai')]}">
+                                         <tree string="konsul" editable="bottom">
+                                             <field name="waktu" invisible="1"/>
+                                             <field name="tujuan_k"  options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True}"/>
+                                             <field name="name"  options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True}"/>
+                                             <field name="nomor_konsul"/>
+                                             <field name="status"/>
+                                             <field name="user"/>
+                                         </tree>                       
+                         </field>
+                                    </group>
+
+                                    <group attrs="{'invisible': [('is_radiologi','!=', True)]}">
+                                      <field name="inap_radiologi_id" attrs="{'readonly': [('status','=', 'selesai')]}">
+                                         <tree string="konsul" editable="bottom">
+                                             <field name="waktu" invisible="1"/>
+                                             <field name="tujuan_k"  options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True}"/>
+                                             <field name="name" options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True}"/>
+                                            <field name="nomor_konsul" invisible="1"/>
+                                            <field name="nomor_konsul1"/>
+                                            <field name="status" invisible="1"/>
+                                            <field name="status2"/>
+                                            <field name="aktual"/>
+                                            <field name="user"/>
+                                            <field name="status_kasir"/>
+                                         </tree>                       
+                         </field>
+                                    </group>
+
+                                    <group attrs="{'invisible': [('is_inap','!=', True)]}">
+                                      <field name="inap_ranap_id" attrs="{'readonly': [('status','=', 'selesai')]}">
+                                         <tree string="konsul" editable="bottom">
+                                             <field name="waktu" invisible="1"/>
+                                             <field name="tujuan_k"  options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True}"/>
+                                             <field name="name" options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True}" invisible="1"/>
+                                             <field name="nomor_konsul"/>
+                                             <field name="status"/>
+                                             <field name="user"/>
+
+                                         </tree>                       
+                         </field>
+                                    </group>
+
+
+                                </page>
+
+
+                                <page string="Pindah Kamar / Bed" attrs="{'invisible': [('is_pindah_kamar','!=', True)]}"> 
+                                    <group>
+                                       <group>
+                                             <field name="bed_asal_id"/>
+                                       </group>
+                                       <group>
+                                             <field name="bed_tujuan_id" attrs="{'readonly': [('status','=', 'selesai')]}" options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True}"/>
+                                             <field name="permintaan_pindah_kamar" attrs="{'readonly': [('status','=', 'selesai')]}"/>
+                                       </group>
+
+                                    </group>
+
+                                    <group>
+                                      <field name="bed_history_id" attrs="{'readonly': [('status','=', 'selesai')]}">
+                                         <tree string="Pindah Kamar" editable="bottom" edit="false" delete="false" create="false">
+                                             <field name="waktu"/>
+                                             <field name="bed_asal_id"  options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True}"/>
+                                             <field name="bed_tujuan_id"  options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True}"/>
+                                             <field name="permintaan_pindah_kamar"/>
+                                             <field name="user"/>
+                                         </tree>                       
+                         </field>
+                                    </group>
+
+
+                                </page>
+
+
+                                <page string="Londry" attrs="{'invisible': [('is_loundry','!=', True)]}">  
+
+                                    <group>
+                                      <field name="londry_id" attrs="{'readonly': [('status','=', 'selesai')]}">
+                                         <tree string="Londry" editable="bottom">
+                                             <field name="waktu"/>
+                                             <field name="name" on_change="onchange_product(name)"/>
+                                             <field name="qty"/>
+                                             <field name="uom"/>
+                                             <field name="user"/>
+                                         </tree>                        
+                         </field>
+                                    </group>
+
+
+                                </page>
+
+
+                                <page string="Gizi" attrs="{'invisible': [('is_gizi','!=', True)]}">
+
+                                    <group>
+
+                                      <field name="gizi_id" attrs="{'readonly': [('status','=', 'selesai')]}">
+                                         <tree string="Gizi" editable="bottom">
+                                             <field name="waktu"/>
+                                             <field name="waktu_makan" on_change="onchange_waktu_makan(waktu_makan)"/>
+                                             <field name="jam"/>
+                                             <field name="name" on_change="onchange_product(name)"/>
+                                             <field name="qty"/>
+                                             <field name="uom"/>
+                                             <field name="user"/>
+                                             <field name="status"/>
+                                         </tree>                       
+                         </field>
+                                    </group>
+
+
+                                </page>
+
+                                <page string="Permintaan Obat dan BHP" attrs="{'invisible': [('is_permintaan_obat_bhp','!=', True)]}">
+
+                                  <group>
+                                    <group>
+                                    <group>
+
+                                      <field name="rs_inap_permintaan_id" attrs="{'readonly': [('status','=', 'selesai')]}" nolabel="1">
+                                         <tree string="Permintaan" editable="bottom" edit="false"  create="false">
+                                             <field name="waktu" readonly="1"/>
+                                             <field name="name" readonly="1"/>
+                                             <field name="user" readonly="1"/>
+                                             <field name="status" readonly="1"/>
+
+                                         </tree>                       
+                         </field>
+                                    </group>
+
+                                      <field name="rs_inap_permintaan_line_id" attrs="{'readonly': [('status','=', 'selesai')]}" nolabel="1">
+                                         <tree string="Permintaan" editable="bottom" edit="false"  create="false">
+                                             <field name="name" readonly="1"/>
+                                             <field name="qty" readonly="1"/>
+                                             <field name="uom" string="Uom" readonly="1"/>
+
+                                             <field name="status"/>
+                                         </tree>                       
+                         </field>
+                                    </group>
+  
+                                  </group>
+
+
+                                </page>
+
+                                <page string="Pengeluaran Obat dan BHP" attrs="{'invisible': [('is_pemberian_obat','!=', True)]}">
+
+                                  <group>
+                                    <group>
+                                    <group>
+
+                                      <field name="pengeluaran_obatan_id" attrs="{'readonly': [('status','=', 'selesai')]}" nolabel="1">
+                                         <tree string="Permintaan" editable="bottom" edit="false" create="false">
+                                             <field name="waktu" readonly="1"/>
+                                             <field name="name" readonly="1"/>
+                                             <field name="status" readonly="1"/>
+
+                                         </tree>                       
+                         </field>
+                                    </group>
+
+                                      <field name="pengeluaran_obatan_line_id" attrs="{'readonly': [('status','=', 'selesai')]}" nolabel="1">
+                                         <tree string="Permintaan" editable="bottom" edit="false" create="false">
+                                             <field name="pengeluaran_surat_jalan_ids" readonly="1"/>
+                                             <field name="name" readonly="1"/>
+                                             <field name="qty" string="Uom" readonly="1"/>
+                                             <field name="uom" readonly="1"/>
+                                             <field name="lot_id" domain="[('product_id','=?', name)]" context="{'product_id': name}"  readonly="1"/>
+                                             <field name="status" readonly="1"/>
+                                         </tree>                       
+                         </field>
+                                    </group>
+  
+                                  </group>
+                                </page>
+
+
+                                <page string="Paket Produk" attrs="{'invisible': [('is_paket_produk','!=', True)]}">  
+
+                                    <group>
+
+                                      <field name="paket_inap_id" nolabel="1" attrs="{'readonly': [('status','=', 'selesai')]}">
+                                         <tree string="Paket Produk" editable="bottom" edit="false" delete="false" create="false">
+                                         <field name="product_cat" readonly="1"/>
+                                         <field name="jenis_layanan" readonly="1"/>
+                                         <field name="product" readonly="1"/>
+                                         <field name="qty" readonly="1"/>
+                                         <field name="uom" readonly="1"/>
+                                             <field name="is_billing" invisible="1"/>
+                                             <field name="status_billing" invisible="1"/>
+                                             <field name="is_bhp" invisible="1"/>
+                                             <field name="status_bhp"/>
+                                         </tree>                       
+                         </field>
+                                    </group>
+
+
+                                </page>
+
+                                <page string="Item Biling" attrs="{'invisible': [('is_billing','!=', True)]}"> 
+                                    <group>
+                                      <group>
+                                          <field name="total_billing_unit" /> 
+                                          <field name="total_billing_lainunit" readonly="1"/> 
+                                      </group>
+                                      <group>
+                                          <field name="total_pembayaran_ranap" readonly="1"/> 
+                                          <field name="kurang_lebih" /> 
+                                      </group>
+                                    </group> 
+
+                                    <group string='Billing Unit'>
+                                    </group>
+                                      <field name="invoice_line_inap_id"  nolabel="1">
+                                         <tree string="Permintaan" editable="bottom">
+                                               <field name="waktu" attrs="{'readonly': [('is_unit_cek','=', True)]}"/>
+                                               <field name="jenis_layanan" attrs="{'readonly': [('is_unit_cek','=', True)]}"/>
+                                               <field name="product_cat" attrs="{'readonly': [('is_unit_cek','=', True)]}"/>
+                                               <field name="product_id" attrs="{'readonly': [('is_unit_cek','=', True)]}"/>
+                                               <field name="quantity" attrs="{'readonly': [('is_unit_cek','=', True)]}"/>
+                                               <field name="uos_id" attrs="{'readonly': [('is_unit_cek','=', True)]}"/>
+                                               <field name="price_subtotal"  attrs="{'readonly': [('is_unit_cek','=', True)]}"/>
+                                               <field name="pelaksana" attrs="{'readonly': [('is_unit_cek','=', True)]}"/>
+                                               <field name="partner" attrs="{'readonly': [('is_unit_cek','=', True)]}"/>
+                                               <field name="is_unit_cek" />
+                                               <field name="is_inv_cek" attrs="{'invisible': [('is_unit_cek','!=', True)]}"/>
+                                        </tree>                      
+                         </field>
+
+                                   <group string='Billing Unit Lain'>
+                                    </group>
+                                      <field name="unitlain_billing_id" nolabel="1">
+                                         <tree string="Gizi" editable="bottom">
+                                               <field name="jenis_layanan"/>
+                                               <field name="nomor_konsul"/>
+                                               <field name="ranap_id"  invisible="1"/>
+                                               <field name="okvk_id"  invisible="1"/>
+                                               <field name="nom_ranap"  invisible="1"/>
+                                               <field name="nom_vk"  invisible="1"/>
+                                               <field name="nominal"/>
+                                               <field name="status"/>
+                                         </tree>                       
+
+                         </field>
+
+
+
+                                </page>
+                                <page string="Pulang" attrs="{'invisible': [('is_pulang','!=', True)]}">  
+                                  <group>
+                                          <group>
+                                                <field name="tgl_estimasi_pulang" attrs="{'invisible': [('status','=', 'selesai')]}"/>
+                                                <field name="estimasi_lama_rawat" attrs="{'invisible': [('status','=', 'selesai')]}"/>
+                                          </group>
+                                          <group>
+                                                <field name="tgl_aktual_pulang"/>
+                                                <field name="aktual_lama_rawat"/>               
+                                                <field name="status_pulang" attrs="{'readonly': [('status','=', 'selesai')]}"/>
+                                                <field name="status_pulang_rujuk" attrs="{'readonly': [('status','=', 'selesai')]}"/>
+
+
+                                          </group>
+                                  </group>
+
+                                    <group>
+
+                                      <field name="inap_obat_pulang_id" attrs="{'readonly': [('status','=', 'selesai')]}">
+                                         <tree string="Obat Pulang" editable="bottom">
+                                             <field name="waktu"/>
+                                             <field name="name" on_change="onchange_product(name)" options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True}"/>
+                                             <field name="qty"/>
+                                             <field name="uom" options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True}"/>
+
+                                             <field name="user"/>
+
+                                             <field name="ket"/>
+                                             <field name="status"/>
+                                         </tree>                       
+                         </field>
+                                    </group>
+
+                                    <group>
+
+                                      <field name="inap_kunjungan_berikutnya_id" attrs="{'readonly': [('status','=', 'selesai')]}">
+                                         <tree string="Obat Pulang" editable="bottom">
+                                             <field name="waktu"/>
+                                             <field name="ket"/>
+
+                                         </tree>                       
+                         </field>
+                                    </group>
+
+
+                                </page>
+
+                                <page string="Lainnya" attrs="{'invisible': [('is_lainnya','!=', True)]}">  
+                                 <group>
+                                     <group>
+
+                                      <field name="nama_gudang" readonly="1"/>
+                                     </group>
+                                     <group>
+
+                                     </group>
+                                  </group>
+
+
+                                </page>
+                                </notebook>
+                            </sheet>
+                        </form>
+                    </field>
+                </record>
+
+
+      <record id="tbl_rs_master_bed_tree" model="ir.ui.view">
+        <field name="name">tree.bed</field>
+        <field name="model">tbl_rs_master_bed</field>
+        <field name="arch" type="xml">
+            <tree string="Bed">
+                <field name="name" />
+                <field name="room_id" />
+                <field name="harga" />
+                <field name="kelas" />
+                 <field name="keterangan" />
+                <field name="status" />
+                </tree>
+            </field>
+        </record>
+
+      <record id="tbl_rs_master_bed_form" model="ir.ui.view">
+        <field name="name">form.bed</field>
+        <field name="model">tbl_rs_master_bed</field>
+        <field name="arch" type="xml">
+            <form string="Bed">
+                <sheet>
+                        <group>
+                            <group>
+                                <field name="name" />
+                                <field name="room_id" />
+                                <field name="kelas" />
+                                <field name="status" />
+                            </group>
+                             <group>
+                                <field name="product_id" />
+                                <field name="harga" />
+                                <field name="keterangan" />
+                                <field name="user_id" />
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="rs_rawat_inap_act" model="ir.actions.act_window">
+            <field name="name">Keperawatan</field>
+            <field name="res_model">tbl_rs_rawat_inap</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('kode', '=', 'keperawatan')]</field>
+        </record>
+
+        <menuitem id="menu_rs_rawat_inap" name="Keperawatan" sequence="10" action="rs_rawat_inap_act" parent="bisa_rs_rawat_inap.menu_top_rawat_inap"/>
+
+
+        <record id="action_bed" model="ir.actions.act_window">
+            <field name="name">Master Bed</field>
+            <field name="res_model">tbl_rs_master_bed</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    <menuitem name="Master Bed" id="menu_bed" sequence = "30" action="action_bed" parent="menu_setting_baru"/>
+
+        <record id="action_ruangan" model="ir.actions.act_window">
+            <field name="name">Master Ruangan</field>
+            <field name="res_model">tbl_rs_master_ruangan</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    <menuitem name="Master Ruangan" id="menu_ruangan" sequence = "35" action="action_ruangan" parent="menu_setting_baru"/>
+
+    </data>
+</odoo>
